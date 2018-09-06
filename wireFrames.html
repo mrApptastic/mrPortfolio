@@ -1,0 +1,100 @@
+<!Doctype html>
+<html lang="en">
+<head>
+<title>wireApp</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="extensions/mrStyle/mrStyle.css">
+<style>
+
+.box {
+	box-shadow: 1px 1px 0 black, -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black;	
+	background: white;
+}
+
+.box p {
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+
+.hd {
+	min-height : 200px;
+}
+
+.nv {
+	min-height: 70px;
+	margin-top: -70px;
+	position: sticky;
+	top: 0;
+	z-index: 1;
+}
+
+.s1 {
+	min-height: 400px;	
+}
+
+.it {
+	height: 200px;
+	margin: auto;
+}
+
+.s2 {
+margin-top: 20px;
+
+}
+
+</style>
+
+</head>
+<body>
+<div>
+	<header class="box hd mrBox"></header>
+	<nav class="box nv"></nav>
+	
+	<div class="mrBox">
+		<div class="mr2">
+			<section class="box s1">
+						
+			</section>
+		</div>
+		<div class="m2">
+			<aside class="box s1"></aside>
+		</div>
+	</div>	
+	<section class="box s1 mrBox">
+						
+	</section>
+	<div class="row">
+		<div class="col-md-3 col-sm-6 s2">
+			<article class="it box"></article>
+		</div>
+		<div class="col-md-3 col-sm-6 s2">
+			<article class="it box"></article>
+		</div>
+		<div class="col-md-3 col-sm-6 s2">
+			<article class="it box"></article>
+		</div>
+		<div class="col-md-3 col-sm-6 s2">
+			<article class="it box"></article>
+		</div>								
+	</div>
+	<footer class="box mrBox hd"></footer>
+</div>
+<script>
+
+function drDiv () {
+var box = document.getElementsByClassName("box");
+
+ for (let i = 0; i < box.length; i++) {
+	box[i].innerHTML = "<p>" + box[i].tagName + "<br/>" + "Height: " + box[i].offsetHeight + "<br/>" + "Width: " + box[i].offsetWidth + "</p>";
+ }
+}
+
+window.addEventListener("load", drDiv);
+window.addEventListener("resize", drDiv);
+
+</script>
+
+</body>
+</html>

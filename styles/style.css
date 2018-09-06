@@ -1,0 +1,62 @@
+﻿.theDiv {
+  transition: all linear 0.5s;
+  background-color: lightblue;
+  height: 100px;
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.ng-hide {
+  height: 0;
+  width: 0;
+  background-color: transparent;
+  top:-200px;
+  left: 200px;
+}
+
+body { 
+	background: url("../media/images/NightLeft.png") no-repeat center left, url("../media/images/NightRight.png") no-repeat center right, black;
+	background-attachment: fixed;
+    background-size: 22% auto;
+}
+
+
+@font-face { 
+	font-family: 'Ringbearer'; src: url('../media/fonts/RINGM.woff') format('woff'), url('../media/fonts/RINGM..ttf') format('truetype'); 
+	}
+
+.ringbearer {
+	font-family: 'Ringbearer'; 	
+}
+
+#nightStreet {
+	background: url("../media/images/NightStreet.png") no-repeat bottom center;	
+	background-size: auto 100%;	
+}
+
+#nightStreet h2 {
+	margin-top: 20px;
+}
+
+#navigation {
+	position: -webkit-sticky;
+	position: sticky; 
+	margin-top: -10vh;
+	top: 0;
+}
+
+	#navigation ul {
+		
+	}
+	
+		#navigation ul li {
+			display: inline-block;
+		}
+		
+			#navigation ul li a {
+				
+				text-decoration: none;
+				color: gold;
+			}
