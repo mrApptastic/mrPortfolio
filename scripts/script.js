@@ -26,9 +26,10 @@ app.controller("londonCtrl", function ($scope, $rootScope) {
 
 app.controller("parisCtrl", function ($scope, $http, htmlService) {
     $scope.msg = "I love Paris" + htmlService.hello("<h1>Hej hej</h1>") +
-	htmlService.getSite()
+	htmlService.getAll()
 	        .then(function (result) {
-                $scope.persons = result.data;
+				console.log(result);
+                $scope.persons = result;
             })
             .catch(function (result) {
 				console.log(result);
@@ -53,13 +54,15 @@ app.service('htmlService', function($http) {
                 alert("Totalt øv fejl!");
             });
     };
-	this.getAll = function (license) {
-        return $http.get("/api/customer-wish/" + license)
+	this.getAll = function () {
+        return $http.get("../Data/Projects/All.json")
             .then(function (result) {
-                return result.data;
+                return result;
             })
             .catch(function (result) {
-                ErrorService.handleError(result);
+				console.log(result);
+                alert("Totalt øv fejl!");
+                //ErrorService.handleError(result);
             });
     };
 	this.hello = function (license) {
