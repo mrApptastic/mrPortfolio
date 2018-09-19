@@ -1,4 +1,41 @@
-﻿.theDiv {
+﻿
+/* CSS Animations  */
+
+@-webkit-keyframes myfirst {
+    from {background-position:left;}
+    to {background-position:right;}
+}
+
+@keyframes myfirst {
+    from {background-position:left;}
+    to {background-position:right;}
+}
+
+/* Background */
+
+body {
+background: url("../media/images/Cloudy5.png") no-repeat center left, 
+			url("../media/images/Cloudy4.png") no-repeat center left, 
+			url("../media/images/Cloudy3.png") no-repeat center left, 
+			url("../media/images/Cloudy2.png") no-repeat center left, 
+			url("../media/images/Cloudy1.png") no-repeat center left,
+			url("../media/images/smurfyblue.png");
+ -webkit-animation: myfirst 45s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-delay: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-play-state: running;
+    animation: myfirst 30s;
+ animation-timing-function: linear;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: running;
+background-attachment:fixed;
+}
+
+.theDiv {
   transition: all linear 0.5s;
   background-color: lightblue;
   height: 100px;
@@ -16,12 +53,13 @@
   left: 200px;
 }
 
+/*
 body { 
 	background: url("../media/images/NightLeft.png") no-repeat center left, url("../media/images/NightRight.png") no-repeat center right, black;
 	background-attachment: fixed;
     background-size: 22% auto;
 }
-
+*/
 
 @font-face { 
 	font-family: 'Ringbearer'; src: url('../media/fonts/RINGM.woff') format('woff'), url('../media/fonts/RINGM..ttf') format('truetype'); 
@@ -31,6 +69,7 @@ body {
 	font-family: 'Ringbearer'; 	
 }
 
+/*
 #nightStreet {
 	background: url("../media/images/NightStreet.png") no-repeat bottom center;	
 	background-size: auto 100%;	
@@ -39,6 +78,7 @@ body {
 #nightStreet h2 {
 	margin-top: 20px;
 }
+*/
 
 #navigation {
 	position: -webkit-sticky;
