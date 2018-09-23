@@ -83,6 +83,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 .mrRoddy { text-shadow: 1px 1px 0px black, -1px -1px 0px black, 1px -1px 0px black, -1px 1px 0px black; }
 .mrShady { text-shadow: 2px 2px 3px black; }
 .mrNone { text-decoration: none; }
+.mrCenter { text-align: center; }
 
 /* Boxes */
 

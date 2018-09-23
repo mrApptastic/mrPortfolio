@@ -1,12 +1,36 @@
-﻿
+﻿/* Fonts */
+@font-face { 
+	font-family: 'Ringbearer'; 
+	src: url('../media/fonts/RINGM.woff') 
+		format('woff'), 
+		url('../media/fonts/RINGM..ttf') 
+		format('truetype'); 
+}
+
+.ringbearer {
+	font-family: 'Ringbearer'; 	
+}
+
+@font-face { 
+	font-family: 'Aqui'; 
+	src: url('../media/fonts/AquilineTwo.woff') 
+		format('woff'), 
+		url('../media/fonts/AquilineTwo.ttf') 
+		format('truetype'); 
+}
+
+.aqui {
+	font-family: 'Aqui'; 	
+}
+
 /* CSS Animations  */
 
-@-webkit-keyframes myfirst {
+@-webkit-keyframes backAndForth {
     from {background-position:left;}
     to {background-position:right;}
 }
 
-@keyframes myfirst {
+@keyframes backAndForth {
     from {background-position:left;}
     to {background-position:right;}
 }
@@ -20,19 +44,94 @@ background: url("../media/images/Cloudy5.png") no-repeat center left,
 			url("../media/images/Cloudy2.png") no-repeat center left, 
 			url("../media/images/Cloudy1.png") no-repeat center left,
 			url("../media/images/smurfyblue.png");
- -webkit-animation: myfirst 45s;
+ -webkit-animation: backAndForth 45s;
     -webkit-animation-timing-function: linear;
     -webkit-animation-delay: 2s;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-direction: alternate;
     -webkit-animation-play-state: running;
-    animation: myfirst 30s;
+    animation: backAndForth 30s;
  animation-timing-function: linear;
     animation-delay: 2s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-play-state: running;
 background-attachment:fixed;
+}
+
+/* Street View */
+#streetBandit .road {
+	background: linear-gradient(to right, 
+		#fceabb 0%,
+		#fccd4d 19%,
+		#e86f47 50%,
+		#f8b500 80%,
+		#fbdf93 100%);
+	bottom:0;
+	margin-bottom:-2%;
+	margin-left: -2%;
+	position:absolute;
+	height:40%;
+	width:102%;
+	z-index:-1;
+}
+
+#streetBandit .streetLeft {
+	left:0;
+	position:absolute;
+	height:100%;
+	width:auto;
+	max-width:54.1%;
+}
+
+#streetBandit .streetRight {
+	right:0;
+	position:absolute;
+	height:100%;
+	width:auto;
+	max-width:45.9%;
+}
+
+#streetBandit .himSelf {
+	position:absolute;
+	z-index: 1;
+	margin-left: auto; 
+	margin-right: auto; 
+	left: 0; 
+	right: 0;
+	top:40%;
+}
+
+/* Boxes */
+#traditional {
+background: GhostWhite url('../media/images/textures/old-map.png');
+
+}
+
+#traditional h2 {
+font-family: 'Aqui';
+font-size: 3.5rem;
+}
+
+#traditional p {
+font-family: 'Aqui';
+font-size: 2.5rem;
+}
+
+#aboutMe {
+background: Silver url('../media/images/textures/gravel.png');
+}
+
+#myBest {
+background: BurlyWood url('../media/images/textures/wood-pattern.png');
+}
+
+#gallery {
+background: OrangeRed url('../media/images/textures/brick-wall-dark.png');
+}
+
+#contactMe {
+background: LemonChiffon url('../media/images/textures/beige-paper.png');
 }
 
 .theDiv {
@@ -61,13 +160,12 @@ body {
 }
 */
 
-@font-face { 
-	font-family: 'Ringbearer'; src: url('../media/fonts/RINGM.woff') format('woff'), url('../media/fonts/RINGM..ttf') format('truetype'); 
-	}
 
-.ringbearer {
-	font-family: 'Ringbearer'; 	
-}
+
+
+
+
+
 
 /*
 #nightStreet {
