@@ -35,6 +35,54 @@
     to {background-position:right;}
 }
 
+@-webkit-keyframes mrUha {
+    0% { left: 0; transform: rotateZ(0deg); }
+    5% { left: 2%; transform: rotateZ(-5deg); }
+    10% { left: 4%; transform: rotateZ(0deg); }
+    15% { left: 6%; transform: rotateZ(5deg); }
+    20% { left: 8%; transform: rotateZ(0deg); }
+    25% { left: 10%; transform: rotateZ(-5deg); }
+    30% { left: 8%; transform: rotateZ(0deg); }
+    35% { left: 6%; transform: rotateZ(5deg); }
+    40% { left: 4%; transform: rotateZ(0deg); }
+    45% { left: 2%; transform: rotateZ(-5deg); }
+    50% { left: 0; transform: rotateZ(0deg); }
+    55% { left: -2%; transform: rotateZ(5deg); }
+    60% { left: -4%; transform: rotateZ(0deg); }
+    65% { left: -6%; transform: rotateZ(-5deg); }
+    70% { left: -8%; transform: rotateZ(0deg); }
+    75% { left: -10%; transform: rotateZ(5deg); }
+    80% { left: -8%; transform: rotateZ(0deg); }
+    85% { left: -6%; transform: rotateZ(-5deg); }
+    90% { left: -4%; transform: rotateZ(0deg); }
+    95% { left: -2%; transform: rotateZ(5deg); }
+    100% {left: 0; transform: rotateZ(0deg); }
+}
+
+@keyframes mrUha {
+    0% { left: 0; transform: rotateZ(0deg); }
+    5% { left: 2%; transform: rotateZ(-5deg); }
+    10% { left: 4%; transform: rotateZ(0deg); }
+    15% { left: 6%; transform: rotateZ(5deg); }
+    20% { left: 8%; transform: rotateZ(0deg); }
+    25% { left: 10%; transform: rotateZ(-5deg); }
+    30% { left: 8%; transform: rotateZ(0deg); }
+    35% { left: 6%; transform: rotateZ(5deg); }
+    40% { left: 4%; transform: rotateZ(0deg); }
+    45% { left: 2%; transform: rotateZ(-5deg); }
+    50% { left: 0; transform: rotateZ(0deg); }
+    55% { left: -2%; transform: rotateZ(5deg); }
+    60% { left: -4%; transform: rotateZ(0deg); }
+    65% { left: -6%; transform: rotateZ(-5deg); }
+    70% { left: -8%; transform: rotateZ(0deg); }
+    75% { left: -10%; transform: rotateZ(5deg); }
+    80% { left: -8%; transform: rotateZ(0deg); }
+    85% { left: -6%; transform: rotateZ(-5deg); }
+    90% { left: -4%; transform: rotateZ(0deg); }
+    95% { left: -2%; transform: rotateZ(5deg); }
+    100% {left: 0; transform: rotateZ(0deg); }
+}
+
 /* Background */
 
 body {
@@ -60,6 +108,12 @@ background-attachment:fixed;
 }
 
 /* Street View */
+#streetBandit .streetOverlay {
+	position: absolute; 
+	z-index: 1; 
+	width: calc(100vw - 17px);
+}
+
 #streetBandit .road {
 	background: linear-gradient(to right, 
 		#fceabb 0%,
@@ -100,12 +154,13 @@ background-attachment:fixed;
 	left: 0; 
 	right: 0;
 	top:40%;
+	animation: mrUha 5s linear infinite;
+ 	-webkit-animation: mrUha 5s linear infinite;
 }
 
 /* Boxes */
 #traditional {
-background: GhostWhite url('../media/images/textures/old-map.png');
-
+	background: GhostWhite url('../media/images/textures/old-map.png');
 }
 
 #traditional h2 {
