@@ -7,29 +7,35 @@ app.run(function ($rootScope, mesageService) {
 app.config(function($routeProvider) {
     $routeProvider
     .when("/", {
-        template : "<header id='streetBandit' class='mrBox mrBounceIn'>" +
-"<div class='streetOverlay'>" +
-"<h1 class='aqui mrsRed mrH1 mrCenter mrMart2 mrNice'>" +
-"Henriks Portfolio" +
-"</h1>" +
-"</div>" +
-"<div>" +
-    "<div class='road'></div>" +
-"<img class='streetLeft'" + 
-     "alt='Street Left'" + 
-     "src='media/images/StreetLeft.png'" + 
-     "/>" +
-"<img class='streetRight'" + 
-     "alt='Street Right'" + 
-     "src='media/images/StreetRight.png'" +  
-     "/>" +
-"<img class='himSelf'" + 
-     "alt='Ham Selv'" + 
-     "src='media/images/Himself.png'" + 
-     "/>" +
-"</div>" +
-"</header>",
+        template : `
+<header id='streetBandit' class='mrBox mrBounceIn'>
+    <div class='streetOverlay'>
+        <h1 class='aqui mrsRed mrH1 mrCenter mrMart2 mrNice'>
+            Henriks Portfolio"
+        </h1>
+    </div>
+    <div>
+        <div class='road'></div>
+        <img class='streetLeft'
+             alt='Street Left'
+             src='media/images/StreetLeft.png'
+        />
+        <img class='streetRight'
+             alt='Street Right'
+             src='media/images/StreetRight.png'
+        />
+        <img class='himSelf'
+             alt='Ham Selv'
+             src='media/images/Himself.png'
+        />
+    </div>
+</header>
+    `,
     controller: "mainController"    
+    })
+    .when("/about", {
+        template : "<h2>Hello. {{msg}}</h2>",
+        controller : "aboutController"
     })
     .when("/london", {
         template : "<h2>Hello. {{msg}}</h2>",
@@ -43,6 +49,10 @@ app.config(function($routeProvider) {
 });
 
 app.controller("mainController", function ($scope, $rootScope) {
+
+});
+
+app.controller("aboutController", function ($scope, $rootScope) {
 
 });
 
