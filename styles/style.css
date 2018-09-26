@@ -23,6 +23,42 @@
 	font-family: 'Aqui'; 	
 }
 
+@font-face { 
+	font-family: 'C64'; 
+	src: url('../media/fonts/C64.woff') 
+		format('woff'), 
+		url('../media/fonts/C64.ttf') 
+		format('truetype'); 
+}
+
+.c64 {
+	font-family: 'C64'; 	
+}
+
+@font-face { 
+	font-family: 'SmurfyR'; 
+	src: url('../media/fonts/CREABBRG.woff') 
+		format('woff'), 
+		url('../media/fonts/CREABBRG.ttf') 
+		format('truetype'); 
+}
+
+.SmurfyR {
+	font-family: 'SmurfyR'; 	
+}
+
+@font-face { 
+	font-family: 'SmurfyB'; 
+	src: url('../media/fonts/CREABB.woff') 
+		format('woff'), 
+		url('../media/fonts/CREABB.ttf') 
+		format('truetype'); 
+}
+
+.SmurfyB {
+	font-family: 'SmurfyB'; 	
+}
+
 /* CSS Animations  */
 
 @-webkit-keyframes backAndForth {
@@ -83,31 +119,13 @@
     100% {left: 0; transform: rotateZ(0deg); }
 }
 
-/* Background */
-
-body {
-background: url("../media/images/Cloudy5.png") no-repeat center left, 
-			url("../media/images/Cloudy4.png") no-repeat center left, 
-			url("../media/images/Cloudy3.png") no-repeat center left, 
-			url("../media/images/Cloudy2.png") no-repeat center left, 
-			url("../media/images/Cloudy1.png") no-repeat center left,
-			url("../media/images/smurfyblue.png");
- -webkit-animation: backAndForth 45s;
-    -webkit-animation-timing-function: linear;
-    -webkit-animation-delay: 2s;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-direction: alternate;
-    -webkit-animation-play-state: running;
-    animation: backAndForth 30s;
- animation-timing-function: linear;
-    animation-delay: 2s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-play-state: running;
-background-attachment:fixed;
-}
-
 /* Street View */
+#streetBandit {
+	position: relative;
+	height: calc(100vh);
+	width: calc(100vw);
+	overflow: hidden;
+}
 #streetBandit .streetOverlay {
 	position: absolute; 
 	z-index: 1; 
@@ -233,6 +251,7 @@ body {
 }
 */
 
+/*
 #navigation {
 	position: -webkit-sticky;
 	position: sticky; 
@@ -253,3 +272,99 @@ body {
 				text-decoration: none;
 				color: gold;
 			}
+			*/
+
+/* Curriculum Vitae  */
+
+#topHeader {
+background-color: #3F3F3F;
+background-image: -moz-linear-gradient(center top , #696969 0%, #3F3F3F 100%);
+background-image: -webkit-linear-gradient(top, #696969,#3f3f3f);
+box-shadow: 0px 0px 10px #333;
+height: 42px;
+margin: 0px 0px 10px 0px;
+padding-top: 60px;
+position : fixed;
+z-index: 99;
+transition: 1s;
+width: 100%;
+}
+
+#topHeader h2 {
+color: GhostWhite;
+font-size: 22px;
+line-height: 0.25;
+font-weight: bold;
+letter-spacing: 0.1px;
+text-shadow: 1px 1px 0 black;
+}
+
+#topHeader h2:hover {
+position:relative;
+transform: rotateX(360deg);
+transition: 2s;
+}
+
+#topHeader h2 .firstPart {
+     margin-left: 10px;
+
+}
+
+#topHeader h2 .secondPart {
+     background: RoyalBlue;
+     border-radius: 5px;
+     padding: 2px 3px 1px 3px;
+     margin-left: 3px;
+}
+
+#smallBox {
+	display: none;
+}
+
+#searchBox {
+margin: -29px 10px 0px 0px;
+}
+
+#printer {
+	margin-top: -3px;
+}
+
+#flag {
+	margin-top: -2px;
+}
+
+#searchBandit {
+position: absolute;
+z-index: 11;
+margin: 2px 0 0 2px;
+}
+
+#searchField {
+height: 30px;
+width: 150px;
+background: grey;
+border-radius: 15px;
+border: 2px solid Silver;
+}
+
+#searchField[placeholder] {
+color: GhostWhite;
+font-family: monospace;
+font-size: 16px;
+text-shadow: 1px 1px 0 black;
+padding-left: 25px;
+}
+
+.cvBox {
+     background: snow;
+     word-wrap: break-word;
+     padding: 0px 20px 20px;
+     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15), -1px 0px 0px rgba(0, 0, 0, 0.03), 1px 0px 0px rgba(0, 0, 0, 0.03), 0px 1px 0px rgba(0, 0, 0, 0.12);
+     margin-top: 0px;
+     margin-bottom: -10px;
+    -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+}

@@ -1,29 +1,36 @@
 ﻿<!DOCTYPE html>
-<html lang="da">
-<head>
-<title>HTML Bandit86</title>
+<html lang="da" ng-app="myApp">
+<head ng-controller="locationController">
+<title>{{getTitle()}}</title>
 <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <link rel="stylesheet" href="extensions/mrStyle/mrStyle.css" />
 <link rel="stylesheet" href="styles/style.css" />
+<style ng-bind="getStyles()"></style>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
 <script src="scripts/script.js"></script>
 <script src="extensions/mrMr/mrMr.js"></script>
 </head>
-<body ng-app="myApp">
+<body>
 <div ng-view></div>
-<nav id="navigation" class="mrsRed mrH3 mrBounceInUp aqui mrNice">
+<nav id="navigation" class="mrH3 mrBounceInUp">
 	<ul>
-		<li>
-			<a href="#/!">Main</a>
+		<li class="mrShrink">
+			<a href="#/!">Forside</a>
 		</li>
-		<li>
-			<a href="#!london">City 1</a>
+		<li class="mrShrink">
+			<a href="#!about">Om mig</a>
 		</li>
-		<li>
-			<a href="#!paris">City 2</a>
+		<li class="mrShrink">
+			<a href="#!curriculum">CV</a>
+		</li>
+		<li class="mrShrink">
+			<a href="#!projects">Projekter</a>
+		</li>
+		<li class="mrShrink">
+			<a href="#!contact">Kontakt</a>
 		</li>
 	</ul>
 </nav>
