@@ -396,6 +396,9 @@ background: url('media/images/Cloudy5.png') no-repeat center left,
     animation-direction: alternate;
     animation-play-state: running;
 background-attachment:fixed;
+margin: 0;
+padding: 0;
+overflow: hidden;
 }
 
 
@@ -432,7 +435,9 @@ background-attachment:fixed;
             #navigation ul li a {
                 font-family: 'aqui';                
                 text-decoration: none;
-                color: gold;                
+                color: gold;  
+				position: relative;
+				bottom: 30px;
             }
 
             `;
