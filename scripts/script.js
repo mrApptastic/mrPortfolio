@@ -130,6 +130,14 @@ app.controller("aboutController", function ($scope, $rootScope, $interval) {
         }, 250);
     };
     $scope.showAndHideMarker();
+    var text = [
+        "Mit navn er Henrik Beske.",
+        "Jeg er en kompetent softwareudvikler med erfaring indenfor webudvikling, desktopapplikationer samt applikationer til mobile enheder.",
+        "Jeg en type person, der ser muligheder fremfor barrierer foran mig."
+    ];
+    var box = new mrTypeWriter("writeBox", text, {"Time" : 2000, "ElementType" : "p" });
+    
+
 });
 
 app.controller("cvController", function ($scope, $rootScope, cvService) {
@@ -285,6 +293,10 @@ body {
     background: rgb(165,165,255);
 }
 
+.typeBandit {
+	margin-top: 40px;
+}
+
 #navigation {
     position: -webkit-sticky;
     position: sticky; 
@@ -320,8 +332,10 @@ body {
 
 #marker {
     background:rgb(165,165,255); 
-    height: 2rem;width: 1.7rem;
-    margin-top: -1rem;
+    height: 2rem;
+    width: 1.5rem;
+    margin-top: 0rem;
+    margin-left: 0.2rem;
 }
 
             `;
