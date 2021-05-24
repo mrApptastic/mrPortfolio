@@ -111,6 +111,8 @@ namespace portfolioAdminApp
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
+
+            SeedData.SeedDatabase(context);
         }
     }
 }
