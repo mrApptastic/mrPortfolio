@@ -15,6 +15,7 @@ public class Qualification : QualificationView
 public class QualificationView 
     {
         public Guid? EId { get; set; } 
+        public ICollection<QualificationTranslation> Translations { get; set; }
     }
 
 public class QualificationTranslation 
@@ -22,8 +23,7 @@ public class QualificationTranslation
         [Key]
         public int Id { get; set; }
         public Guid? EId { get; set; } 
-        public Translation Language { get; set; }
-        public Qualification Qualification { get; set; }
+        public Translation Language { get; set; }        
         public string Name { get; set; }
         public string Description { get; set; }
     }

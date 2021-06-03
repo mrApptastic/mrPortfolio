@@ -27,28 +27,47 @@ namespace portfolioAdminApp {
                     EId = Guid.NewGuid(),
                     Name = "Danish"
                 };
+                
+                var cssTrans = new List<QualificationTranslation>();
 
-                var css = new Qualification() {
-                    Enabled = true,
-                    EnabledInWeb = true,
-                    EId = Guid.NewGuid()
-                };
-
-                context.PortfolioQualificationTranslations.Add(new QualificationTranslation() {
+                cssTrans.Add(new QualificationTranslation() {
                     EId = Guid.NewGuid(),
-                    Qualification = css,
                     Language = danish,
                     Name = "Css",
                     Description = "Dette er en dansk oversættelse."
                 });
 
-                context.PortfolioQualificationTranslations.Add(new QualificationTranslation() {
+                cssTrans.Add(new QualificationTranslation() {
                     EId = Guid.NewGuid(),
-                    Qualification = css,
                     Language = english,
                     Name = "Css",
                     Description = "This is an English translation."
                 });
+
+                var css = new Qualification() {
+                    Enabled = true,
+                    EnabledInWeb = true,
+                    EId = Guid.NewGuid(),
+                    Translations = cssTrans
+                };
+
+                context.PortfolioQualifications.Add(css);
+
+                // context.PortfolioQualificationTranslations.Add(new QualificationTranslation() {
+                //     EId = Guid.NewGuid(),
+                //     Qualification = css,
+                //     Language = danish,
+                //     Name = "Css",
+                //     Description = "Dette er en dansk oversættelse."
+                // });
+
+                // context.PortfolioQualificationTranslations.Add(new QualificationTranslation() {
+                //     EId = Guid.NewGuid(),
+                //     Qualification = css,
+                //     Language = english,
+                //     Name = "Css",
+                //     Description = "This is an English translation."
+                // });
 
 
                 context.SaveChanges();
