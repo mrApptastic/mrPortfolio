@@ -28,9 +28,11 @@ namespace portfolioAdminApp.Controllers
         [HttpGet("Quals")]
         public async Task<ActionResult<ICollection<Translation>>> GetQuals()
         {
-            var uha = await _context.PortfolioQualificationTranslations
-                            .Include(x => x.Language)
-                            .Include(x => x.Qualification).ThenInclude(x => x)
+            var uha = await _context.PortfolioQualifications
+                            .Include(x => x.Translations).ThenInclude(x => x.Language)
+                            // .Include(x => x.)
+                            // .Include(x => x.Language)
+                            // .Include(x => x.Qualification).ThenInclude(x => x)
                             .ToListAsync();
             return Ok(uha);
         }   

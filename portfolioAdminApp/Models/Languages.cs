@@ -15,6 +15,15 @@ public class Language : LanguageView
 public class LanguageView 
     {
         public Guid? EId { get; set; } 
+        public ICollection<LanguageTranslation> Translations { get; set; }
+    }
+
+public class LanguageTranslation 
+    {
+        [Key]
+        public int Id { get; set; }
+        public Guid? EId { get; set; } 
+        public Translation Language { get; set; }        
         public string Name { get; set; }
         public string Description { get; set; }
     }

@@ -15,6 +15,15 @@ public class Certificate : CertificateView
 public class CertificateView 
     {
         public Guid? EId { get; set; } 
+        public ICollection<CertificateTranslation> Translations { get; set; }
+    }
+
+public class CertificateTranslation 
+    {
+        [Key]
+        public int Id { get; set; }
+        public Guid? EId { get; set; } 
+        public Translation Language { get; set; }        
         public string Name { get; set; }
         public string Description { get; set; }
     }
