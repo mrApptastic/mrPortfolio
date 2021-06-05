@@ -22,8 +22,11 @@ public class CertificateTranslation
     {
         [Key]
         public int Id { get; set; }
+    }
+
+public class CertificateTranslationView {
         public Guid? EId { get; set; } 
         public Translation Language { get; set; }        
         public string Name { get; set; }
         public string Description { get; set; }
-    }
+}
