@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using portfolioAdminApp.Data;
 using portfolioAdminApp.Models;
+using portfolioAdminApp.Helpers;
 
 namespace portfolioAdminApp.Controllers
 {
@@ -25,16 +26,32 @@ namespace portfolioAdminApp.Controllers
             _context = context;
         }
 
-        [HttpGet("Quals")]
-        public async Task<ActionResult<ICollection<Translation>>> GetQuals()
+        [HttpGet("Certificates")]
+        public async Task<ActionResult<ICollection<CertificateView>>> GetCertificates()
         {
-            var uha = await _context.PortfolioQualifications
+            var certificates = await _context.PortfolioCertificates.Where(x => x.Enabled && x.EnabledInWeb)
+                            .Include(x => x.Translations).ThenInclude(x => x.Language)
+                            .ToListAsync();
+
+            var certificateList = new List<CertificateView>();
+
+            foreach (var certificate in certificates) {
+                certificateList.Add(MappingHelper.MapCertificateToViewModel(certificate));
+            }
+
+            return Ok(certificateList);
+        }   
+
+        [HttpGet("Quals")]
+        public async Task<ActionResult<ICollection<QualificationView>>> GetQuals()
+        {
+            var qualifications = await _context.PortfolioQualifications
                             .Include(x => x.Translations).ThenInclude(x => x.Language)
                             // .Include(x => x.)
                             // .Include(x => x.Language)
                             // .Include(x => x.Qualification).ThenInclude(x => x)
                             .ToListAsync();
-            return Ok(uha);
+            return Ok(qualifications);
         }   
     }
 }

@@ -18,7 +18,7 @@ public class CertificateView
         public ICollection<CertificateTranslation> Translations { get; set; }
     }
 
-public class CertificateTranslation 
+public class CertificateTranslation : CertificateTranslationView
     {
         [Key]
         public int Id { get; set; }

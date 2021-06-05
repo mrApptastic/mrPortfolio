@@ -7,10 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using admin_app.Data;
-using admin_app.Models;
+using portfolioAdminApp.Data;
+using portfolioAdminApp.Models;
 
-namespace admin_app.Helpers
+namespace portfolioAdminApp.Helpers
 {
     public class MappingHelper
     {
@@ -24,13 +24,17 @@ namespace admin_app.Helpers
         public static CertificateTranslationView MapCertificateTranslationToViewModel (CertificateTranslation translation) {
             return new CertificateTranslationView() {
                 EId = translation.EId,
-                Translations = null,
-                Name = translation.
+                Name = translation.Name,
+                Description = translation.Description
             };
         }
 
-        public static ICollection<CertificateTranslationView> MapCertificateTranslationToViewModels (ICollection<CertificateTranslation> certificates) {
-            ICollection<CertificateTranslationView> certificateList = new List<CertificateTranslationView>();
+        public static List<CertificateTranslation> MapCertificateTranslationToViewModels (ICollection<CertificateTranslation> certificates) {
+            List<CertificateTranslation> certificateList = new List<CertificateTranslation>();
+
+            foreach(var certificate in certificates) {
+                certificateList.Add((CertificateTranslation)MapCertificateTranslationToViewModel(certificate));
+            }
 
             return certificateList;
         }
@@ -40,7 +44,3 @@ namespace admin_app.Helpers
 
         
 }
-        public Guid? EId { get; set; } 
-        public Translation Language { get; set; }        
-        public string Name { get; set; }
-        public string Description { get; set; }
