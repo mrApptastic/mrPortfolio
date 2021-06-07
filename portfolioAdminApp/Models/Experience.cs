@@ -27,3 +27,13 @@ public class ExperienceTranslation
         public string Name { get; set; }
         public string Description { get; set; }
     }
+
+public class ExperienceOpen {
+        public ICollection<ExperienceTranslationOpen> Translations { get; set; }
+}
+
+public class ExperienceTranslationOpen {
+        public TranslationOpen Language { get; set; }        
+        public string Name { get; set; }
+        public string Description { get; set; }
+}

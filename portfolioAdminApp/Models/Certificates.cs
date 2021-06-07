@@ -30,3 +30,13 @@ public class CertificateTranslationView {
         public string Name { get; set; }
         public string Description { get; set; }
 }
+
+public class CertificateOpen {
+        public ICollection<CertificateTranslationOpen> Translations { get; set; }
+}
+
+public class CertificateTranslationOpen {
+        public TranslationOpen Language { get; set; }        
+        public string Name { get; set; }
+        public string Description { get; set; }
+}

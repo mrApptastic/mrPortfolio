@@ -27,3 +27,13 @@ public class QualificationTranslation
         public string Name { get; set; }
         public string Description { get; set; }
     }
+
+public class QualificationOpen {
+        public ICollection<QualificationTranslationOpen> Translations { get; set; }
+}
+
+public class QualificationTranslationOpen {
+        public TranslationOpen Language { get; set; }        
+        public string Name { get; set; }
+        public string Description { get; set; }
+}

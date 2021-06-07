@@ -17,3 +17,8 @@ public class TranslationView
         public Guid? EId { get; set; } 
         public string Name { get; set; }
     }
+
+public class TranslationOpen 
+    {
+                public string Name { get; set; }
+    }

@@ -27,3 +27,13 @@ public class InterestTranslation
         public string Name { get; set; }
         public string Description { get; set; }
     }
+
+public class InterestOpen {
+        public ICollection<InterestTranslationOpen> Translations { get; set; }
+}
+
+public class InterestTranslationOpen {
+        public TranslationOpen Language { get; set; }        
+        public string Name { get; set; }
+        public string Description { get; set; }
+}

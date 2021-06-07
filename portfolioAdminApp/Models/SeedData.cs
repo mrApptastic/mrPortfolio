@@ -53,6 +53,55 @@ namespace portfolioAdminApp {
 
                 context.PortfolioQualifications.Add(css);
 
+                var adobeTrans = new List<CertificateTranslation>();
+
+                adobeTrans.Add(new CertificateTranslation() {
+                    EId = Guid.NewGuid(),
+                    Language = danish,
+                    Name = "Adobe Creative Suite 5",
+                    Description = "Dette er en dansk oversættelse."
+                });
+
+                adobeTrans.Add(new CertificateTranslation() {
+                    EId = Guid.NewGuid(),
+                    Language = english,
+                    Name = "Adobe Creative Suite 5",
+                    Description = "This is an English translation."
+                });
+
+                var adobe = new Certificate() {
+                    Enabled = true,
+                    EnabledInWeb = true,
+                    EId = Guid.NewGuid(),
+                    Translations = adobeTrans
+                };
+
+                var deleteTrans = new List<CertificateTranslation>();
+
+                deleteTrans.Add(new CertificateTranslation() {
+                    EId = Guid.NewGuid(),
+                    Language = danish,
+                    Name = "Ikke se på mig",
+                    Description = "Dette er en dansk oversættelse."
+                });
+
+                deleteTrans.Add(new CertificateTranslation() {
+                    EId = Guid.NewGuid(),
+                    Language = english,
+                    Name = "This should not be seen",
+                    Description = "This is an English translation."
+                });
+
+                var deleted = new Certificate() {
+                    Enabled = true,
+                    EnabledInWeb = false,
+                    EId = Guid.NewGuid(),
+                    Translations = adobeTrans
+                };
+
+                context.PortfolioCertificates.Add(adobe);                
+                context.PortfolioCertificates.Add(deleted);
+
                 // context.PortfolioQualificationTranslations.Add(new QualificationTranslation() {
                 //     EId = Guid.NewGuid(),
                 //     Qualification = css,

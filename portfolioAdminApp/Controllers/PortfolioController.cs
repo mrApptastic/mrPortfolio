@@ -27,17 +27,19 @@ namespace portfolioAdminApp.Controllers
         }
 
         [HttpGet("Certificates")]
-        public async Task<ActionResult<ICollection<CertificateView>>> GetCertificates()
+        public async Task<ActionResult<ICollection<CertificateOpen>>> GetCertificates()
         {
             var certificates = await _context.PortfolioCertificates.Where(x => x.Enabled && x.EnabledInWeb)
                             .Include(x => x.Translations).ThenInclude(x => x.Language)
                             .ToListAsync();
 
-            var certificateList = new List<CertificateView>();
+            var certificateList = new List<CertificateOpen>();
 
             foreach (var certificate in certificates) {
-                certificateList.Add(MappingHelper.MapCertificateToViewModel(certificate));
-            }
+                if (certificate.Translations != null && certificate.Translations.Count() > 0) {
+                    certificateList.Add(MappingHelper.MapCertificateToOpenModel(certificate));
+                }                 
+             }
 
             return Ok(certificateList);
         }   

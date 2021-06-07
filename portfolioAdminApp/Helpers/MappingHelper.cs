@@ -14,29 +14,61 @@ namespace portfolioAdminApp.Helpers
 {
     public class MappingHelper
     {
-        public static CertificateView MapCertificateToViewModel (Certificate certificate) {
-            return new CertificateView() {
-                EId = certificate.EId,
-                Translations = MapCertificateTranslationToViewModels(certificate.Translations)
+        #region Certificates
+        public static CertificateOpen MapCertificateToOpenModel (Certificate certificate) {
+            return new CertificateOpen() {
+                Translations = MapCertificateTranslationToOpenModels(certificate.Translations)
             };
         }
 
-        public static CertificateTranslationView MapCertificateTranslationToViewModel (CertificateTranslation translation) {
-            return new CertificateTranslationView() {
-                EId = translation.EId,
+        public static CertificateTranslationOpen MapCertificateTranslationToOpenModel (CertificateTranslation translation) {
+            return new CertificateTranslationOpen() {
                 Name = translation.Name,
-                Description = translation.Description
+                Description = translation.Description,
+                Language = MapTranslationToOpenModel(translation.Language)
             };
         }
 
-        public static List<CertificateTranslation> MapCertificateTranslationToViewModels (ICollection<CertificateTranslation> certificates) {
-            List<CertificateTranslation> certificateList = new List<CertificateTranslation>();
+        public static List<CertificateTranslationOpen> MapCertificateTranslationToOpenModels (ICollection<CertificateTranslation> certificates) {
+            List<CertificateTranslationOpen> certificateList = new List<CertificateTranslationOpen>();
 
             foreach(var certificate in certificates) {
-                certificateList.Add((CertificateTranslation)MapCertificateTranslationToViewModel(certificate));
+                certificateList.Add(MapCertificateTranslationToOpenModel(certificate));
             }
 
             return certificateList;
+        }
+        #endregion
+        #region Education
+        public static EducationOpen MapEducationToOpenModel (Education education) {
+            return new EducationOpen() {
+                Translations = MapEducationTranslationToOpenModels(education.Translations)
+            };
+        }
+
+        public static EducationTranslationOpen MapEducationTranslationToOpenModel (EducationTranslation translation) {
+            return new EducationTranslationOpen() {
+                Name = translation.Name,
+                Description = translation.Description,
+                Language = MapTranslationToOpenModel(translation.Language)
+            };
+        }
+
+        public static List<EducationTranslationOpen> MapEducationTranslationToOpenModels (ICollection<EducationTranslation> education) {
+            List<EducationTranslationOpen> educationList = new List<EducationTranslationOpen>();
+
+            foreach(var educate in education) {
+                educationList.Add(MapEducationTranslationToOpenModel(educate));
+            }
+
+            return educationList;
+        }
+        #endregion
+
+        public static TranslationOpen MapTranslationToOpenModel (Translation translation) {
+            return new TranslationOpen() {
+                Name = translation.Name
+            };
         }
 
     }

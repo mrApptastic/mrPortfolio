@@ -27,3 +27,13 @@ public class LanguageTranslation
         public string Name { get; set; }
         public string Description { get; set; }
     }
+
+public class LanguageOpen {
+        public ICollection<LanguageTranslationOpen> Translations { get; set; }
+}
+
+public class LanguageTranslationOpen {
+        public TranslationOpen Language { get; set; }        
+        public string Name { get; set; }
+        public string Description { get; set; }
+}
