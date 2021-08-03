@@ -1,0 +1,47 @@
+.bgBox {
+  background: rgb(165,165,255);
+
+}
+
+.typeBandit {
+margin-top: 40px;
+}
+
+#navigation {
+  position: -webkit-sticky;
+  position: sticky;
+  margin-top: -10vh;
+  top: 0;
+  text-align: center;
+}
+
+      #navigation ul li {
+          display: inline-block;
+          padding-left: 2vw;
+      }
+
+          #navigation ul li a {
+              font-family: 'c64';
+              font-size: 2rem;
+              text-decoration: none;
+              color: rgb(165,165,255);
+          }
+
+.mainBox {
+  font-family: 'c64';
+  font-size: 2rem;
+  background: rgb(66,66,231);
+  width: 95vw;
+  min-height: 95vh;
+  color: rgb(165,165,255);
+  padding: 5px 5px 5px 5px;
+  margin: 20px auto 20px auto;
+}
+
+#marker {
+  background:rgb(165,165,255);
+  height: 2rem;
+  width: 1.5rem;
+  margin-top: 0rem;
+  margin-left: 0.2rem;
+}

@@ -1,1 +1,125 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Fonts */
+@font-face {
+	font-family: 'Ringbearer';
+	src: url('/assets/fonts/RINGM.woff')
+		format('woff'),
+		url('/assets/fonts/RINGM.ttf')
+		format('truetype');
+}
+
+.ringbearer {
+	font-family: 'Ringbearer' !important;
+}
+
+@font-face {
+	font-family: 'Aqui';
+	src: url('/assets/fonts/AquilineTwo.woff')
+		format('woff'),
+		url('/assets/fonts/AquilineTwo.ttf')
+		format('truetype');
+}
+
+.aqui {
+	font-family: 'Aqui' !important;
+}
+
+@font-face {
+	font-family: 'C64';
+	src: url('/assets/fonts/C64.woff')
+		format('woff'),
+		url('/assets/fonts/C64.ttf')
+		format('truetype');
+}
+
+.c64 {
+	font-family: 'C64' !important;
+}
+
+@font-face {
+	font-family: 'SmurfyR';
+	src: url('/assets/fonts/CREABBRG.woff')
+		format('woff'),
+		url('/assets/fonts/CREABBRG.ttf')
+		format('truetype');
+}
+
+.SmurfyR {
+	font-family: 'SmurfyR' !important;
+}
+
+@font-face {
+	font-family: 'SmurfyB';
+	src: url('/assets/fonts/CREABB.woff')
+		format('woff'),
+		url('/assets/fonts/CREABB.ttf')
+		format('truetype');
+}
+
+.SmurfyB {
+	font-family: 'SmurfyB';
+}
+
+/* CSS Animations  */
+
+@-webkit-keyframes backAndForth {
+    from {background-position:left;}
+    to {background-position:right;}
+}
+
+@keyframes backAndForth {
+    from {background-position:left;}
+    to {background-position:right;}
+}
+
+@-webkit-keyframes mrUha {
+    0% { left: 0; transform: rotateZ(0deg); }
+    5% { left: 2%; transform: rotateZ(-5deg); }
+    10% { left: 4%; transform: rotateZ(0deg); }
+    15% { left: 6%; transform: rotateZ(5deg); }
+    20% { left: 8%; transform: rotateZ(0deg); }
+    25% { left: 10%; transform: rotateZ(-5deg); }
+    30% { left: 8%; transform: rotateZ(0deg); }
+    35% { left: 6%; transform: rotateZ(5deg); }
+    40% { left: 4%; transform: rotateZ(0deg); }
+    45% { left: 2%; transform: rotateZ(-5deg); }
+    50% { left: 0; transform: rotateZ(0deg); }
+    55% { left: -2%; transform: rotateZ(5deg); }
+    60% { left: -4%; transform: rotateZ(0deg); }
+    65% { left: -6%; transform: rotateZ(-5deg); }
+    70% { left: -8%; transform: rotateZ(0deg); }
+    75% { left: -10%; transform: rotateZ(5deg); }
+    80% { left: -8%; transform: rotateZ(0deg); }
+    85% { left: -6%; transform: rotateZ(-5deg); }
+    90% { left: -4%; transform: rotateZ(0deg); }
+    95% { left: -2%; transform: rotateZ(5deg); }
+    100% {left: 0; transform: rotateZ(0deg); }
+}
+
+@keyframes mrUha {
+    0% { left: 0; transform: rotateZ(0deg); }
+    5% { left: 2%; transform: rotateZ(-5deg); }
+    10% { left: 4%; transform: rotateZ(0deg); }
+    15% { left: 6%; transform: rotateZ(5deg); }
+    20% { left: 8%; transform: rotateZ(0deg); }
+    25% { left: 10%; transform: rotateZ(-5deg); }
+    30% { left: 8%; transform: rotateZ(0deg); }
+    35% { left: 6%; transform: rotateZ(5deg); }
+    40% { left: 4%; transform: rotateZ(0deg); }
+    45% { left: 2%; transform: rotateZ(-5deg); }
+    50% { left: 0; transform: rotateZ(0deg); }
+    55% { left: -2%; transform: rotateZ(5deg); }
+    60% { left: -4%; transform: rotateZ(0deg); }
+    65% { left: -6%; transform: rotateZ(-5deg); }
+    70% { left: -8%; transform: rotateZ(0deg); }
+    75% { left: -10%; transform: rotateZ(5deg); }
+    80% { left: -8%; transform: rotateZ(0deg); }
+    85% { left: -6%; transform: rotateZ(-5deg); }
+    90% { left: -4%; transform: rotateZ(0deg); }
+    95% { left: -2%; transform: rotateZ(5deg); }
+    100% {left: 0; transform: rotateZ(0deg); }
+}
