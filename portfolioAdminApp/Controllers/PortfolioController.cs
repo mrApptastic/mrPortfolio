@@ -29,19 +29,7 @@ namespace portfolioAdminApp.Controllers
         [HttpGet("Certificates")]
         public async Task<ActionResult<ICollection<CertificateOpen>>> GetCertificates()
         {
-            var certificates = await _context.PortfolioCertificates.Where(x => x.Enabled && x.EnabledInWeb)
-                            .Include(x => x.Translations).ThenInclude(x => x.Language)
-                            .ToListAsync();
-
-            var certificateList = new List<CertificateOpen>();
-
-            foreach (var certificate in certificates) {
-                if (certificate.Translations != null && certificate.Translations.Count() > 0) {
-                    certificateList.Add(MappingHelper.MapCertificateToOpenModel(certificate));
-                }                 
-             }
-
-            return Ok(certificateList);
+            return Ok(await GetCertificateList());
         }   
 
         [HttpGet("Quals")]
@@ -55,5 +43,23 @@ namespace portfolioAdminApp.Controllers
                             .ToListAsync();
             return Ok(qualifications);
         }   
-    }
+
+        private async Task<ICollection<CertificateOpen>> GetCertificateList()
+        {
+            var certificates = await _context.PortfolioCertificates.Where(x => x.Enabled && x.EnabledInWeb)
+                            .Include(x => x.Translations).ThenInclude(x => x.Language)
+                            .ToListAsync();
+
+            var certificateList = new List<CertificateOpen>();
+
+            foreach (var certificate in certificates) {
+                if (certificate.Translations != null && certificate.Translations.Count() > 0) {
+                    var ib = MappingHelper.MapCertificateToOpenModel(certificate);
+                    certificateList.Add(ib);
+                }                 
+             }
+
+            return certificateList;
+        } 
+    } 
 }
