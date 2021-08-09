@@ -18,14 +18,17 @@ namespace portfolioAdminApp {
                     Enabled = true,
                     EnabledInWeb = true,
                     EId = Guid.NewGuid(),
-                    Name = "English"
+                    Name = "English",
+                    LanguageCode = "en-GB"
+                    
                 };
 
                 var danish = new Translation() {
                     Enabled = true,
                     EnabledInWeb = true,
                     EId = Guid.NewGuid(),
-                    Name = "Danish"
+                    Name = "Danish",
+                    LanguageCode = "da-DK"
                 };
                 
                 var cssTrans = new List<QualificationTranslation>();

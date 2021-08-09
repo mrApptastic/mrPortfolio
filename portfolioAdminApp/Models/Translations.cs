@@ -15,6 +15,7 @@ public class Translation : TranslationView
 public class TranslationView 
     {
         public Guid? EId { get; set; } 
+        public string LanguageCode { get; set; }
         public string Name { get; set; }
     }
 
