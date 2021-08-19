@@ -4,21 +4,23 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class Qualification : QualificationView
-   {  
-       [Key]
-       public int Id { get; set; }  
-       public bool Enabled { get; set; }
-       public bool EnabledInWeb { get; set; } 
-   }  
+namespace portfolioAdminApp.Models 
+{
+    public class Qualification : QualificationView
+    {  
+        [Key]
+        public int Id { get; set; }  
+        public bool Enabled { get; set; }
+        public bool EnabledInWeb { get; set; } 
+    }  
 
-public class QualificationView 
+    public class QualificationView 
     {
         public Guid? EId { get; set; } 
         public ICollection<QualificationTranslation> Translations { get; set; }
     }
 
-public class QualificationTranslation 
+    public class QualificationTranslation 
     {
         [Key]
         public int Id { get; set; }
@@ -28,12 +30,14 @@ public class QualificationTranslation
         public string Description { get; set; }
     }
 
-public class QualificationOpen {
+    public class QualificationOpen {
         public ICollection<QualificationTranslationOpen> Translations { get; set; }
-}
+    }
 
-public class QualificationTranslationOpen {
+    public class QualificationTranslationOpen {
         public TranslationOpen Language { get; set; }        
         public string Name { get; set; }
         public string Description { get; set; }
+    }
 }
+

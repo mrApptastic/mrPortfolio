@@ -6,7 +6,6 @@ using portfolioAdminApp.Data;
 using System;
 
 namespace portfolioAdminApp {
-
     public class SeedData {
 
         public static void SeedDatabase(ApplicationDbContext context) {
