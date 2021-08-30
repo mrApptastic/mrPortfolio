@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file datatype="plaintext" source-language="" target-language="en-GB">
+    <body>
+      <trans-unit id="nav_about">
+        <target>About</target>
+      </trans-unit>
+      <trans-unit id="nav_contact">
+        <target>Contact</target>
+      </trans-unit>
+      <trans-unit id="nav_cv">
+        <target>CV</target>
+      </trans-unit>
+      <trans-unit id="nav_home">
+        <target>Home</target>
+      </trans-unit>
+      <trans-unit id="nav_projects">
+        <target>Projects</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
