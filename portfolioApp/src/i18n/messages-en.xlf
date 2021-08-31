@@ -1,21 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file datatype="plaintext" source-language="" target-language="en-GB">
+  <file datatype="plaintext" original="ng2.template" source-language="da-Dk" target-language="en-US">
     <body>
-      <trans-unit id="nav_about">
-        <target>About</target>
-      </trans-unit>
-      <trans-unit id="nav_contact">
-        <target>Contact</target>
-      </trans-unit>
-      <trans-unit id="nav_cv">
+      <trans-unit id="5293537796822127156" datatype="html">
+        <source>CV</source>
         <target>CV</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/routes/home/home.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
       </trans-unit>
-      <trans-unit id="nav_home">
+      <trans-unit id="8305623058929365707" datatype="html">
+        <source>Softwareudvikler</source>
+        <target>Software Developer</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1611108894348423507" datatype="html">
+        <source>Nuværende</source>
+        <target>Current</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7954567444083380599" datatype="html">
+        <source>Forrige</source>
+        <target>Previous</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="245512719199604556" datatype="html">
+        <source>Uddannelse</source>
+        <target>Education</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3424673714211365571" datatype="html">
+        <source>It-Teknolog (AK)</source>
+        <target>AP Degree in IT and Electronics</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7644300011746296925" datatype="html">
+        <source>Kort Beskrivelse</source>
+        <target>Short description</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1162970855295131420" datatype="html">
+        <source>Henriks Portfolio</source>
+        <target>Henriks Portfolio</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/routes/home/home.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5784386219958066970" datatype="html">
+        <source>Forside</source>
         <target>Home</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/routes/home/home.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
       </trans-unit>
-      <trans-unit id="nav_projects">
+      <trans-unit id="6794541731571985261" datatype="html">
+        <source>Om mig</source>
+        <target>About me</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/routes/home/home.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3079002003406197429" datatype="html">
+        <source>Projekter</source>
         <target>Projects</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/routes/home/home.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="397497450705980813" datatype="html">
+        <source>Kontakt</source>
+        <target>Contact</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/routes/home/home.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
       </trans-unit>
     </body>
   </file>

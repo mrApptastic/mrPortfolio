@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build-translations": "ng extract-i18n --output-path=i18n"
+    "build-translations": "ng extract-i18n --output-path=src/i18n"
   },
   "private": true,
   "dependencies": {
