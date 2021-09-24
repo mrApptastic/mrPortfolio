@@ -15,6 +15,21 @@ namespace portfolioAdminApp.Helpers
     public class MappingHelper
     {
         #region Certificates
+        public static List<CertificateView> MapCertificatesToViewModel (List<Certificate> certificate) {
+            return MapCertificateTranslationToOpenModels(certificate.Translations);
+        }
+
+        public static List<CertificateView> MapCertificatesToViewModel (List<Certificate> certificate) {
+            return MapCertificateTranslationToOpenModels(certificate.Translations);
+        }
+
+        public static CertificateTranslationOpen MapCertificateTranslationToOpenModel (CertificateTranslation translation) {
+            return new CertificateTranslationOpen() {
+                Name = translation.Name,
+                Description = translation.Description
+            };
+        }
+
         public static List<CertificateTranslationOpen> MapCertificateToOpenModel (Certificate certificate) {
             return MapCertificateTranslationToOpenModels(certificate.Translations);
         }
