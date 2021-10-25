@@ -60,7 +60,10 @@ namespace portfolioAdminApp.Controllers
                 }
 
                 if (trans != null) {
-                    certificateList.Add(MappingHelper.MapCertificateTranslationToOpenModel(trans));
+                    certificateList.Add(new CertificateTranslationOpen() {
+                        Description = trans.Description,
+                        Name = trans.Name
+                    });
                 }                
              }
 
@@ -87,7 +90,10 @@ namespace portfolioAdminApp.Controllers
                 }
 
                 if (trans != null) {
-                    educationList.Add(MappingHelper.MapEducationTranslationToOpenModel(trans));
+                    educationList.Add(new EducationTranslationOpen() {
+                        Description = trans.Description,
+                        Name = trans.Name
+                    });
                 }                
              }
 
@@ -114,7 +120,10 @@ namespace portfolioAdminApp.Controllers
                 }
 
                 if (trans != null) {
-                    // experienceList.Add(MappingHelper.MapExperienceTranslationToOpenModel(trans));
+                    experienceList.Add(new ExperienceTranslationOpen() {
+                        Description = trans.Description,
+                        Name = trans.Name
+                    });
                 }                
              }
 
@@ -141,7 +150,10 @@ namespace portfolioAdminApp.Controllers
                 }
 
                 if (trans != null) {
-                    // interestList.Add(MappingHelper.MapInterestTranslationToOpenModel(trans));
+                    interestList.Add(new InterestTranslationOpen() {
+                        Description = trans.Description,
+                        Name = trans.Name
+                    });
                 }                
              }
 
@@ -168,7 +180,10 @@ namespace portfolioAdminApp.Controllers
                 }
 
                 if (trans != null) {
-                    // languageList.Add(MappingHelper.MapLanguageTranslationToOpenModel(trans));
+                    languageList.Add(new LanguageTranslationOpen() {
+                        Description = trans.Description,
+                        Name = trans.Name
+                    });
                 }                
              }
 
@@ -195,7 +210,10 @@ namespace portfolioAdminApp.Controllers
                 }
 
                 if (trans != null) {
-                    // projectList.Add(MappingHelper.MapProjectTranslationToOpenModel(trans));
+                    projectList.Add(new ProjectTranslationOpen() {
+                        Description = trans.Description,
+                        Name = trans.Name
+                    });
                 }                
              }
 
@@ -222,7 +240,10 @@ namespace portfolioAdminApp.Controllers
                 }
 
                 if (trans != null) {
-                    // qualificationList.Add(MappingHelper.MapQualificationTranslationToOpenModel(trans));
+                    qualificationList.Add(new QualificationTranslationOpen() {
+                        Description = trans.Description,
+                        Name = trans.Name
+                    });
                 }                
              }
 

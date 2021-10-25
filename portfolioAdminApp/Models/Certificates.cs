@@ -17,7 +17,7 @@ namespace portfolioAdminApp.Models
     public class CertificateView 
     {
         public Guid? EId { get; set; } 
-        public ICollection<CertificateTranslation> Translations { get; set; }
+        public ICollection<CertificateTranslationView> Translations { get; set; }
     }
 
     public class CertificateTranslation : CertificateTranslationView

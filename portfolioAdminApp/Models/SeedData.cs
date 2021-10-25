@@ -55,16 +55,16 @@ namespace portfolioAdminApp {
 
                 context.PortfolioQualifications.Add(css);
 
-                var adobeTrans = new List<CertificateTranslation>();
+                var adobeTrans = new List<CertificateTranslationView>();
 
-                adobeTrans.Add(new CertificateTranslation() {
+                adobeTrans.Add(new CertificateTranslationView() {
                     EId = Guid.NewGuid(),
                     Language = danish,
                     Name = "Adobe Creative Suite 5",
                     Description = "Dette er en dansk oversættelse."
                 });
 
-                adobeTrans.Add(new CertificateTranslation() {
+                adobeTrans.Add(new CertificateTranslationView() {
                     EId = Guid.NewGuid(),
                     Language = english,
                     Name = "Adobe Creative Suite 5",
