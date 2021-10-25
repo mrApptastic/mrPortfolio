@@ -18,7 +18,7 @@ namespace portfolioAdminApp.Helpers
         public static CertificateView MapCertificateToViewModel (Certificate certificate) {
          return new CertificateView() {
              EId = certificate.EId,
-             Translations = new List<CertificateTranslationView>()
+             // Translations = new List<CertificateTranslationView>()
              
         // public Translation Language { get; set; }        
         // public string Name { get; set; }

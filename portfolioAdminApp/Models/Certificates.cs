@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace portfolioAdminApp.Models
 {
-    public class Certificate : CertificateView
+    public class Certificate : CertificateSummary
     {  
         [Key]
         public int Id { get; set; }  
@@ -14,21 +14,34 @@ namespace portfolioAdminApp.Models
         public bool EnabledInWeb { get; set; } 
     }  
 
-    public class CertificateView 
+    public class CertificateSummary
     {
         public Guid? EId { get; set; } 
-        public ICollection<CertificateTranslationView> Translations { get; set; }
+        public ICollection<CertificateTranslation> Translations { get; set; }
     }
 
-    public class CertificateTranslation : CertificateTranslationView
+    public class CertificateTranslation : CertificateTranslationSummary
     {
         [Key]
         public int Id { get; set; }
     }
 
-    public class CertificateTranslationView {
+    public class CertificateTranslationSummary {
         public Guid? EId { get; set; } 
         public Translation Language { get; set; }        
+        public string Name { get; set; }
+        public string Description { get; set; }
+    }
+
+    public class CertificateView {
+        public Guid? EId { get; set; }
+        public bool EnabledInWeb { get; set; } 
+        public ICollection<CertificateTranslationView> Translations { get; set; }
+    }
+
+    public class CertificateTranslationView {
+        public Guid? EId { get; set; } 
+        public TranslationView Language { get; set; }  
         public string Name { get; set; }
         public string Description { get; set; }
     }
