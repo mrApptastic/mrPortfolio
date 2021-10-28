@@ -13,13 +13,14 @@ using portfolioAdminApp.Helpers;
 
 namespace portfolioAdminApp.Controllers
 {
+    [ApiController]
     [Route("api/[controller]")]
     public class PortFolioController : ControllerBase
     {
 
         private readonly ILogger<PortFolioController> _logger;
         private readonly ApplicationDbContext _context;
-
+        
         public PortFolioController(ILogger<PortFolioController> logger, ApplicationDbContext context)
         {
             _logger = logger;
