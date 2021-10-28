@@ -38,7 +38,7 @@ namespace portfolioAdminApp.Helpers
                 EId = translation.EId,
                 Name = translation.Name,
                 Description = translation.Description,
-                Language = translation.Language
+                Language = translation?.Language
             };
         }
 
