@@ -18,11 +18,27 @@ namespace portfolioAdminApp.Helpers
         public static CertificateView MapCertificateToViewModel (Certificate certificate) {
          return new CertificateView() {
              EId = certificate.EId,
-             // Translations = new List<CertificateTranslationView>()
-             
-        // public Translation Language { get; set; }        
-        // public string Name { get; set; }
-        // public string Description { get; set; }
+             EnabledInWeb = certificate.EnabledInWeb,
+             Translations = MapCertificateTranslationToOpenModels(certificate.Translations)
+            };
+        }
+
+        public static List<CertificateTranslationView> MapCertificateTranslationToOpenModels (ICollection<CertificateTranslation> translations) {
+            List<CertificateTranslationView> certificateTranslationsList = new List<CertificateTranslationView>();
+
+            foreach(var translation in translations) {
+                certificateTranslationsList.Add(MapCertificateTranslationToOpenModel(translation));
+            }
+
+            return certificateTranslationsList;
+        }
+
+        public static CertificateTranslationView MapCertificateTranslationToOpenModel (CertificateTranslation translation) {
+            return new CertificateTranslationView() {
+                EId = translation.EId,
+                Name = translation.Name,
+                Description = translation.Description,
+                Language = translation.Language
             };
         }
 
