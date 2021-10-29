@@ -32,16 +32,16 @@ namespace portfolioAdminApp.Controllers
         {
             var query = _context.PortfolioCertificates.Where(x => x.Enabled).OrderBy(x => x.EId).AsQueryable();
 
-            // if (search != null) {
-            //     query = query.Where(x => x.Translations.Any(x => x.Name().Contains(search)).AsQueryable();
-            // }
+            if (search != null) {
+                query = query.Where(x => x.Translations.Any(x => x.Name.ToLower().Contains(search.ToLower()))).AsQueryable();
+            }
 
             var entities = await query.ToListAsync();
 
             var views = new List<CertificateView>();
 
             foreach (var entity in entities) {
-   
+                views.Add(MappingHelper.MapCertificateToViewModel(entity));
             }
 
             return Ok(views);
@@ -65,10 +65,20 @@ namespace portfolioAdminApp.Controllers
             return Ok(new CertificateView());
         }
 
-        [HttpGet("newTranslation")]
-        public ActionResult<CertificateTranslationView> NewTranslation()
+        [HttpGet("newTranslation/{langCode}")]
+        public async Task<ActionResult<CertificateTranslationView>> NewTranslation(string langCode)
         {
-            return Ok(new CertificateTranslationView());
+            var language = await _context.PortfolioTranslations.Where(x => x.LanguageCode.Contains(langCode.ToLower())).FirstOrDefaultAsync();
+
+            if (language == null) {
+                throw new Exception("Language with code " + langCode + " was not found!");
+            }
+
+            var trans = new CertificateTranslationView();
+            
+            trans.Language = language;
+            
+            return Ok(trans);
         }
 
         [HttpPost]
@@ -91,46 +101,44 @@ namespace portfolioAdminApp.Controllers
             }    
         }
 
-        // [HttpPut]
-        // public async Task<ActionResult<CertificateView>> Put([FromBody]Certificate Certificate, [FromQuery]bool useForWeb = true)
-        // {
-        //     try {
-        //         var entity = _context.PortfolioCertificates.Where(x => x.EId == Certificate.EId && x.Enabled).FirstOrDefault();
+        [HttpPut]
+        public async Task<ActionResult<CertificateView>> Put([FromBody]Certificate Certificate, [FromQuery]bool useForWeb = true)
+        {
+            try {
+                var entity = _context.PortfolioCertificates.Where(x => x.EId == Certificate.EId && x.Enabled).FirstOrDefault();
 
-        //         if (entity == null) {
-        //             throw new Exception("The requested entity could not be found in the database");
-        //         }
+                if (entity == null) {
+                    throw new Exception("The requested entity could not be found in the database");
+                }
 
-        //         entity.EnabledInWeb = useForWeb;
+                entity.EnabledInWeb = useForWeb;
 
-        //         await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync();
 
-        //         return Ok(MappingHelper.MapCertificateToViewModel(entity));
-        //     } catch (Exception e) {
-        //         throw e;            
-        //     }    
-        // }
+                return Ok(MappingHelper.MapCertificateToViewModel(entity));
+            } catch (Exception e) {
+                throw e;            
+            }    
+        }
 
-        // [HttpDelete("{id:Guid}")]
-        // public async Task<ActionResult<bool>> Delete(Guid id)
-        // {
-        //     try {
-        //         var entity = _context.PortfolioCertificates.Where(x => x.EId == id && x.Enabled).FirstOrDefault();
+        [HttpDelete("{id:Guid}")]
+        public async Task<ActionResult<bool>> Delete(Guid id)
+        {
+            try {
+                var entity = _context.PortfolioCertificates.Where(x => x.EId == id && x.Enabled).FirstOrDefault();
 
-        //         if (entity == null) {
-        //             throw new Exception("The requested entity could not be found in the database");
-        //         }
+                if (entity == null) {
+                    throw new Exception("The requested entity could not be found in the database");
+                }
 
-        //         entity.Enabled = false;
+                entity.Enabled = false;
 
-        //         await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync();
 
-        //         return Ok(true);
-        //     } catch (Exception e) {
-        //         throw e;            
-        //     } 
-        // }
-
-
+                return Ok(true);
+            } catch (Exception e) {
+                throw e;            
+            } 
+        }
     }
 }

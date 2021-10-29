@@ -6,11 +6,153 @@
 	},
 	"item": [
 		{
-			"name": "New Request",
+			"name": "Certificates",
+			"item": [
+				{
+					"name": "New",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/certificate/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"certificate",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/certificate/newTranslation/en",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"certificate",
+								"newTranslation",
+								"en"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/certificate/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"certificate",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Copy 2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/certificate/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"certificate",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"eId\": null,\r\n    \"enabledInWeb\": true,\r\n    \"translations\": [\r\n        {\r\n            \"eId\": null,\r\n            \"language\": {\r\n                \"eId\": \"a5516fac-faa9-48a9-a773-140cc7e8a393\",\r\n                \"languageCode\": \"da-DK\",\r\n                \"name\": \"Danish\"\r\n            },\r\n        \"name\": \"Umbraco Certificat\",\r\n        \"description\": \"Certificat i at bruge Umbraco 7\"\r\n        },\r\n        {\r\n        \"eId\": null,\r\n        \"language\": {\r\n            \"eId\": \"659aebd3-7581-4e09-83ef-19deef7a8b80\",\r\n            \"languageCode\": \"en-GB\",\r\n            \"name\": \"English\"\r\n        },\r\n        \"name\": \"Umbraco Certificate\",\r\n        \"description\": \"Certificate for Umbraco 7\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/certificate/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"certificate",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Portfolio - Get All",
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "http://localhost:5000/api/portfolio/getall/da",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"portfolio",
+						"getall",
+						"da"
+					]
+				}
 			},
 			"response": []
 		}
