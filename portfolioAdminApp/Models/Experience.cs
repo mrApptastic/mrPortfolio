@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace portfolioAdminApp.Models
 {
-    public class Experience : ExperienceView
+    public class Experience : ExperienceSummary
     {  
         [Key]
         public int Id { get; set; }  
@@ -14,28 +14,39 @@ namespace portfolioAdminApp.Models
         public bool EnabledInWeb { get; set; } 
     }  
 
-    public class ExperienceView 
+    public class ExperienceSummary
     {
         public Guid? EId { get; set; } 
-        public ICollection<EducationTranslation> Translations { get; set; }
+        public ICollection<ExperienceTranslation> Translations { get; set; }
     }
 
-    public class ExperienceTranslation 
+    public class ExperienceTranslation : ExperienceTranslationSummary
     {
         [Key]
         public int Id { get; set; }
+    }
+
+    public class ExperienceTranslationSummary {
         public Guid? EId { get; set; } 
         public Translation Language { get; set; }        
         public string Name { get; set; }
         public string Description { get; set; }
     }
 
-    public class ExperienceOpen {
-        public ICollection<ExperienceTranslationOpen> Translations { get; set; }
+    public class ExperienceView {
+        public Guid? EId { get; set; }
+        public bool EnabledInWeb { get; set; } 
+        public ICollection<ExperienceTranslationView> Translations { get; set; }
     }
 
-    public class ExperienceTranslationOpen {
-        public TranslationOpen Language { get; set; }        
+    public class ExperienceTranslationView {
+        public Guid? EId { get; set; } 
+        public TranslationView Language { get; set; }  
+        public string Name { get; set; }
+        public string Description { get; set; }
+    }
+
+    public class ExperienceTranslationOpen {    
         public string Name { get; set; }
         public string Description { get; set; }
     }

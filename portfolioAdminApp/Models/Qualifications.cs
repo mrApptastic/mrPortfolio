@@ -4,9 +4,9 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace portfolioAdminApp.Models 
+namespace portfolioAdminApp.Models
 {
-    public class Qualification : QualificationView
+    public class Qualification: QualificationSummary
     {  
         [Key]
         public int Id { get; set; }  
@@ -14,30 +14,40 @@ namespace portfolioAdminApp.Models
         public bool EnabledInWeb { get; set; } 
     }  
 
-    public class QualificationView 
+    public class QualificationSummary
     {
         public Guid? EId { get; set; } 
         public ICollection<QualificationTranslation> Translations { get; set; }
     }
 
-    public class QualificationTranslation 
+    public class QualificationTranslation : QualificationTranslationSummary
     {
         [Key]
         public int Id { get; set; }
+    }
+
+    public class QualificationTranslationSummary {
         public Guid? EId { get; set; } 
         public Translation Language { get; set; }        
         public string Name { get; set; }
         public string Description { get; set; }
     }
 
-    public class QualificationOpen {
-        public ICollection<QualificationTranslationOpen> Translations { get; set; }
+    public class QualificationView {
+        public Guid? EId { get; set; }
+        public bool EnabledInWeb { get; set; } 
+        public ICollection<QualificationTranslationView> Translations { get; set; }
     }
 
-    public class QualificationTranslationOpen {
-        public TranslationOpen Language { get; set; }        
+    public class QualificationTranslationView {
+        public Guid? EId { get; set; } 
+        public TranslationView Language { get; set; }  
+        public string Name { get; set; }
+        public string Description { get; set; }
+    }
+
+    public class QualificationTranslationOpen {    
         public string Name { get; set; }
         public string Description { get; set; }
     }
 }
-

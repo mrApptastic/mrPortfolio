@@ -4,9 +4,9 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace portfolioAdminApp.Models 
+namespace portfolioAdminApp.Models
 {
-    public class Language : LanguageView
+    public class Language: LanguageSummary
     {  
         [Key]
         public int Id { get; set; }  
@@ -14,28 +14,39 @@ namespace portfolioAdminApp.Models
         public bool EnabledInWeb { get; set; } 
     }  
 
-    public class LanguageView 
+    public class LanguageSummary
     {
         public Guid? EId { get; set; } 
         public ICollection<LanguageTranslation> Translations { get; set; }
     }
 
-    public class LanguageTranslation 
+    public class LanguageTranslation : LanguageTranslationSummary
     {
         [Key]
         public int Id { get; set; }
+    }
+
+    public class LanguageTranslationSummary {
         public Guid? EId { get; set; } 
         public Translation Language { get; set; }        
         public string Name { get; set; }
         public string Description { get; set; }
     }
 
-    public class LanguageOpen {
-        public ICollection<LanguageTranslationOpen> Translations { get; set; }
+    public class LanguageView {
+        public Guid? EId { get; set; }
+        public bool EnabledInWeb { get; set; } 
+        public ICollection<LanguageTranslationView> Translations { get; set; }
     }
 
-    public class LanguageTranslationOpen {
-        public TranslationOpen Language { get; set; }        
+    public class LanguageTranslationView {
+        public Guid? EId { get; set; } 
+        public TranslationView Language { get; set; }  
+        public string Name { get; set; }
+        public string Description { get; set; }
+    }
+
+    public class LanguageTranslationOpen {    
         public string Name { get; set; }
         public string Description { get; set; }
     }
