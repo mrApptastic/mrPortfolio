@@ -16,7 +16,8 @@ namespace portfolioAdminApp.Models
 
     public class InterestSummary
     {
-        public Guid? EId { get; set; } 
+        public Guid? EId { get; set; }
+        public string ImageUrl { get; set; }
         public ICollection<InterestTranslation> Translations { get; set; }
     }
 
@@ -36,6 +37,7 @@ namespace portfolioAdminApp.Models
     public class InterestView {
         public Guid? EId { get; set; }
         public bool EnabledInWeb { get; set; } 
+        public string ImageUrl { get; set; }
         public ICollection<InterestTranslationView> Translations { get; set; }
     }
 
@@ -49,5 +51,6 @@ namespace portfolioAdminApp.Models
     public class InterestTranslationOpen {    
         public string Name { get; set; }
         public string Description { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

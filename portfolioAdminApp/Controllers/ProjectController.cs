@@ -13,22 +13,22 @@ namespace portfolioAdminApp.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ExperienceController : ControllerBase
+    public class ProjectController : ControllerBase
     {
 
-        private readonly ILogger<ExperienceController> _logger;
+        private readonly ILogger<ProjectController> _logger;
         private readonly ApplicationDbContext _context;
 
-        public ExperienceController(ILogger<ExperienceController> logger, ApplicationDbContext context)
+        public ProjectController(ILogger<ProjectController> logger, ApplicationDbContext context)
         {
             _logger = logger;
             _context = context;
         }
 
         [HttpGet]
-        public async Task<ActionResult<ICollection<ExperienceView>>> GetAll([FromQuery] string search)
+        public async Task<ActionResult<ICollection<ProjectView>>> GetAll([FromQuery] string search)
         {
-            var query = _context.PortfolioExperiences.Where(x => x.Enabled).OrderBy(x => x.EId).AsQueryable();
+            var query = _context.PortfolioProjects.Where(x => x.Enabled).OrderBy(x => x.EId).AsQueryable();
 
             if (search != null) {
                 query = query.Where(x => x.Translations.Any(x => x.Name.ToLower().Contains(search.ToLower()))).AsQueryable();
@@ -36,35 +36,35 @@ namespace portfolioAdminApp.Controllers
 
             var entities = await query.ToListAsync();
 
-            var views = new List<ExperienceView>();
+            var views = new List<ProjectView>();
 
             foreach (var entity in entities) {
-                views.Add(MappingHelper.MapExperienceToViewModel(entity));
+                views.Add(MappingHelper.MapProjectToViewModel(entity));
             }
 
             return Ok(views);
         }
 
         [HttpGet("{id:Guid}")]
-        public async Task<ActionResult<ExperienceView>> GetById(Guid id, [FromQuery]bool useForWeb = true)
+        public async Task<ActionResult<ProjectView>> GetById(Guid id, [FromQuery]bool useForWeb = true)
         {
-            var entity = await _context.PortfolioExperiences.Where(x => x.EId == id && x.Enabled && x.EnabledInWeb == useForWeb).Include(x => x.Translations).FirstOrDefaultAsync();
+            var entity = await _context.PortfolioProjects.Where(x => x.EId == id && x.Enabled && x.EnabledInWeb == useForWeb).Include(x => x.Translations).FirstOrDefaultAsync();
 
             if (entity == null) {
                 throw new Exception("The requested entity could not be found in the database");
             }
 
-            return Ok(MappingHelper.MapExperienceToViewModel(entity));
+            return Ok(MappingHelper.MapProjectToViewModel(entity));
         }
 
         [HttpGet("new")]
-        public ActionResult<ExperienceView> New()
+        public ActionResult<ProjectView> New()
         {
-            return Ok(new ExperienceView());
+            return Ok(new ProjectView());
         }
 
         [HttpGet("newTranslation/{langCode}")]
-        public async Task<ActionResult<ExperienceTranslationView>> NewTranslation(string langCode)
+        public async Task<ActionResult<ProjectTranslationView>> NewTranslation(string langCode)
         {
             var language = await _context.PortfolioTranslations.Where(x => x.LanguageCode.Contains(langCode.ToLower())).FirstOrDefaultAsync();
 
@@ -72,7 +72,7 @@ namespace portfolioAdminApp.Controllers
                 throw new Exception("Language with code " + langCode + " was not found!");
             }
 
-            var trans = new ExperienceTranslationView();
+            var trans = new ProjectTranslationView();
             
             trans.Language = language;
             
@@ -80,52 +80,40 @@ namespace portfolioAdminApp.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ExperienceView>> Post([FromBody]Experience Experience, [FromQuery]bool useForWeb = true)
+        public async Task<ActionResult<ProjectView>> Post([FromBody]Project Project, [FromQuery]bool useForWeb = true)
         {
             try {
-                Experience.EId = Guid.NewGuid();
-                Experience.Enabled = true;
-                if (Experience.Translations == null) {
-                    Experience.Translations = new List<ExperienceTranslation>();
+                Project.EId = Guid.NewGuid();
+                Project.Enabled = true;
+                if (Project.Translations == null) {
+                    Project.Translations = new List<ProjectTranslation>();
                 }                 
 
-                _context.PortfolioExperiences.Add(Experience);
+                _context.PortfolioProjects.Add(Project);
                 
                 await _context.SaveChangesAsync();
                 
-                return Ok(await GetById((Guid)Experience.EId, useForWeb));
+                return Ok(await GetById((Guid)Project.EId, useForWeb));
             } catch (Exception e) {
                 throw e;            
             }    
         }
 
         [HttpPut]
-        public async Task<ActionResult<ExperienceView>> Put([FromBody]Experience Experience, [FromQuery]bool useForWeb = true)
+        public async Task<ActionResult<ProjectView>> Put([FromBody]Project Project, [FromQuery]bool useForWeb = true)
         {
             try {
-                var entity = _context.PortfolioExperiences.Where(x => x.EId == Experience.EId && x.Enabled).FirstOrDefault();
+                var entity = _context.PortfolioProjects.Where(x => x.EId == Project.EId && x.Enabled).FirstOrDefault();
 
                 if (entity == null) {
                     throw new Exception("The requested entity could not be found in the database");
                 }
 
                 entity.EnabledInWeb = useForWeb;
-                entity.From = Experience.From;
-                entity.To = Experience.To;
-                entity.ImageUrl = Experience.ImageUrl;
-
-                foreach (var trans in entity.Translations) {
-                    var changes = Experience.Translations.Where(x => x.Language.LanguageCode == trans.Language.LanguageCode).FirstOrDefault();
-                    if (changes != null) {
-                        trans.Name = changes.Name;
-                        trans.Place = changes.Place;
-                        trans.Description = changes.Description;
-                    }
-                }
 
                 await _context.SaveChangesAsync();
 
-                return Ok(MappingHelper.MapExperienceToViewModel(entity));
+                return Ok(MappingHelper.MapProjectToViewModel(entity));
             } catch (Exception e) {
                 throw e;            
             }    
@@ -135,7 +123,7 @@ namespace portfolioAdminApp.Controllers
         public async Task<ActionResult<bool>> Delete(Guid id)
         {
             try {
-                var entity = _context.PortfolioExperiences.Where(x => x.EId == id && x.Enabled).FirstOrDefault();
+                var entity = _context.PortfolioProjects.Where(x => x.EId == id && x.Enabled).FirstOrDefault();
 
                 if (entity == null) {
                     throw new Exception("The requested entity could not be found in the database");

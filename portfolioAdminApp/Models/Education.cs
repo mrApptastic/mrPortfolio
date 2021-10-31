@@ -17,6 +17,9 @@ namespace portfolioAdminApp.Models
     public class EducationSummary
     {
         public Guid? EId { get; set; } 
+        public DateTime? From { get; set; }
+        public DateTime? To { get; set; }
+        public string ImageUrl { get; set; }
         public ICollection<EducationTranslation> Translations { get; set; }
     }
 
@@ -30,12 +33,16 @@ namespace portfolioAdminApp.Models
         public Guid? EId { get; set; } 
         public Translation Language { get; set; }        
         public string Name { get; set; }
+        public string Place { get; set; }
         public string Description { get; set; }
     }
 
     public class EducationView {
         public Guid? EId { get; set; }
         public bool EnabledInWeb { get; set; } 
+        public DateTime? From { get; set; }
+        public DateTime? To { get; set; }
+        public string ImageUrl { get; set; }
         public ICollection<EducationTranslationView> Translations { get; set; }
     }
 
@@ -43,11 +50,16 @@ namespace portfolioAdminApp.Models
         public Guid? EId { get; set; } 
         public TranslationView Language { get; set; }  
         public string Name { get; set; }
+        public string Place { get; set; }
         public string Description { get; set; }
     }
 
     public class EducationTranslationOpen {    
         public string Name { get; set; }
+        public string Place { get; set; }
         public string Description { get; set; }
+        public DateTime? From { get; set; }
+        public DateTime? To { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

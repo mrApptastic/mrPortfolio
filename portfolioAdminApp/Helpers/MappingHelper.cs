@@ -37,6 +37,7 @@ namespace portfolioAdminApp.Helpers
             return new CertificateTranslationView() {
                 EId = translation.EId,
                 Name = translation.Name,
+                Place = translation.Place,
                 Description = translation.Description,
                 Language = translation.Language
             };
@@ -48,6 +49,9 @@ namespace portfolioAdminApp.Helpers
          return new EducationView() {
              EId = education.EId,
              EnabledInWeb = education.EnabledInWeb,
+             From = education.From,
+             To = education.To,
+             ImageUrl = education.ImageUrl,
              Translations = MapEducationTranslationToOpenModels(education.Translations)
             };
         }
@@ -66,6 +70,7 @@ namespace portfolioAdminApp.Helpers
             return new EducationTranslationView() {
                 EId = translation.EId,
                 Name = translation.Name,
+                Place = translation.Place,
                 Description = translation.Description,
                 Language = translation.Language
             };
@@ -77,6 +82,9 @@ namespace portfolioAdminApp.Helpers
          return new ExperienceView() {
              EId = experience.EId,
              EnabledInWeb = experience.EnabledInWeb,
+             From = experience.From,
+             To = experience.To,
+             ImageUrl = experience.ImageUrl,
              Translations = MapExperienceTranslationToOpenModels(experience.Translations)
             };
         }
@@ -95,6 +103,7 @@ namespace portfolioAdminApp.Helpers
             return new ExperienceTranslationView() {
                 EId = translation.EId,
                 Name = translation.Name,
+                Place = translation.Place,
                 Description = translation.Description,
                 Language = translation.Language
             };
@@ -106,6 +115,7 @@ namespace portfolioAdminApp.Helpers
          return new InterestView() {
              EId = interest.EId,
              EnabledInWeb = interest.EnabledInWeb,
+             ImageUrl = interest.ImageUrl,
              Translations = MapInterestTranslationToOpenModels(interest.Translations)
             };
         }

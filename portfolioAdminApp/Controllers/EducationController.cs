@@ -110,6 +110,19 @@ namespace portfolioAdminApp.Controllers
                 }
 
                 entity.EnabledInWeb = useForWeb;
+                entity.From = Education.From;
+                entity.To = Education.To;
+                entity.ImageUrl = Education.ImageUrl;
+
+                foreach (var trans in entity.Translations) {
+                    var changes = Education.Translations.Where(x => x.Language.LanguageCode == trans.Language.LanguageCode).FirstOrDefault();
+                    if (changes != null) {
+                        trans.Name = changes.Name;
+                        trans.Place = changes.Place;
+                        trans.Description = changes.Description;
+
+                    }
+                }
 
                 await _context.SaveChangesAsync();
 
