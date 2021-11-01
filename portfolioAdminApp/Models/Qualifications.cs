@@ -16,7 +16,8 @@ namespace portfolioAdminApp.Models
 
     public class QualificationSummary
     {
-        public Guid? EId { get; set; } 
+        public Guid? EId { get; set; }       
+        public string ImageUrl { get; set; } 
         public ICollection<QualificationTranslation> Translations { get; set; }
     }
 
@@ -35,7 +36,8 @@ namespace portfolioAdminApp.Models
 
     public class QualificationView {
         public Guid? EId { get; set; }
-        public bool EnabledInWeb { get; set; } 
+        public bool EnabledInWeb { get; set; }        
+        public string ImageUrl { get; set; }
         public ICollection<QualificationTranslationView> Translations { get; set; }
     }
 
@@ -48,6 +50,7 @@ namespace portfolioAdminApp.Models
 
     public class QualificationTranslationOpen {    
         public string Name { get; set; }
-        public string Description { get; set; }
+        public string Description { get; set; }        
+        public string ImageUrl { get; set; }
     }
 }

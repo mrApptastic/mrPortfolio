@@ -19,6 +19,9 @@ namespace portfolioAdminApp.Helpers
          return new CertificateView() {
              EId = certificate.EId,
              EnabledInWeb = certificate.EnabledInWeb,
+             From = certificate.From,
+             To = certificate.To,
+             ImageUrl = certificate.ImageUrl,
              Translations = MapCertificateTranslationToOpenModels(certificate.Translations)
             };
         }
@@ -145,6 +148,7 @@ namespace portfolioAdminApp.Helpers
          return new LanguageView() {
              EId = language.EId,
              EnabledInWeb = language.EnabledInWeb,
+             ImageUrl = language.ImageUrl,
              Translations = MapLanguageTranslationToOpenModels(language.Translations)
             };
         }
@@ -174,6 +178,10 @@ namespace portfolioAdminApp.Helpers
          return new ProjectView() {
              EId = project.EId,
              EnabledInWeb = project.EnabledInWeb,
+             From = project.From,
+             To = project.To,
+             ImageUrl = project.ImageUrl,
+             DemoUrl = project.DemoUrl,
              Translations = MapProjectTranslationToOpenModels(project.Translations)
             };
         }
@@ -192,6 +200,7 @@ namespace portfolioAdminApp.Helpers
             return new ProjectTranslationView() {
                 EId = translation.EId,
                 Name = translation.Name,
+                Place = translation.Place,
                 Description = translation.Description,
                 Language = translation.Language
             };
@@ -203,6 +212,7 @@ namespace portfolioAdminApp.Helpers
          return new QualificationView() {
              EId = project.EId,
              EnabledInWeb = project.EnabledInWeb,
+             ImageUrl = project.ImageUrl,
              Translations = MapQualificationTranslationToOpenModels(project.Translations)
             };
         }

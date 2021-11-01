@@ -108,8 +108,16 @@ namespace portfolioAdminApp.Controllers
                 if (entity == null) {
                     throw new Exception("The requested entity could not be found in the database");
                 }
-
                 entity.EnabledInWeb = useForWeb;
+                entity.ImageUrl = Language.ImageUrl;
+
+                foreach (var trans in entity.Translations) {
+                    var changes = Language.Translations.Where(x => x.Language.LanguageCode == trans.Language.LanguageCode).FirstOrDefault();
+                    if (changes != null) {
+                        trans.Name = changes.Name;
+                        trans.Description = changes.Description;
+                    }
+                }
 
                 await _context.SaveChangesAsync();
 

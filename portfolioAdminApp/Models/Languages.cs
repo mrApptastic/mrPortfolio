@@ -16,7 +16,8 @@ namespace portfolioAdminApp.Models
 
     public class LanguageSummary
     {
-        public Guid? EId { get; set; } 
+        public Guid? EId { get; set; }
+        public string ImageUrl { get; set; }
         public ICollection<LanguageTranslation> Translations { get; set; }
     }
 
@@ -27,7 +28,7 @@ namespace portfolioAdminApp.Models
     }
 
     public class LanguageTranslationSummary {
-        public Guid? EId { get; set; } 
+        public Guid? EId { get; set; }
         public Translation Language { get; set; }        
         public string Name { get; set; }
         public string Description { get; set; }
@@ -35,7 +36,8 @@ namespace portfolioAdminApp.Models
 
     public class LanguageView {
         public Guid? EId { get; set; }
-        public bool EnabledInWeb { get; set; } 
+        public bool EnabledInWeb { get; set; }
+        public string ImageUrl { get; set; }
         public ICollection<LanguageTranslationView> Translations { get; set; }
     }
 
@@ -49,5 +51,6 @@ namespace portfolioAdminApp.Models
     public class LanguageTranslationOpen {    
         public string Name { get; set; }
         public string Description { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

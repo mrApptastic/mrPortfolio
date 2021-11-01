@@ -63,12 +63,16 @@ namespace portfolioAdminApp.Controllers
                 if (trans != null) {
                     certificateList.Add(new CertificateTranslationOpen() {
                         Description = trans.Description,
-                        Name = trans.Name
+                        Name = trans.Name,
+                        Place = trans.Place,
+                        From = certificate.From,
+                        To = certificate.To,
+                        ImageUrl = certificate.ImageUrl                        
                     });
                 }                
              }
 
-            return certificateList;
+            return certificateList.OrderBy(x => x.From).ThenBy(x => x.Name).ToList();
         } 
 
         private async Task<ICollection<EducationTranslationOpen>> GetEducationList(string langCode)
@@ -93,12 +97,16 @@ namespace portfolioAdminApp.Controllers
                 if (trans != null) {
                     educationList.Add(new EducationTranslationOpen() {
                         Description = trans.Description,
-                        Name = trans.Name
+                        Name = trans.Name,
+                        Place = trans.Place,
+                        From = education.From,
+                        To = education.To,
+                        ImageUrl = education.ImageUrl    
                     });
                 }                
              }
 
-            return educationList;
+            return educationList.OrderBy(x => x.From).ThenBy(x => x.Name).ToList();
         } 
 
         private async Task<ICollection<ExperienceTranslationOpen>> GetExperienceList(string langCode)
@@ -123,12 +131,16 @@ namespace portfolioAdminApp.Controllers
                 if (trans != null) {
                     experienceList.Add(new ExperienceTranslationOpen() {
                         Description = trans.Description,
-                        Name = trans.Name
+                        Name = trans.Name,
+                        Place = trans.Place,
+                        From = experience.From,
+                        To = experience.To,
+                        ImageUrl = experience.ImageUrl    
                     });
                 }                
              }
 
-            return experienceList;
+            return experienceList.OrderBy(x => x.From).ThenBy(x => x.Name).ToList();
         }
 
         private async Task<ICollection<InterestTranslationOpen>> GetInterestList(string langCode)
@@ -153,12 +165,13 @@ namespace portfolioAdminApp.Controllers
                 if (trans != null) {
                     interestList.Add(new InterestTranslationOpen() {
                         Description = trans.Description,
-                        Name = trans.Name
+                        Name = trans.Name,
+                        ImageUrl = interest.ImageUrl    
                     });
                 }                
              }
 
-            return interestList;
+            return interestList.OrderBy(x => x.Name).ToList();
         }
 
         private async Task<ICollection<LanguageTranslationOpen>> GetLanguageList(string langCode)
@@ -183,12 +196,13 @@ namespace portfolioAdminApp.Controllers
                 if (trans != null) {
                     languageList.Add(new LanguageTranslationOpen() {
                         Description = trans.Description,
-                        Name = trans.Name
+                        Name = trans.Name,
+                        ImageUrl = language.ImageUrl    
                     });
                 }                
              }
 
-            return languageList;
+            return languageList.OrderBy(x => x.Name).ToList();
         }
 
         private async Task<ICollection<ProjectTranslationOpen>> GetProjectList(string langCode)
@@ -213,15 +227,20 @@ namespace portfolioAdminApp.Controllers
                 if (trans != null) {
                     projectList.Add(new ProjectTranslationOpen() {
                         Description = trans.Description,
-                        Name = trans.Name
+                        Name = trans.Name,
+                        Place = trans.Place,
+                        From = project.From,
+                        To = project.To,
+                        ImageUrl = project.ImageUrl,
+                        DemoUrl = project.DemoUrl
                     });
                 }                
              }
 
-            return projectList;
+            return projectList.OrderBy(x => x.From).ThenBy(x => x.Name).ToList();
         }
 
-                private async Task<ICollection<QualificationTranslationOpen>> GetQualificationList(string langCode)
+        private async Task<ICollection<QualificationTranslationOpen>> GetQualificationList(string langCode)
         {
             var qualifications = await _context.PortfolioQualifications.Where(x => x.Enabled && x.EnabledInWeb)
                             .Include(x => x.Translations).ThenInclude(x => x.Language)
@@ -243,12 +262,13 @@ namespace portfolioAdminApp.Controllers
                 if (trans != null) {
                     qualificationList.Add(new QualificationTranslationOpen() {
                         Description = trans.Description,
-                        Name = trans.Name
+                        Name = trans.Name,
+                        ImageUrl = qualification.ImageUrl    
                     });
                 }                
              }
 
-            return qualificationList;
+            return qualificationList.OrderBy(x => x.Name).ToList();
         } 
     }
 }
