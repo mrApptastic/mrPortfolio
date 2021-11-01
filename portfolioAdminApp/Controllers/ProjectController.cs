@@ -8,10 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using portfolioAdminApp.Data;
 using portfolioAdminApp.Models;
 using portfolioAdminApp.Helpers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace portfolioAdminApp.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("api/[controller]")]
     public class ProjectController : ControllerBase
     {

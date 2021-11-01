@@ -14,6 +14,7 @@ using portfolioAdminApp.Helpers;
 namespace portfolioAdminApp.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("api/[controller]")]
     public class CertificateController : ControllerBase
     {
