@@ -1,0 +1,23 @@
+<h1 id="tableLabel">Edit certificates</h1>
+
+<p *ngIf="!certificates"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="certificates">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Temp. (C)</th>
+      <th>Temp. (F)</th>
+      <th>Summary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let certificate of certificates">
+      <!-- <td>{{ forecast.date }}</td>
+      <td>{{ forecast.temperatureC }}</td>
+      <td>{{ forecast.temperatureF }}</td>
+      <td>{{ forecast.summary }}</td> -->
+    </tr>
+  </tbody>
+</table>
+{{certificates | json}}
