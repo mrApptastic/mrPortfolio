@@ -12,6 +12,9 @@ using Microsoft.Extensions.Hosting;
 using portfolioAdminApp.Data;
 using portfolioAdminApp.Models;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace portfolioAdminApp
 {
@@ -84,6 +87,14 @@ namespace portfolioAdminApp
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            // app.UseStaticFiles(new StaticFileOptions()
+            // {
+            //     FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"StaticFiles")),
+            //     RequestPath = new PathString("/StaticFiles")
+            // });
+
+            
             if (!env.IsDevelopment())
             {
                 app.UseSpaStaticFiles();

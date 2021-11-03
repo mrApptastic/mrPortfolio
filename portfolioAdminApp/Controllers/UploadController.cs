@@ -11,7 +11,7 @@ using Microsoft.Extensions.Logging;
 namespace portfolioAdminApp.Controllers
 {
     [Authorize]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class UploadController : ControllerBase
     {
         private readonly ILogger<UploadController> _logger;
@@ -34,6 +34,7 @@ namespace portfolioAdminApp.Controllers
                 {
                     var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
                     var fullPath = Path.Combine(pathToSave, fileName);
+                    
                     var dbPath = Path.Combine(folderName, fileName);
                     using (var stream = new FileStream(fullPath, FileMode.Create))
                     {

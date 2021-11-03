@@ -1,5 +1,5 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
+import { HttpClient, HttpEventType } from '@angular/common/http';
 
 @Component({
   selector: 'app-edit-certificates',
@@ -8,7 +8,9 @@ import { HttpClient } from '@angular/common/http';
 export class EditCertificatesComponent implements OnInit {
   certificates: any;
   baseUrl: string;
-
+  progress: number;
+  message: string;
+  @Output() public onUploadFinished = new EventEmitter();
 
   constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this.baseUrl = baseUrl;
@@ -22,6 +24,24 @@ export class EditCertificatesComponent implements OnInit {
     this.http.get(this.baseUrl + "api/certificate").subscribe(x => {
       this.certificates = x;
     });
+  }
+
+  uploadFile = (files) => {
+    if (files.length === 0) {
+      return;
+    }
+    let fileToUpload = <File>files[0];
+    const formData = new FormData();
+    formData.append('file', fileToUpload, fileToUpload.name);
+    this.http.post('https://localhost:5001/api/upload', formData, {reportProgress: true, observe: 'events'})
+      .subscribe(event => {
+        if (event.type === HttpEventType.UploadProgress)
+          this.progress = Math.round(100 * event.loaded / event.total);
+        else if (event.type === HttpEventType.Response) {
+          this.message = 'Upload success.';
+          this.onUploadFinished.emit(event.body);
+        }
+      });
   }
 }
 
