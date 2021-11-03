@@ -28,9 +28,9 @@ namespace portfolioAdminApp.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ICollection<QualificationView>>> GetAll([FromQuery] string search)
+        public async Task<ActionResult<ICollection<QualificationView>>> GetAll([FromQuery] string search, [FromQuery]bool useForWeb = true)
         {
-            var query = _context.PortfolioQualifications.Where(x => x.Enabled).OrderBy(x => x.EId).AsQueryable();
+            var query = _context.PortfolioQualifications.Where(x => x.Enabled && x.EnabledInWeb == useForWeb).Include(x => x.Translations).OrderBy(x => x.EId).AsQueryable();
 
             if (search != null) {
                 query = query.Where(x => x.Translations.Any(x => x.Name.ToLower().Contains(search.ToLower()))).AsQueryable();
@@ -86,6 +86,7 @@ namespace portfolioAdminApp.Controllers
         {
             try {
                 Qualification.EId = Guid.NewGuid();
+                Qualification.EnabledInWeb = useForWeb;
                 Qualification.Enabled = true;
                 if (Qualification.Translations == null) {
                     Qualification.Translations = new List<QualificationTranslation>();

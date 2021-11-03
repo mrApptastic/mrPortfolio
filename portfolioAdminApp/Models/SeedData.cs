@@ -50,6 +50,7 @@ namespace portfolioAdminApp {
                     Enabled = true,
                     EnabledInWeb = true,
                     EId = Guid.NewGuid(),
+                    ImageUrl = "",
                     Translations = cssTrans
                 };
 
