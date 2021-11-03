@@ -19,7 +19,7 @@ export class EditCertificatesComponent implements OnInit {
   }
 
   getCertificates(): void {
-    this.http.get(this.baseUrl + "api/portfolio/getall/da").subscribe(x => {
+    this.http.get(this.baseUrl + "api/certificate").subscribe(x => {
       this.certificates = x;
     });
   }
