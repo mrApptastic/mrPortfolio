@@ -63,7 +63,10 @@ namespace portfolioAdminApp.Controllers
         [HttpGet("new")]
         public ActionResult<CertificateView> New()
         {
-            return Ok(new CertificateView());
+            var certificate = new CertificateView();
+            certificate.EId = new Guid();
+            certificate.Translations = new List<CertificateTranslationView>();
+            return Ok();
         }
 
         [HttpGet("newTranslation/{langCode}")]
@@ -117,6 +120,10 @@ namespace portfolioAdminApp.Controllers
                 entity.From = Certificate.From;
                 entity.To = Certificate.To;
                 entity.ImageUrl = Certificate.ImageUrl;
+
+                if (entity.Translations == null) {
+                    entity.Translations = new List<CertificateTranslation>();
+                }
 
                 foreach (var trans in entity.Translations) {
                     var changes = Certificate.Translations.Where(x => x.Language.LanguageCode == trans.Language.LanguageCode).FirstOrDefault();

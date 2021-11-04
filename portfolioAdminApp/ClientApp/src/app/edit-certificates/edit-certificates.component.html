@@ -5,33 +5,37 @@
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="certificates">
   <thead>
     <tr>
-      <th>Date</th>
-      <th>Temp. (C)</th>
-      <th>Temp. (F)</th>
-      <th>Summary</th>
+      <th>Enabled</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Image</th>
+      <th>Edit translations</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let certificate of certificates">
-      <!-- <td>{{ forecast.date }}</td>
-      <td>{{ forecast.temperatureC }}</td>
-      <td>{{ forecast.temperatureF }}</td>
-      <td>{{ forecast.summary }}</td> -->
+      <td>
+        <input type="checkbox" [(ngModel)]="certificate.enabledInWeb" (change)="changeCertificate(certificate)" />
+      </td>
+      <td>
+        {{certificate.from | date : 'short'}}
+      </td>
+      <td>
+        {{certificate.to | date : 'short'}}
+      </td>
+      <td>
+        {{certificate.imageUrl}}
+        <button type="button" class="btn btn-warning" (click)="uploadId = certificate.eId; fileUpload.click();">Upload</button>
+      </td>
+      <td>
+        <!-- <div *ngFor="let translation of certificate.translations">
+          {{translation?.language.name}}:  <input type="text" [(ngModel)]="translation.name" (blur)="changeCertificate(certificate)" />
+        </div> -->
+      </td>
     </tr>
   </tbody>
 </table>
+<button type="button" class="btn btn-success" (click)="addCertificate()">Add</button>
 {{certificates | json}}
-<div class="row" style="margin-bottom:15px;">
-  <div class="col-md-3">
-    <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)" style="display:none;">
-    <button type="button" class="btn btn-success" (click)="file.click()">Upload File</button>
-  </div>
-  <div class="col-md-4">
-    <span class="upload" *ngIf="progress > 0">
-      {{progress}}%
-    </span>
-    <span class="upload" *ngIf="message">
-      {{message}}
-    </span>
-  </div>
-</div>
+{{uploadId}}
+<input #fileUpload type="file"  placeholder="Choose file" (change)="uploadFile(fileUpload.files)" style="display:none;">
