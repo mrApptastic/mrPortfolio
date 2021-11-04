@@ -67,7 +67,7 @@ namespace portfolioAdminApp.Controllers
                         Place = trans.Place,
                         From = certificate.From,
                         To = certificate.To,
-                        ImageUrl = certificate.ImageUrl                        
+                        ImageUrl = certificate.ImageUrl != null && certificate.ImageUrl.Length > 0 ? ImageHelper.ConvertToDataUrl(certificate.ImageUrl) :  ""                     
                     });
                 }                
              }
