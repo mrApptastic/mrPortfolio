@@ -8,8 +8,9 @@
       <th>Enabled</th>
       <th>From</th>
       <th>To</th>
-      <th>Image</th>
       <th>Edit translations</th>
+      <th>Image</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -24,21 +25,24 @@
         {{certificate.to | date : 'short'}}
       </td>
       <td>
+        <div *ngIf="certificate && certificate.translations">
+          <div *ngFor="let translation of certificate.translations">
+            <label>{{translation.language.name}}:</label><br/>
+            <input type="text" placeholder="Name" [(ngModel)]="translation.name" (blur)="changeCertificate(certificate)" />
+            <input type="text" placeholder="Description" [(ngModel)]="translation.description" (blur)="changeCertificate(certificate)" />
+            <input type="text" placeholder="Place" [(ngModel)]="translation.place" (blur)="changeCertificate(certificate)" />
+          </div>
+        </div>
+      </td>
+      <td>
         {{certificate.imageUrl}}
         <button type="button" class="btn btn-warning" (click)="uploadId = certificate.eId; fileUpload.click();">Upload</button>
       </td>
       <td>
-        <div *ngIf="certificate && certificate.translations">
-          <div *ngFor="let translation of certificate.translations">
-            {{translation.language.name}}:
-          </div>
-        </div>
-      <!-- <input type="text" [(ngModel)]="translation.name" (blur)="changeCertificate(certificate)" />-->
+        <button type="button" class="btn btn-danger" (click)="deleteCertificate(certificate)">Delete</button>
       </td>
     </tr>
   </tbody>
 </table>
 <button type="button" class="btn btn-success" (click)="addCertificate()">Add</button>
-{{certificates | json}}
-{{uploadId}}
 <input #fileUpload type="file"  placeholder="Choose file" (change)="uploadFile(fileUpload.files)" style="display:none;">

@@ -57,19 +57,23 @@ export class EditCertificatesComponent implements OnInit {
     newCertificate.translations.push(JSON.parse(JSON.stringify(this.newTemplateEn)));
     newCertificate.translations.push(JSON.parse(JSON.stringify(this.newTemplateDa)));
     this.http.post(this.baseUrl + "api/certificate", newCertificate).subscribe(x => {
-
+      // this.certificates = x;
+      this.certificates.push(newCertificate);
     });
   }
 
   changeCertificate(certificate: any): void {
     this.http.put(this.baseUrl + "api/certificate?useForWeb=" + certificate.enabledInWeb, certificate).subscribe(x => {
-
+      // this.certificates = x;
     });
   }
 
   deleteCertificate(certificate: any): void {
     this.http.delete(this.baseUrl + "api/certificate/" + certificate.eId).subscribe(x => {
-
+      const index = this.certificates.findIndex(i => i.eId === certificate.eId);
+      if (index > -1) {
+        this.certificates.splice(index, 1);
+      }
     });
   }
 

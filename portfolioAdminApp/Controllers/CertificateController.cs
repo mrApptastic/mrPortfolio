@@ -31,7 +31,7 @@ namespace portfolioAdminApp.Controllers
         [HttpGet]
         public async Task<ActionResult<ICollection<CertificateView>>> GetAll([FromQuery] string search, [FromQuery]bool useForWeb = true)
         {
-            var query = _context.PortfolioCertificates.Where(x => x.Enabled && x.EnabledInWeb == useForWeb).Include(x => x.Translations).OrderBy(x => x.EId).AsQueryable();
+            var query = _context.PortfolioCertificates.Where(x => x.Enabled && x.EnabledInWeb == useForWeb).Include(x => x.Translations).ThenInclude(x => x.Language).OrderBy(x => x.EId).AsQueryable();
 
             if (search != null) {
                 query = query.Where(x => x.Translations.Any(x => x.Name.ToLower().Contains(search.ToLower()))).AsQueryable();
@@ -51,7 +51,7 @@ namespace portfolioAdminApp.Controllers
         [HttpGet("{id:Guid}")]
         public async Task<ActionResult<CertificateView>> GetById(Guid id, [FromQuery]bool useForWeb = true)
         {
-            var entity = await _context.PortfolioCertificates.Where(x => x.EId == id && x.Enabled && x.EnabledInWeb == useForWeb).Include(x => x.Translations).FirstOrDefaultAsync();
+            var entity = await _context.PortfolioCertificates.Where(x => x.EId == id && x.Enabled && x.EnabledInWeb == useForWeb).Include(x => x.Translations).ThenInclude(x => x.Language).FirstOrDefaultAsync();
 
             if (entity == null) {
                 throw new Exception("The requested entity could not be found in the database");
@@ -89,12 +89,21 @@ namespace portfolioAdminApp.Controllers
         public async Task<ActionResult<CertificateView>> Post([FromBody]Certificate Certificate, [FromQuery]bool useForWeb = true)
         {
             try {
+                var languageList = await _context.PortfolioTranslations.ToListAsync();
+                
                 Certificate.EId = Guid.NewGuid();
                 Certificate.EnabledInWeb = useForWeb;
                 Certificate.Enabled = true;
+                
                 if (Certificate.Translations == null) {
                     Certificate.Translations = new List<CertificateTranslation>();
-                }                 
+                }
+
+                foreach (var trans in Certificate.Translations) {
+                    trans.EId = Guid.NewGuid();
+                    string langCode = trans.Language.LanguageCode;
+                    trans.Language = languageList.Where(x => x.LanguageCode == langCode).FirstOrDefault();
+                }        
 
                 _context.PortfolioCertificates.Add(Certificate);
                 
@@ -110,7 +119,7 @@ namespace portfolioAdminApp.Controllers
         public async Task<ActionResult<CertificateView>> Put([FromBody]Certificate Certificate, [FromQuery]bool useForWeb = true)
         {
             try {
-                var entity = _context.PortfolioCertificates.Where(x => x.EId == Certificate.EId && x.Enabled).FirstOrDefault();
+                var entity = _context.PortfolioCertificates.Where(x => x.EId == Certificate.EId && x.Enabled).Include(x => x.Translations).ThenInclude(x => x.Language).FirstOrDefault();
 
                 if (entity == null) {
                     throw new Exception("The requested entity could not be found in the database");
@@ -136,7 +145,7 @@ namespace portfolioAdminApp.Controllers
 
                 await _context.SaveChangesAsync();
 
-                return Ok(MappingHelper.MapCertificateToViewModel(entity));
+                return Ok(await GetById((Guid)Certificate.EId, useForWeb));
             } catch (Exception e) {
                 throw e;            
             }    
