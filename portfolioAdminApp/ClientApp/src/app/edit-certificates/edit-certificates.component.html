@@ -28,9 +28,12 @@
         <button type="button" class="btn btn-warning" (click)="uploadId = certificate.eId; fileUpload.click();">Upload</button>
       </td>
       <td>
-        <!-- <div *ngFor="let translation of certificate.translations">
-          {{translation?.language.name}}:  <input type="text" [(ngModel)]="translation.name" (blur)="changeCertificate(certificate)" />
-        </div> -->
+        <div *ngIf="certificate && certificate.translations">
+          <div *ngFor="let translation of certificate.translations">
+            {{translation.language.name}}:
+          </div>
+        </div>
+      <!-- <input type="text" [(ngModel)]="translation.name" (blur)="changeCertificate(certificate)" />-->
       </td>
     </tr>
   </tbody>

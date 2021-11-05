@@ -66,7 +66,7 @@ namespace portfolioAdminApp.Controllers
             var certificate = new CertificateView();
             certificate.EId = new Guid();
             certificate.Translations = new List<CertificateTranslationView>();
-            return Ok();
+            return Ok(certificate);
         }
 
         [HttpGet("newTranslation/{langCode}")]

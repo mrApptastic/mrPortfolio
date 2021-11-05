@@ -37,11 +37,12 @@ export class EditCertificatesComponent implements OnInit {
       this.newTemplateEn = x[1];
       this.newTemplateDa = x[2];
       this.newTemplate = x[3];
+
       for (const certificate of this.certificates) {
-        if (!certificate.translations.some(t => t.language.languageCode === "en-GB")) {
+        if (!certificate.translations.some(t => t.language && t.language.languageCode === "en-GB")) {
            certificate.translations.push(JSON.parse(JSON.stringify(this.newTemplateEn)));
         }
-        if (!certificate.translations.some(t => t.language.languageCode === "da-DK")) {
+        if (!certificate.translations.some(t => t.language && t.language.languageCode === "da-DK")) {
           certificate.translations.push(JSON.parse(JSON.stringify(this.newTemplateDa)));
        }
       }
