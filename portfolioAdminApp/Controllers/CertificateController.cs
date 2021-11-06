@@ -31,7 +31,11 @@ namespace portfolioAdminApp.Controllers
         [HttpGet]
         public async Task<ActionResult<ICollection<CertificateView>>> GetAll([FromQuery] string search, [FromQuery]bool useForWeb = true)
         {
-            var query = _context.PortfolioCertificates.Where(x => x.Enabled && x.EnabledInWeb == useForWeb).Include(x => x.Translations).ThenInclude(x => x.Language).OrderBy(x => x.EId).AsQueryable();
+            var query = _context.PortfolioCertificates.Where(x => x.Enabled).Include(x => x.Translations).ThenInclude(x => x.Language).OrderBy(x => x.EId).AsQueryable();
+
+            if (useForWeb) {
+                query = query.Where(x => x.EnabledInWeb == true).AsQueryable();                
+            }
 
             if (search != null) {
                 query = query.Where(x => x.Translations.Any(x => x.Name.ToLower().Contains(search.ToLower()))).AsQueryable();
@@ -51,7 +55,7 @@ namespace portfolioAdminApp.Controllers
         [HttpGet("{id:Guid}")]
         public async Task<ActionResult<CertificateView>> GetById(Guid id, [FromQuery]bool useForWeb = true)
         {
-            var entity = await _context.PortfolioCertificates.Where(x => x.EId == id && x.Enabled && x.EnabledInWeb == useForWeb).Include(x => x.Translations).ThenInclude(x => x.Language).FirstOrDefaultAsync();
+            var entity = await _context.PortfolioCertificates.Where(x => x.EId == id && x.Enabled && (useForWeb ? x.EnabledInWeb == true : true)).Include(x => x.Translations).ThenInclude(x => x.Language).FirstOrDefaultAsync();
 
             if (entity == null) {
                 throw new Exception("The requested entity could not be found in the database");

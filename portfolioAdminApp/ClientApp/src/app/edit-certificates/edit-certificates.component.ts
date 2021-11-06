@@ -1,6 +1,7 @@
 import { Component, ElementRef, EventEmitter, Inject, OnInit, Output, ViewChild } from '@angular/core';
 import { HttpClient, HttpEventType } from '@angular/common/http';
 import { forkJoin } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-certificates',
@@ -16,9 +17,7 @@ export class EditCertificatesComponent implements OnInit {
   message: string;
   uploadId: any;
 
-
-
-  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string, private toastr: ToastrService) {
     this.baseUrl = baseUrl;
   }
 
@@ -28,7 +27,7 @@ export class EditCertificatesComponent implements OnInit {
 
   getCertificates(): void {
     forkJoin([
-      this.http.get(this.baseUrl + "api/certificate"),
+      this.http.get(this.baseUrl + "api/certificate?useForWeb=false"),
       this.http.get(this.baseUrl + "api/certificate/newTranslation/en"),
       this.http.get(this.baseUrl + "api/certificate/newTranslation/da"),
       this.http.get(this.baseUrl + "api/certificate/new"),
@@ -57,13 +56,15 @@ export class EditCertificatesComponent implements OnInit {
     newCertificate.translations.push(JSON.parse(JSON.stringify(this.newTemplateEn)));
     newCertificate.translations.push(JSON.parse(JSON.stringify(this.newTemplateDa)));
     this.http.post(this.baseUrl + "api/certificate", newCertificate).subscribe(x => {
-      // this.certificates = x;
-      this.certificates.push(newCertificate);
+      this.http.get(this.baseUrl + "api/certificate?useForWeb=false", newCertificate).subscribe(c => {
+        this.certificates = c;
+      });
     });
   }
 
   changeCertificate(certificate: any): void {
     this.http.put(this.baseUrl + "api/certificate?useForWeb=" + certificate.enabledInWeb, certificate).subscribe(x => {
+      this.toastr.success('Hello world!', 'Toastr fun!');
       // this.certificates = x;
     });
   }
