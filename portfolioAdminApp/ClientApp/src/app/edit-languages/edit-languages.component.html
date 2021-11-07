@@ -1,0 +1,41 @@
+<h1 id="tableLabel">Edit languages</h1>
+
+<p *ngIf="!languages"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="languages">
+  <thead>
+    <tr>
+      <th>Enabled</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Edit translations</th>
+      <th>Image</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let language of languages">
+      <td>
+        <input type="checkbox" [(ngModel)]="language.enabledInWeb" (change)="changeLanguage(language)" />
+      </td>
+      <td>
+        <div *ngIf="language && language.translations">
+          <div *ngFor="let translation of language.translations">
+            <label>{{translation.language.name}}:</label><br/>
+            <input class="w-100" type="text" placeholder="Name" [(ngModel)]="translation.name" (blur)="v" />
+            <textarea class="w-100" type="text" placeholder="Description" [(ngModel)]="translation.description" (blur)="changeLanguage(language)"></textarea>
+          </div>
+        </div>
+      </td>
+      <td>
+        <button type="button" class="btn btn-warning" (click)="uploadId = language.eId; fileUpload.click();">Upload</button><br/>
+        {{language.imageUrl}}
+      </td>
+      <td>
+        <button type="button" class="btn btn-danger" (click)="deleteLanguage(language)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button type="button" class="btn btn-success" (click)="addLanguage()">Add</button>
+<input #fileUpload type="file"  placeholder="Choose file" (change)="uploadFile(fileUpload.files)" style="display:none;">

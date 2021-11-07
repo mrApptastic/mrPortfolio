@@ -12,13 +12,25 @@ import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { ToastrModule } from 'ngx-toastr';
+import { EditEducationsComponent } from './edit-educations/edit-educations.component';
+import { EditExperiencesComponent } from './edit-experiences/edit-experiences.component';
+import { EditInterestsComponent } from './edit-interests/edit-interests.component';
+import { EditLanguagesComponent } from './edit-languages/edit-languages.component';
+import { EditProjectsComponent } from './edit-projects/edit-projects.component';
+import { EditQualificationsComponent } from './edit-qualifications/edit-qualifications.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    EditCertificatesComponent
+    EditCertificatesComponent,
+    EditEducationsComponent,
+    EditExperiencesComponent,
+    EditInterestsComponent,
+    EditLanguagesComponent,
+    EditProjectsComponent,
+    EditQualificationsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -27,8 +39,14 @@ import { ToastrModule } from 'ngx-toastr';
     ApiAuthorizationModule,
     CommonModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'certificates', component: EditCertificatesComponent, canActivate: [AuthorizeGuard] }
+      { path: '', component: HomeComponent, pathMatch: 'full', canActivate: [AuthorizeGuard] },
+      { path: 'certificates', component: EditCertificatesComponent, canActivate: [AuthorizeGuard] },
+      { path: 'educations', component: EditEducationsComponent, canActivate: [AuthorizeGuard] },
+      { path: 'experiences', component: EditExperiencesComponent, canActivate: [AuthorizeGuard] },
+      { path: 'interests', component: EditInterestsComponent, canActivate: [AuthorizeGuard] },
+      { path: 'languages', component: EditLanguagesComponent, canActivate: [AuthorizeGuard] },
+      { path: 'projects', component: EditProjectsComponent, canActivate: [AuthorizeGuard] },
+      { path: 'qualifications', component: EditQualificationsComponent, canActivate: [AuthorizeGuard] }
     ]),
     ToastrModule.forRoot()
   ],

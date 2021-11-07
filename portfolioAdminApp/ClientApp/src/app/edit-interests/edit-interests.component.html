@@ -1,0 +1,41 @@
+<h1 id="tableLabel">Edit interests</h1>
+
+<p *ngIf="!interests"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="interests">
+  <thead>
+    <tr>
+      <th>Enabled</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Edit translations</th>
+      <th>Image</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let interest of interests">
+      <td>
+        <input type="checkbox" [(ngModel)]="interest.enabledInWeb" (change)="changeInterest(interest)" />
+      </td>
+      <td>
+        <div *ngIf="interest && interest.translations">
+          <div *ngFor="let translation of interest.translations">
+            <label>{{translation.language.name}}:</label><br/>
+            <input class="w-100" type="text" placeholder="Name" [(ngModel)]="translation.name" (blur)="v" />
+            <textarea class="w-100" type="text" placeholder="Description" [(ngModel)]="translation.description" (blur)="changeInterest(interest)"></textarea>
+          </div>
+        </div>
+      </td>
+      <td>
+        <button type="button" class="btn btn-warning" (click)="uploadId = interest.eId; fileUpload.click();">Upload</button><br/>
+        {{interest.imageUrl}}
+      </td>
+      <td>
+        <button type="button" class="btn btn-danger" (click)="deleteInterest(interest)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button type="button" class="btn btn-success" (click)="addInterest()">Add</button>
+<input #fileUpload type="file"  placeholder="Choose file" (change)="uploadFile(fileUpload.files)" style="display:none;">

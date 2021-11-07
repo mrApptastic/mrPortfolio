@@ -1,0 +1,48 @@
+<h1 id="tableLabel">Edit experiences</h1>
+
+<p *ngIf="!experiences"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="experiences">
+  <thead>
+    <tr>
+      <th>Enabled</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Edit translations</th>
+      <th>Image</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let experience of experiences">
+      <td>
+        <input type="checkbox" [(ngModel)]="experience.enabledInWeb" (change)="changeExperience(experience)" />
+      </td>
+      <td>
+        <input type="date" [ngModel]="experience.from | date:'yyyy-MM-dd'" (ngModelChange)="experience.from = $event; changeExperience(experience)" />
+      </td>
+      <td>
+        <input type="date" [ngModel]="experience.to | date:'yyyy-MM-dd'" (ngModelChange)="experience.to = $event; changeExperience(experience)" />
+      </td>
+      <td>
+        <div *ngIf="experience && experience.translations">
+          <div *ngFor="let translation of experience.translations">
+            <label>{{translation.language.name}}:</label><br/>
+            <input class="w-100" type="text" placeholder="Name" [(ngModel)]="translation.name" (blur)="v" />
+            <input class="w-100" type="text" placeholder="Place" [(ngModel)]="translation.place" (blur)="changeExperience(experience)" />
+            <textarea class="w-100" type="text" placeholder="Description" [(ngModel)]="translation.description" (blur)="changeExperience(experience)"></textarea>
+          </div>
+        </div>
+      </td>
+      <td>
+        <button type="button" class="btn btn-warning" (click)="uploadId = experience.eId; fileUpload.click();">Upload</button><br/>
+        {{experience.imageUrl}}
+      </td>
+      <td>
+        <button type="button" class="btn btn-danger" (click)="deleteExperience(experience)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button type="button" class="btn btn-success" (click)="addExperience()">Add</button>
+<input #fileUpload type="file"  placeholder="Choose file" (change)="uploadFile(fileUpload.files)" style="display:none;">

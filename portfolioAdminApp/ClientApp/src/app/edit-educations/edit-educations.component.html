@@ -1,0 +1,48 @@
+<h1 id="tableLabel">Edit educations</h1>
+
+<p *ngIf="!educations"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="educations">
+  <thead>
+    <tr>
+      <th>Enabled</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Edit translations</th>
+      <th>Image</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let education of educations">
+      <td>
+        <input type="checkbox" [(ngModel)]="education.enabledInWeb" (change)="changeEducation(education)" />
+      </td>
+      <td>
+        <input type="date" [ngModel]="education.from | date:'yyyy-MM-dd'" (ngModelChange)="education.from = $event; changeEducation(education)" />
+      </td>
+      <td>
+        <input type="date" [ngModel]="education.to | date:'yyyy-MM-dd'" (ngModelChange)="education.to = $event; changeEducation(education)" />
+      </td>
+      <td>
+        <div *ngIf="education && education.translations">
+          <div *ngFor="let translation of education.translations">
+            <label>{{translation.language.name}}:</label><br/>
+            <input class="w-100" type="text" placeholder="Name" [(ngModel)]="translation.name" (blur)="v" />
+            <input class="w-100" type="text" placeholder="Place" [(ngModel)]="translation.place" (blur)="changeEducation(education)" />
+            <textarea class="w-100" type="text" placeholder="Description" [(ngModel)]="translation.description" (blur)="changeEducation(education)"></textarea>
+          </div>
+        </div>
+      </td>
+      <td>
+        <button type="button" class="btn btn-warning" (click)="uploadId = education.eId; fileUpload.click();">Upload</button><br/>
+        {{education.imageUrl}}
+      </td>
+      <td>
+        <button type="button" class="btn btn-danger" (click)="deleteEducation(education)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button type="button" class="btn btn-success" (click)="addEducation()">Add</button>
+<input #fileUpload type="file"  placeholder="Choose file" (change)="uploadFile(fileUpload.files)" style="display:none;">

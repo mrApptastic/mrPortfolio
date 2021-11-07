@@ -1,0 +1,52 @@
+<h1 id="tableLabel">Edit projects</h1>
+
+<p *ngIf="!projects"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="projects">
+  <thead>
+    <tr>
+      <th>Enabled</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Edit translations</th>
+      <th>Demo</th>
+      <th>Image</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let project of projects">
+      <td>
+        <input type="checkbox" [(ngModel)]="project.enabledInWeb" (change)="changeProject(project)" />
+      </td>
+      <td>
+        <input type="date" [ngModel] ="project.from | date:'yyyy-MM-dd'" (ngModelChange)="project.from = $event; changeProject(project)" />
+      </td>
+      <td>
+        <input type="date" [ngModel] ="project.to | date:'yyyy-MM-dd'" (ngModelChange)="project.to = $event; changeProject(project)" />
+      </td>
+      <td>
+        <div *ngIf="project && project.translations">
+          <div *ngFor="let translation of project.translations">
+            <label>{{translation.language.name}}:</label><br/>
+            <input class="w-100" type="text" placeholder="Name" [(ngModel)]="translation.name" (blur)="v" />
+            <input class="w-100" type="text" placeholder="Place" [(ngModel)]="translation.place" (blur)="changeProject(project)" />
+            <textarea class="w-100" type="text" placeholder="Description" [(ngModel)]="translation.description" (blur)="changeProject(project)"></textarea>
+          </div>
+        </div>
+      </td>
+      <td>
+        <input class="w-100" type="text" placeholder="Demo Url" [(ngModel)]="project.demoUrl" (blur)="changeProject(project)" />
+      </td>
+      <td>
+        <button type="button" class="btn btn-warning" (click)="uploadId = project.eId; fileUpload.click();">Upload</button><br/>
+        {{project.imageUrl}}
+      </td>
+      <td>
+        <button type="button" class="btn btn-danger" (click)="deleteProject(project)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button type="button" class="btn btn-success" (click)="addProject()">Add</button>
+<input #fileUpload type="file"  placeholder="Choose file" (change)="uploadFile(fileUpload.files)" style="display:none;">

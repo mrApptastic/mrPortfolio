@@ -1,0 +1,39 @@
+<h1 id="tableLabel">Edit qualifications</h1>
+
+<p *ngIf="!qualifications"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="qualifications">
+  <thead>
+    <tr>
+      <th>Enabled</th>
+      <th>Edit translations</th>
+      <th>Image</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let qualification of qualifications">
+      <td>
+        <input type="checkbox" [(ngModel)]="qualification.enabledInWeb" (change)="changeQualification(qualification)" />
+      </td>
+      <td>
+        <div *ngIf="qualification && qualification.translations">
+          <div *ngFor="let translation of qualification.translations">
+            <label>{{translation.language.name}}:</label><br/>
+            <input class="w-100" type="text" placeholder="Name" [(ngModel)]="translation.name" (blur)="v" />
+            <textarea class="w-100" type="text" placeholder="Description" [(ngModel)]="translation.description" (blur)="changeQualification(qualification)"></textarea>
+          </div>
+        </div>
+      </td>
+      <td>
+        <button type="button" class="btn btn-warning" (click)="uploadId = qualification.eId; fileUpload.click();">Upload</button><br/>
+        {{qualification.imageUrl}}
+      </td>
+      <td>
+        <button type="button" class="btn btn-danger" (click)="deleteQualification(qualification)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button type="button" class="btn btn-success" (click)="addQualification()">Add</button>
+<input #fileUpload type="file"  placeholder="Choose file" (change)="uploadFile(fileUpload.files)" style="display:none;">

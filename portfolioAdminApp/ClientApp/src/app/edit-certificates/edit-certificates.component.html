@@ -19,18 +19,18 @@
         <input type="checkbox" [(ngModel)]="certificate.enabledInWeb" (change)="changeCertificate(certificate)" />
       </td>
       <td>
-        <input type="date" [ngModel] ="certificate.from | date:'yyyy-MM-dd'" (ngModelChange)="certificate.from = $event; changeCertificate(certificate)" />
+        <input type="date" [ngModel]="certificate.from | date:'yyyy-MM-dd'" (ngModelChange)="certificate.from = $event; changeCertificate(certificate)" />
       </td>
       <td>
-        <input type="date" [ngModel] ="certificate.to | date:'yyyy-MM-dd'" (ngModelChange)="certificate.to = $event; changeCertificate(certificate)" />
+        <input type="date" [ngModel]="certificate.to | date:'yyyy-MM-dd'" (ngModelChange)="certificate.to = $event; changeCertificate(certificate)" />
       </td>
       <td>
         <div *ngIf="certificate && certificate.translations">
           <div *ngFor="let translation of certificate.translations">
             <label>{{translation.language.name}}:</label><br/>
             <input class="w-100" type="text" placeholder="Name" [(ngModel)]="translation.name" (blur)="v" />
-            <input class="w-100" type="text" placeholder="Description" [(ngModel)]="translation.description" (blur)="changeCertificate(certificate)" />
-            <textarea class="w-100" type="text" placeholder="Place" [(ngModel)]="translation.place" (blur)="changeCertificate(certificate)"></textarea>
+            <input class="w-100" type="text" placeholder="Place" [(ngModel)]="translation.place" (blur)="changeCertificate(certificate)" />
+            <textarea class="w-100" type="text" placeholder="Description" [(ngModel)]="translation.description" (blur)="changeCertificate(certificate)"></textarea>
           </div>
         </div>
       </td>
