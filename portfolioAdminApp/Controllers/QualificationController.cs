@@ -2,13 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using portfolioAdminApp.Data;
 using portfolioAdminApp.Models;
 using portfolioAdminApp.Helpers;
-using Microsoft.AspNetCore.Authorization;
 
 namespace portfolioAdminApp.Controllers
 {
@@ -30,7 +31,11 @@ namespace portfolioAdminApp.Controllers
         [HttpGet]
         public async Task<ActionResult<ICollection<QualificationView>>> GetAll([FromQuery] string search, [FromQuery]bool useForWeb = true)
         {
-            var query = _context.PortfolioQualifications.Where(x => x.Enabled && x.EnabledInWeb == useForWeb).Include(x => x.Translations).OrderBy(x => x.EId).AsQueryable();
+            var query = _context.PortfolioQualifications.Where(x => x.Enabled).Include(x => x.Translations).ThenInclude(x => x.Language).OrderBy(x => x.EId).AsQueryable();
+
+            if (useForWeb) {
+                query = query.Where(x => x.EnabledInWeb == true).AsQueryable();                
+            }
 
             if (search != null) {
                 query = query.Where(x => x.Translations.Any(x => x.Name.ToLower().Contains(search.ToLower()))).AsQueryable();
@@ -50,7 +55,7 @@ namespace portfolioAdminApp.Controllers
         [HttpGet("{id:Guid}")]
         public async Task<ActionResult<QualificationView>> GetById(Guid id, [FromQuery]bool useForWeb = true)
         {
-            var entity = await _context.PortfolioQualifications.Where(x => x.EId == id && x.Enabled && x.EnabledInWeb == useForWeb).Include(x => x.Translations).FirstOrDefaultAsync();
+            var entity = await _context.PortfolioQualifications.Where(x => x.EId == id && x.Enabled && (useForWeb ? x.EnabledInWeb == true : true)).Include(x => x.Translations).ThenInclude(x => x.Language).FirstOrDefaultAsync();
 
             if (entity == null) {
                 throw new Exception("The requested entity could not be found in the database");
@@ -62,21 +67,24 @@ namespace portfolioAdminApp.Controllers
         [HttpGet("new")]
         public ActionResult<QualificationView> New()
         {
-            return Ok(new QualificationView());
+            var qualification = new QualificationView();
+            qualification.EId = new Guid();
+            qualification.Translations = new List<QualificationTranslationView>();
+            return Ok(qualification);
         }
 
         [HttpGet("newTranslation/{langCode}")]
         public async Task<ActionResult<QualificationTranslationView>> NewTranslation(string langCode)
         {
-            var qualification = await _context.PortfolioTranslations.Where(x => x.LanguageCode.Contains(langCode.ToLower())).FirstOrDefaultAsync();
+            var language = await _context.PortfolioTranslations.Where(x => x.LanguageCode.Contains(langCode.ToLower())).FirstOrDefaultAsync();
 
-            if (qualification == null) {
-                throw new Exception("Qualification with code " + langCode + " was not found!");
+            if (language == null) {
+                throw new Exception("Language with code " + langCode + " was not found!");
             }
 
             var trans = new QualificationTranslationView();
             
-            trans.Language = qualification;
+            trans.Language = language;
             
             return Ok(trans);
         }
@@ -85,12 +93,21 @@ namespace portfolioAdminApp.Controllers
         public async Task<ActionResult<QualificationView>> Post([FromBody]Qualification Qualification, [FromQuery]bool useForWeb = true)
         {
             try {
+                var languageList = await _context.PortfolioTranslations.ToListAsync();
+                
                 Qualification.EId = Guid.NewGuid();
                 Qualification.EnabledInWeb = useForWeb;
                 Qualification.Enabled = true;
+                
                 if (Qualification.Translations == null) {
                     Qualification.Translations = new List<QualificationTranslation>();
-                }                 
+                }
+
+                foreach (var trans in Qualification.Translations) {
+                    trans.EId = Guid.NewGuid();
+                    string langCode = trans.Language.LanguageCode;
+                    trans.Language = languageList.Where(x => x.LanguageCode == langCode).FirstOrDefault();
+                }        
 
                 _context.PortfolioQualifications.Add(Qualification);
                 
@@ -106,7 +123,7 @@ namespace portfolioAdminApp.Controllers
         public async Task<ActionResult<QualificationView>> Put([FromBody]Qualification Qualification, [FromQuery]bool useForWeb = true)
         {
             try {
-                var entity = _context.PortfolioQualifications.Where(x => x.EId == Qualification.EId && x.Enabled).FirstOrDefault();
+                var entity = _context.PortfolioQualifications.Where(x => x.EId == Qualification.EId && x.Enabled).Include(x => x.Translations).ThenInclude(x => x.Language).FirstOrDefault();
 
                 if (entity == null) {
                     throw new Exception("The requested entity could not be found in the database");
@@ -114,6 +131,10 @@ namespace portfolioAdminApp.Controllers
 
                 entity.EnabledInWeb = useForWeb;
                 entity.ImageUrl = Qualification.ImageUrl;
+
+                if (entity.Translations == null) {
+                    entity.Translations = new List<QualificationTranslation>();
+                }
 
                 foreach (var trans in entity.Translations) {
                     var changes = Qualification.Translations.Where(x => x.Language.LanguageCode == trans.Language.LanguageCode).FirstOrDefault();
@@ -125,7 +146,7 @@ namespace portfolioAdminApp.Controllers
 
                 await _context.SaveChangesAsync();
 
-                return Ok(MappingHelper.MapQualificationToViewModel(entity));
+                return Ok(await GetById((Guid)Qualification.EId, useForWeb));
             } catch (Exception e) {
                 throw e;            
             }    
