@@ -1,1 +1,5 @@
 portfolioAdminApp/Media/
+portfolioPublicApi/Media/
+/* API */
+**/bin/**
+**/obj/**
