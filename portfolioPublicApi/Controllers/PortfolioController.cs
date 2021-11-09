@@ -72,7 +72,7 @@ namespace PortfolioAPI.Controllers
                 }                
              }
 
-            return certificateList.OrderBy(x => x.From).ThenBy(x => x.Name).ToList();
+            return certificateList.OrderByDescending(x => x.From).ThenBy(x => x.Name).ToList();
         } 
 
         private async Task<ICollection<EducationTranslationOpen>> GetEducationList(string langCode)
@@ -101,12 +101,12 @@ namespace PortfolioAPI.Controllers
                         Place = trans.Place,
                         From = education.From,
                         To = education.To,
-                        ImageUrl = education.ImageUrl    
+                        ImageUrl = education.ImageUrl != null && education.ImageUrl.Length > 0 ? ImageHelper.ConvertToDataUrl(education.ImageUrl) :  ""    
                     });
                 }                
              }
 
-            return educationList.OrderBy(x => x.From).ThenBy(x => x.Name).ToList();
+            return educationList.OrderByDescending(x => x.From).ThenBy(x => x.Name).ToList();
         } 
 
         private async Task<ICollection<ExperienceTranslationOpen>> GetExperienceList(string langCode)
@@ -135,12 +135,12 @@ namespace PortfolioAPI.Controllers
                         Place = trans.Place,
                         From = experience.From,
                         To = experience.To,
-                        ImageUrl = experience.ImageUrl    
+                        ImageUrl = experience.ImageUrl != null && experience.ImageUrl.Length > 0 ? ImageHelper.ConvertToDataUrl(experience.ImageUrl) :  ""     
                     });
                 }                
              }
 
-            return experienceList.OrderBy(x => x.From).ThenBy(x => x.Name).ToList();
+            return experienceList.OrderByDescending(x => x.From).ThenBy(x => x.Name).ToList();
         }
 
         private async Task<ICollection<InterestTranslationOpen>> GetInterestList(string langCode)
@@ -166,7 +166,7 @@ namespace PortfolioAPI.Controllers
                     interestList.Add(new InterestTranslationOpen() {
                         Description = trans.Description,
                         Name = trans.Name,
-                        ImageUrl = interest.ImageUrl    
+                        ImageUrl = interest.ImageUrl != null && interest.ImageUrl.Length > 0 ? ImageHelper.ConvertToDataUrl(interest.ImageUrl) :  ""    
                     });
                 }                
              }
@@ -197,7 +197,7 @@ namespace PortfolioAPI.Controllers
                     languageList.Add(new LanguageTranslationOpen() {
                         Description = trans.Description,
                         Name = trans.Name,
-                        ImageUrl = language.ImageUrl    
+                        ImageUrl = language.ImageUrl != null && language.ImageUrl.Length > 0 ? ImageHelper.ConvertToDataUrl(language.ImageUrl) :  ""   
                     });
                 }                
              }
@@ -231,13 +231,13 @@ namespace PortfolioAPI.Controllers
                         Place = trans.Place,
                         From = project.From,
                         To = project.To,
-                        ImageUrl = project.ImageUrl,
+                        ImageUrl = project.ImageUrl != null && project.ImageUrl.Length > 0 ? ImageHelper.ConvertToDataUrl(project.ImageUrl) :  "",  
                         DemoUrl = project.DemoUrl
                     });
                 }                
              }
 
-            return projectList.OrderBy(x => x.From).ThenBy(x => x.Name).ToList();
+            return projectList.OrderByDescending(x => x.From).ThenBy(x => x.Name).ToList();
         }
 
         private async Task<ICollection<QualificationTranslationOpen>> GetQualificationList(string langCode)
@@ -263,7 +263,7 @@ namespace PortfolioAPI.Controllers
                     qualificationList.Add(new QualificationTranslationOpen() {
                         Description = trans.Description,
                         Name = trans.Name,
-                        ImageUrl = qualification.ImageUrl    
+                        ImageUrl = qualification.ImageUrl != null && qualification.ImageUrl.Length > 0 ? ImageHelper.ConvertToDataUrl(qualification.ImageUrl) :  ""    
                     });
                 }                
              }
