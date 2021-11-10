@@ -1,0 +1,125 @@
+@import "../../../../node_modules/mr-mr2/mrStyle.min.css";
+
+.sky {
+  background: url('/assets/images/Cloudy5.png') no-repeat center left,
+              url('/assets/images/Cloudy4.png') no-repeat center left,
+              url('/assets/images/Cloudy3.png') no-repeat center left,
+              url('/assets/images/Cloudy2.png') no-repeat center left,
+              url('/assets/images/Cloudy1.png') no-repeat center left,
+              url('/assets/images/smurfyblue.png');
+   -webkit-animation: backAndForth 45s;
+      -webkit-animation-timing-function: linear;
+      -webkit-animation-delay: 2s;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-direction: alternate;
+      -webkit-animation-play-state: running;
+      animation: backAndForth 30s;
+   animation-timing-function: linear;
+      animation-delay: 2s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-play-state: running;
+  background-attachment:fixed;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  }
+
+  #navigation {
+      text-align: center;
+      margin-top: -10vh;
+      position: -webkit-sticky;
+      position: sticky;
+      z-index: 4;
+      top: 0;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.8),
+          -1px -1px 2px black,
+          -1px 1px 2px black,
+          1px -1px 2px black,
+          0 1px #808d93,
+          1px 0 #cdd2d5,
+          1px 2px #808d93,
+          2px 1px #cdd2d5,
+          2px 3px #808d93,
+          3px 2px #cdd2d5,
+          3px 4px #808d93,
+          4px 3px #cdd2d5,
+          4px 5px #808d93,
+          5px 4px #cdd2d5,
+          5px 6px #808d93,
+          6px 5px #cdd2d5,
+          6px 7px #808d93;
+  }
+
+          #navigation ul li {
+              display: inline-block;
+              padding-left: 2vw;
+          }
+
+              #navigation ul li a {
+                  font-family: 'aqui';
+                  text-decoration: none;
+                  color: gold;
+          position: relative;
+          bottom: 30px;
+              }
+
+/* Street View */
+#streetBandit {
+	position: relative;
+	height: calc(100vh);
+	width: calc(100vw);
+	overflow: hidden;
+}
+#streetBandit .streetOverlay {
+	position: absolute;
+	z-index: 5;
+	width: calc(100vw - 17px);
+}
+
+#streetBandit .road {
+	background: linear-gradient(to right,
+		#fceabb 0%,
+		#fccd4d 19%,
+		#e86f47 50%,
+		#f8b500 80%,
+		#fbdf93 100%);
+	bottom:0;
+	margin-bottom:-2%;
+	margin-left: -2%;
+	position:absolute;
+	height:40%;
+	width:102%;
+	z-index: 1;
+}
+
+#streetBandit .streetLeft {
+	left:0;
+	position:absolute;
+	height:100%;
+	width:auto;
+	max-width:54.1%;
+  z-index: 2;
+}
+
+#streetBandit .streetRight {
+	right:0;
+	position:absolute;
+	height:100%;
+	width:auto;
+	max-width:45.9%;
+  z-index: 2;
+}
+
+#streetBandit .himSelf {
+	position:absolute;
+	/* z-index: 1; */
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	top:40%;
+	animation: mrUha 5s linear infinite;
+ 	-webkit-animation: mrUha 5s linear infinite;
+   z-index: 3;
+}
