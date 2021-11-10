@@ -29,7 +29,8 @@ export class HomeComponent implements OnInit {
     const totalTime = ((document.getElementsByClassName(cl).length * dl) * 1000) + 400;
 
 		setTimeout(() => {
-
+      document.getElementById("navigation")?.classList.remove("hidden");
+      // document.getElementById("navigation")?.classList.add("mrBounceInUp");
 		}, totalTime);
 	};
 }

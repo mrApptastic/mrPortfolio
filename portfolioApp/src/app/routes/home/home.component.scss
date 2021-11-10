@@ -73,3 +73,12 @@ path.animPath {
 	fill: white;
   }
 }
+
+#navigation {
+  position: fixed;
+  bottom: 0;
+}
+
+.hidden {
+  opacity: 0;
+}
