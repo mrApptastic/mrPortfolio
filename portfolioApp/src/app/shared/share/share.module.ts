@@ -3,9 +3,12 @@ import { CommonModule } from '@angular/common';
 import { MrMr2Module } from 'mr-mr2';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { HtmlPipe } from 'src/app/pipes/html.pipe';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    HtmlPipe
+  ],
   imports: [
     CommonModule,
     MrMr2Module,
@@ -16,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     MrMr2Module,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    HtmlPipe
   ]
 })
 

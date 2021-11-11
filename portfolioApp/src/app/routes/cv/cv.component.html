@@ -2,12 +2,25 @@
   <header id="topHeader">
     <h2><span class="firstPart hide4Print">Curriculum</span><span class="secondPart hide4Print">Vitae</span></h2>
     <h2 id="smallBox" class="hide4Print" i18n>CV</h2>
-  <!-- <div id="searchBox" class="pull-right hide4Print">
-   <img id="printer" src="{{printer.Url}}" title="{{printer.Description}}" alt="{{printer.Description}}"/>
-   <img id="flag" src="{{flags[0 + Language].Url}}" title="{{flags[0 + Language].Description}}" alt="{{flags[0 + Language].Description}}" ng-click="changeLanguage()" />
-   <img id="searchBandit" src="{{spyglass.Url}}" title="{{spyglass.Description}}" alt="{{spyglass.Description}}" />
-   <input id="searchField" class="input-md" type="text" ng-model="content" placeholder="Search"/>
-  </div> -->
+    <nav id="searchBox" class="pull-right">
+      <ul>
+        <li>
+          <a routerLink="/home" i18n>Forside</a>
+        </li>
+        <li>
+          <a routerLink="/about" i18n>Om mig</a>
+        </li>
+        <li>
+          <a routerLink="/cv" i18n>CV</a>
+        </li>
+        <li>
+          <a routerLink="/projects" i18n>Projekter</a>
+        </li>
+        <li>
+          <a routerLink="/contact"  i18n>Kontakt</a>
+        </li>
+      </ul>
+    </nav>
   </header>
   <div class="container">
     <div class="cvBox" style="margin-top: 50px;">
@@ -20,17 +33,21 @@
                 <h3 class="cvSecondaryHeader" i18n>Softwareudvikler</h3>
                  <h4 class="cvTertiaryHeader">Nordjylland, Danmark | Software</h4>
                  <table>
-                      <tr>
+                      <tr *ngIf="cvStuff?.experiences?.length > 0">
                            <td class="cvLabel" i18n>Nuværende</td>
-                           <td class="cvPar">OptikIT A/S</td>
+                           <td class="cvPar">{{cvStuff.experiences[0].place}}</td>
                       </tr>
-                      <tr>
+                      <tr  *ngIf="cvStuff?.experiences?.length > 1">
                            <td class="cvLabel" i18n>Forrige</td>
-                           <td class="cvPar">CodeCreator ApS</td>
+                           <td class="cvPar">{{cvStuff.experiences[1].place}}</td>
                       </tr>
-                      <tr>
+                      <tr *ngIf="cvStuff?.experiences?.length > 0">
                            <td class="cvLabel" i18n>Uddannelse</td>
-                           <td class="cvPar" i18n>It-Teknolog (AK)</td>
+                           <td class="cvPar">
+                             <span *ngFor="let education of cvStuff?.educations; let i = index">{{education?.name}}
+                              <ng-container *ngIf="i !== cvStuff?.educations.length -1">, </ng-container>
+                            </span>
+                          </td>
                       </tr>
                  </table>
 
@@ -55,80 +72,56 @@
            <p class="cvPar cvArticleText">Udvikling af cloudbaseret forretningssystem til kunder indenfor arkitekt- og ingeniørbranchen samt udvikling for kunder på opgavebasis.</p>
            <div class="divider"></div>
       </article>
-      </div>
-     <!-- <div class="cvBox">
-    <h3 class="cvSectionHeading">{{stuff[0 + Language].Headings[2]}}</h3>
-              <ul class="meritList">
-                   <li ng-animate="'animate'" ng-repeat="i in cvText[0 + Language].Qualifications | filter: content | orderBy : 'Name' : direction" onclick="getQualificationDetails('{{i.Name}}','{{i.Description}}','{{i.Experience}}','{{i.Versions}}','{{i.Icon}}')">{{i.Name}}</li>
-             </ul>
     </div>
-  <div class="cvBox">
-    <h3 class="cvSectionHeading">{{stuff[0 + Language].Headings[3]}}</h3>
-    <article ng-animate="'animate'" ng-repeat="e in cvText[0 + Language].Education | filter: content | orderBy : 'Ended' : true" class="cvArticle linkItem" onclick="getExperienceDetails('{{e.Place}}','{{e.Description}}','{{e.Details}}','{{e.Name}}','{{e.Started}}-{{e.Ended}}','{{e.Icon}}','{{stuff[0 + Language].Headings[15]}}','{{stuff[0 + Language].Headings[14]}}','{{stuff[0 + Language].Headings[8]}}','{{stuff[0 + Language].Headings[10]}}')">
-         <img class="pull-right" style="height: 60px;" src="{{e.Icon}}" alt="{{e.Name}}" title="{{e.Name}}" />
-     <h4 class="cvArticleHeading">{{e.Place}}</h4>
-         <h5 class="cvArticleSubHeading">{{e.Name}}</h5>
-         <h6 class="cvPar cvTime">{{e.Started}}-{{e.Ended}}</h6>
-         <p class="cvPar cvArticleText">{{e.Description}}</p>
-         <div class="divider"></div>
-    </article>
+    <div class="cvBox" *ngIf="cvStuff?.experiences">
+      <h3 class="cvSectionHeading" i18n>Erfaring</h3>
+      <article *ngFor="let experience of cvStuff.experiences" class="cvArticle linkItem">
+           <img class="pull-right" style="height: 60px;" [src]="experience?.imageUrl" [alt]="experience?.name" [title]="experience?.name" />
+           <h4 class="cvArticleHeading">{{experience?.place}}</h4>
+           <h5 class="cvArticleSubHeading">{{experience?.name}}</h5>
+           <h6 class="cvPar cvTime">{{experience?.from | date : 'yyyy'}}<ng-container *ngIf="checkDate(experience?.to)">-{{experience?.to | date : 'yyyy'}}</ng-container></h6>
+           <p class="cvPar cvArticleText">{{experience?.description | html}}</p>
+           <div class="divider"></div>
+      </article>
     </div>
-  <div class="cvBox">
-    <h3 class="cvSectionHeading">Projekter</h3>
-    <article ng-animate="'animate'" ng-repeat="e in cvText[0 + Language].Projects | filter: content | orderBy : 'Ended' : true" class="cvArticle linkItem" onclick="getExperienceDetails('{{e.Place}}','{{e.Description}}','{{e.Details}}','{{e.Name}}','{{e.Started}}-{{e.Ended}}','{{e.Icon}}','{{stuff[0 + Language].Headings[15]}}','{{stuff[0 + Language].Headings[14]}}','{{stuff[0 + Language].Headings[8]}}','{{stuff[0 + Language].Headings[10]}}')">
-         <img class="pull-right" style="height: 60px;" src="{{e.Icon}}" alt="{{e.Name}}" title="{{e.Name}}" />
-     <h4 class="cvArticleHeading">{{e.Place}}</h4>
-         <h5 class="cvArticleSubHeading">{{e.Name}}</h5>
-         <h6 class="cvPar cvTime">{{e.Started}}-{{e.Ended}}</h6>
-         <p class="cvPar cvArticleText" ng-bind-html-unsafe="e.Description"></p>
-         <div class="divider"></div>
-    </article>
-    </div> -->
-  <!--
-  <div class="cvBox">
-    <h3 class="cvSectionHeading">{{stuff[0 + Language].Headings[4]}}</h3>
-    <article ng-animate="'animate'" ng-repeat="p in projects | filter: content | orderBy : 'Name' : false" class="cvArticle linkItem">
-     <h4 class="cvArticleHeading">{{p.Name}}</h4>
-         <p class="cvPar cvArticleText">{{p.Description[0 + Language]}}</p>
-         <div class="divider"></div>
-     <div ng-bind-html-unsafe="projects[p.Id].Html" class="projectBox" style="background: url('{{bricks.Url}}');"></div>
-    </article>
+    <div class="cvBox" *ngIf="cvStuff?.qualifications">
+      <h3 class="cvSectionHeading" i18n>Kompetencer</h3>
+      <ul class="meritList">
+        <li *ngFor="let qualification of cvStuff.qualifications">{{qualification?.name}}</li>
+      </ul>
     </div>
-  <div class="cvBox">
-    <h3 class="cvSectionHeading">{{stuff[0 + Language].Headings[4]}}</h3>
-    <article ng-animate="'animate'" ng-repeat="p in projects | filter: content | orderBy : 'Name' : false" class="cvArticle linkItem" onclick="showProject('{{p.Html}}','{{p.Css}}')">
-     <h4 class="cvArticleHeading">{{p.Name}}</h4>
-         <p class="cvPar cvArticleText">{{p.Description[0 + Language]}}</p>
-         <div class="divider"></div>
-    </article>
+    <div class="cvBox" *ngIf="cvStuff?.educations">
+      <h3 class="cvSectionHeading" i18n>Uddannelse</h3>
+      <article *ngFor="let education of cvStuff.educations" class="cvArticle linkItem">
+           <img class="pull-right" style="height: 60px;" [src]="education?.imageUrl" [alt]="education?.name" [title]="education?.name" />
+           <h4 class="cvArticleHeading">{{education?.place}}</h4>
+           <h5 class="cvArticleSubHeading">{{education?.name}}</h5>
+           <p class="cvPar cvArticleText">{{education?.description | html}}}</p>
+           <div class="divider"></div>
+      </article>
     </div>
-  -->
-  <!-- <div class="cvBox">
-    <h3 class="cvSectionHeading">{{stuff[0 + Language].Headings[5]}}</h3>
-    <article ng-animate="'animate'" ng-repeat="c in cvText[0 + Language].Certificates | filter: content | orderBy : 'Ended' : true" class="cvArticle linkItem" onclick="getCertificateDetails('{{c.Name}}','{{c.Description}}','{{c.Details}}','{{c.Place}}','{{c.Ended}}','{{c.Icon}}','{{stuff[0 + Language].Headings[11]}}','{{stuff[0 + Language].Headings[9]}}','{{stuff[0 + Language].Headings[8]}}','{{stuff[0 + Language].Headings[10]}}')">
-     <img class="pull-right" style="height: 60px;" src="{{c.Icon}}" alt="{{c.Name}}" title="{{c.Name}}" />
-         <h4 class="cvArticleHeading">{{c.Name}}</h4>
-         <h5 class="cvArticleSubHeading">{{c.Place}}</h5>
-     <p class="cvPar cvArticleText">{{c.Description}}</p>
-         <div class="divider"></div>
-    </article>
+    <div class="cvBox" *ngIf="cvStuff?.projects">
+      <h3 class="cvSectionHeading" i18n>Projekter</h3>
+      <article *ngFor="let project of cvStuff.projects" class="cvArticle linkItem">
+           <img class="pull-right" style="height: 60px;" [src]="project?.imageUrl" [alt]="project?.name" [title]="project?.name" />
+           <h4 class="cvArticleHeading">{{project?.place}}</h4>
+           <h5 class="cvArticleSubHeading">{{project?.name}}</h5>
+           <h6 class="cvPar cvTime">{{project?.from | date : 'yyyy'}}<ng-container *ngIf="checkDate(project?.to)">-{{project?.to | date : 'yyyy'}}</ng-container></h6>
+           <p class="cvPar cvArticleText" [innerHtml]="project?.description | html"></p>
+           <div class="divider"></div>
+      </article>
     </div>
-
-  <div class="cvBox">
-    <h3 class="cvSectionHeading">{{stuff[0 + Language].Headings[6]}}</h3>
-         <div class="row">
-               <div ng-animate="'animate'" ng-repeat="l in cvText[0 + Language].Languages | filter: content | orderBy : 'Name' : false"  class="col-sm-6 col-md-4 linkItem" onclick="getLanguageDetails('{{l.Name}}','{{l.Description}}','{{l.Details}}','{{l.Icon}}','{{stuff[0 + Language].Headings[12]}}','{{stuff[0 + Language].Headings[8]}}')">
-                     <h4 class="cvArticleHeading">{{l.Name}}</h4>
-                     <h5 class="cvArticleSubHeading">{{l.Description}}</h5>
-               </div>
-         </div>
+    <div class="cvBox" *ngIf="cvStuff?.languages">
+      <h3 class="cvSectionHeading" i18n>Sprog</h3>
+      <ul class="meritList">
+        <li *ngFor="let language of cvStuff.languages">{{language?.name}}</li>
+      </ul>
     </div>
-    <div class="cvBox">
-    <h3 class="cvSectionHeading">{{stuff[0 + Language].Headings[7]}}</h3>
-              <ul class="meritList">
-                   <li ng-animate="'animate'" ng-repeat="i in cvText[0 + Language].Interests | filter: content | orderBy : 'Name' : false" onclick="getInterestDetails('{{i.Name}}','{{i.Description}}','{{i.Icon}}','{{stuff[0 + Language].Headings[8]}}')">{{i.Name}}</li>
-             </ul>
-    </div> -->
+    <div class="cvBox" *ngIf="cvStuff?.interests">
+      <h3 class="cvSectionHeading" i18n>Interesser</h3>
+      <ul class="meritList">
+        <li *ngFor="let interest of cvStuff.interests">{{interest?.name}}</li>
+      </ul>
+    </div>
   </div>
-
 </div>
