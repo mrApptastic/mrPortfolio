@@ -80,7 +80,7 @@
            <h4 class="cvArticleHeading">{{experience?.place}}</h4>
            <h5 class="cvArticleSubHeading">{{experience?.name}}</h5>
            <h6 class="cvPar cvTime">{{experience?.from | date : 'yyyy'}}<ng-container *ngIf="checkDate(experience?.to)">-{{experience?.to | date : 'yyyy'}}</ng-container></h6>
-           <p class="cvPar cvArticleText">{{experience?.description | html}}</p>
+           <p class="cvPar cvArticleText" [innerHTML]="experience?.description | html"></p>
            <div class="divider"></div>
       </article>
     </div>
@@ -96,7 +96,7 @@
            <img class="pull-right" style="height: 60px;" [src]="education?.imageUrl" [alt]="education?.name" [title]="education?.name" />
            <h4 class="cvArticleHeading">{{education?.place}}</h4>
            <h5 class="cvArticleSubHeading">{{education?.name}}</h5>
-           <p class="cvPar cvArticleText">{{education?.description | html}}}</p>
+           <p class="cvPar cvArticleText" [innerHTML]="education?.description | html"></p>
            <div class="divider"></div>
       </article>
     </div>
@@ -107,7 +107,7 @@
            <h4 class="cvArticleHeading">{{project?.place}}</h4>
            <h5 class="cvArticleSubHeading">{{project?.name}}</h5>
            <h6 class="cvPar cvTime">{{project?.from | date : 'yyyy'}}<ng-container *ngIf="checkDate(project?.to)">-{{project?.to | date : 'yyyy'}}</ng-container></h6>
-           <p class="cvPar cvArticleText" [innerHtml]="project?.description | html"></p>
+           <p class="cvPar cvArticleText" [innerHTML]="project?.description | html"></p>
            <div class="divider"></div>
       </article>
     </div>
