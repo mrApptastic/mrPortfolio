@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     setTimeout(() => {
-      this.animatePath("animPath", 0.03);
+      this.animatePath("animPath", 0.05);
     }, 0);
   }
 
