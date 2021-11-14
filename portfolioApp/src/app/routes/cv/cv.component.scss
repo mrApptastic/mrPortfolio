@@ -4,6 +4,11 @@ body {
 background-size: 0.3%;
 }
 
+.mainBox {
+    background: url("/assets/images/textures/brick-wall-dark.png") darkslategrey;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 #topHeader {
 background-color: #3F3F3F;
 background-image: -moz-linear-gradient(center top , #696969 0%, #3F3F3F 100%);
@@ -152,7 +157,7 @@ width: 100%;
 
 .cvPar {
 color: DarkSlateGrey;
-font-size: 12px;
+font-size: 13px;
 padding-left: 12px;
 }
 

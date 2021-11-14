@@ -25,8 +25,16 @@ export class CvComponent implements OnInit {
     });
   }
 
-  checkDate(dateStr: string): boolean {
-    return (new Date(dateStr) < new Date());
+  checkDate(dateFrom: string, dateTo: string): boolean {
+    if (new Date(dateFrom).getFullYear() === (new Date(dateTo).getFullYear())) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  futureCheck( dateTo: string): boolean {
+    return (new Date(dateTo) < new Date());
   }
 
   download(): void {

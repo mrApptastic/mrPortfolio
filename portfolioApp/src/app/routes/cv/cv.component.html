@@ -62,24 +62,13 @@
       <br/><br/>
       Desuden er jeg af den opfattelse, at jeg er en innovativ person med mange idéer. Jeg er en teknisk kompetent, dedikeret person, som bliver ved med at arbejde indtil arbejdet er gjort. Jeg arbejder fint både i grupper og individuelt. Kort sagt er jeg en type person, der ser muligheder fremfor barrierer foran mig.</p>
     </div>
-    <div class="cvBox">
-      <h3 class="cvSectionHeading">Erfaring</h3>
-      <article class="cvArticle linkItem">
-           <img class="pull-right" style="height: 60px;" src="assets/images/jobs/CodeCreator.png" alt="CodeCreator" title="CodeCreator" />
-           <h4 class="cvArticleHeading">CodeCreator ApS</h4>
-           <h5 class="cvArticleSubHeading">Udvikler</h5>
-           <h6 class="cvPar cvTime">2016-2019</h6>
-           <p class="cvPar cvArticleText">Udvikling af cloudbaseret forretningssystem til kunder indenfor arkitekt- og ingeniørbranchen samt udvikling for kunder på opgavebasis.</p>
-           <div class="divider"></div>
-      </article>
-    </div>
     <div class="cvBox" *ngIf="cvStuff?.experiences">
       <h3 class="cvSectionHeading" i18n>Erfaring</h3>
       <article *ngFor="let experience of cvStuff.experiences" class="cvArticle linkItem">
            <img class="pull-right" style="height: 60px;" [src]="experience?.imageUrl" [alt]="experience?.name" [title]="experience?.name" />
            <h4 class="cvArticleHeading">{{experience?.place}}</h4>
            <h5 class="cvArticleSubHeading">{{experience?.name}}</h5>
-           <h6 class="cvPar cvTime">{{experience?.from | date : 'yyyy'}}<ng-container *ngIf="checkDate(experience?.to)">-{{experience?.to | date : 'yyyy'}}</ng-container></h6>
+           <h6 class="cvPar cvTime">{{experience?.from | date : 'yyyy'}}<ng-container *ngIf="checkDate(experience?.from, experience?.to)">-{{!futureCheck(experience?.to) ? 'pt.' : (experience?.to | date : 'yyyy')}}</ng-container></h6>
            <p class="cvPar cvArticleText" [innerHTML]="experience?.description | html"></p>
            <div class="divider"></div>
       </article>
@@ -100,22 +89,38 @@
            <div class="divider"></div>
       </article>
     </div>
+    <div class="cvBox" *ngIf="cvStuff?.certificates">
+      <h3 class="cvSectionHeading" i18n>Certifikater</h3>
+      <article *ngFor="let certificate of cvStuff.certificates" class="cvArticle linkItem">
+           <img class="pull-right" style="height: 60px;" [src]="certificate?.imageUrl" [alt]="certificate?.name" [title]="certificate?.name" />
+           <h4 class="cvArticleHeading">{{certificate?.name}}</h4>
+           <h5 class="cvArticleSubHeading">{{certificate?.place}}</h5>
+           <p class="cvPar cvArticleText" [innerHTML]="certificate?.description | html"></p>
+           <div class="divider"></div>
+      </article>
+    </div>
     <div class="cvBox" *ngIf="cvStuff?.projects">
       <h3 class="cvSectionHeading" i18n>Projekter</h3>
       <article *ngFor="let project of cvStuff.projects" class="cvArticle linkItem">
            <img class="pull-right" style="height: 60px;" [src]="project?.imageUrl" [alt]="project?.name" [title]="project?.name" />
-           <h4 class="cvArticleHeading">{{project?.place}}</h4>
-           <h5 class="cvArticleSubHeading">{{project?.name}}</h5>
-           <h6 class="cvPar cvTime">{{project?.from | date : 'yyyy'}}<ng-container *ngIf="checkDate(project?.to)">-{{project?.to | date : 'yyyy'}}</ng-container></h6>
+           <h4 class="cvArticleHeading">{{project?.name}}</h4>
+           <h5 class="cvArticleSubHeading">{{project?.place}}</h5>
+           <h6 class="cvPar cvTime">{{project?.from | date : 'yyyy'}}<ng-container *ngIf="checkDate(project?.from, project?.to)">-{{!futureCheck(project?.to) ? 'pt.' : (project?.to | date : 'yyyy')}}</ng-container></h6>
            <p class="cvPar cvArticleText" [innerHTML]="project?.description | html"></p>
            <div class="divider"></div>
       </article>
     </div>
     <div class="cvBox" *ngIf="cvStuff?.languages">
       <h3 class="cvSectionHeading" i18n>Sprog</h3>
-      <ul class="meritList">
+      <div class="row">
+        <div  *ngFor="let language of cvStuff.languages" class="col-sm-6 col-md-4 linkItem">
+              <h4 class="cvArticleHeading">{{language?.name}}</h4>
+              <h5 class="cvArticleSubHeading">{{language?.description}}</h5>
+        </div>
+       </div>
+      <!-- <ul class="meritList">
         <li *ngFor="let language of cvStuff.languages">{{language?.name}}</li>
-      </ul>
+      </ul> -->
     </div>
     <div class="cvBox" *ngIf="cvStuff?.interests">
       <h3 class="cvSectionHeading" i18n>Interesser</h3>
