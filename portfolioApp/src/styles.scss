@@ -48,6 +48,18 @@ body {
 		format('truetype');
 }
 
+.sherwood {
+	font-family: 'sherwood' !important;
+}
+
+@font-face {
+	font-family: 'sherwood';
+	src: url('/assets/fonts/SHERWOOD.woff')
+		format('woff'),
+		url('/assets/fonts/SHERWOOD.TTF')
+		format('truetype');
+}
+
 .SmurfyR {
 	font-family: 'SmurfyR' !important;
 }
