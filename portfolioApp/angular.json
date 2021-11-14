@@ -20,10 +20,10 @@
       "sourceRoot": "src",
       "prefix": "app",
       "i18n": {
-        "sourceLocale": "da-Dk",
+        "sourceLocale": "da-DK",
         "locales": {
-          "en": {
-            "translation": "src/assets/i18n/messages.en.xlf",
+          "en-GB": {
+            "translation": "src/i18n/messages.en-GB.xlf",
             "baseHref": "/en/"
           }
         }
@@ -95,13 +95,13 @@
 							"budgets": [
 								{
 									"type": "initial",
-									"maximumWarning": "3mb",
-									"maximumError": "5mb"
+									"maximumWarning": "30mb",
+									"maximumError": "50mb"
 								},
 								{
 									"type": "anyComponentStyle",
-									"maximumWarning": "6kb",
-									"maximumError": "10kb"
+									"maximumWarning": "600kb",
+									"maximumError": "1000kb"
 								}
 							]
 						},
