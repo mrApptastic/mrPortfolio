@@ -134,7 +134,9 @@ namespace portfolioAdminApp.Controllers
                 entity.To = Project.To;
                 entity.ImageUrl = Project.ImageUrl;
                 entity.DemoUrl = Project.DemoUrl;
-
+                entity.DocUrl = Project.DocUrl;
+                entity.SourceUrl = Project.SourceUrl;
+                
                 if (entity.Translations == null) {
                     entity.Translations = new List<ProjectTranslation>();
                 }

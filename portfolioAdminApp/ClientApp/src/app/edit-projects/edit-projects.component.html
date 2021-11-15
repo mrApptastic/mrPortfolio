@@ -37,6 +37,8 @@
       </td>
       <td>
         <input class="w-100" type="text" placeholder="Demo Url" [(ngModel)]="project.demoUrl" (blur)="changeProject(project)" />
+        <input class="w-100" type="text" placeholder="Doc Url" [(ngModel)]="project.docUrl" (blur)="changeProject(project)" />
+        <input class="w-100" type="text" placeholder="Source Url" [(ngModel)]="project.sourceUrl" (blur)="changeProject(project)" />
       </td>
       <td>
         <button type="button" class="btn btn-warning" (click)="uploadId = project.eId; fileUpload.click();">Upload</button><br/>

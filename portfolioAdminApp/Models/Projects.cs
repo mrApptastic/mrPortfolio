@@ -20,7 +20,9 @@ namespace portfolioAdminApp.Models
         public DateTime? From { get; set; }
         public DateTime? To { get; set; }         
         public string ImageUrl { get; set; }
-        public string DemoUrl { get; set; }
+        public string DemoUrl { get; set; }        
+        public string DocUrl { get; set; }        
+        public string SourceUrl { get; set; }
         public ICollection<ProjectTranslation> Translations { get; set; }
     }
 
@@ -45,6 +47,8 @@ namespace portfolioAdminApp.Models
         public DateTime? To { get; set; }         
         public string ImageUrl { get; set; }
         public string DemoUrl { get; set; }
+        public string DocUrl { get; set; }        
+        public string SourceUrl { get; set; }
         public ICollection<ProjectTranslationView> Translations { get; set; }
     }
 
@@ -64,5 +68,7 @@ namespace portfolioAdminApp.Models
         public DateTime? To { get; set; }         
         public string ImageUrl { get; set; }
         public string DemoUrl { get; set; }
+        public string DocUrl { get; set; }        
+        public string SourceUrl { get; set; }
     }
 }
