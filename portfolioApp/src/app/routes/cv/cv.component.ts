@@ -25,24 +25,23 @@ export class CvComponent implements OnInit {
     });
   }
 
-  checkDate(dateFrom: string, dateTo: string): boolean {
-    if (new Date(dateFrom).getFullYear() === (new Date(dateTo).getFullYear())) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
-  futureCheck( dateTo: string): boolean {
-    return (new Date(dateTo) < new Date());
-  }
-
   download(): void {
 
     // Default export is a4 paper, portrait, using millimeters for units
     // const doc = new jsPDF();
     // doc.text("Hej lille tulipan", 10, 10);
     // doc.save("Uha.pdf");
+  }
+
+  handleNavBar(): void {
+    const navBar = document.getElementById("myNavbar");
+    const isCollasped = !navBar?.classList.contains("in");
+
+    if (isCollasped) {
+      navBar?.classList.add("in");
+    } else {
+      navBar?.classList.remove("in");
+    }
   }
 
 }
