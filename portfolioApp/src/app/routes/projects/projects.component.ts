@@ -18,7 +18,7 @@ export class ProjectsComponent implements OnInit {
 
   getProjects(language: string): void {
     this.http.get("https://portfolio.tesj.dk/api/portfolio/getall/" + language).subscribe(x => {
-      this.projects = (x as any)?.projects.filter((f: any) => f.demoUrl?.length > 0);
+      this.projects = (x as any)?.projects; // (x as any)?.projects.filter((f: any) => f.demoUrl?.length > 0);
     }, e => {
 
     });
