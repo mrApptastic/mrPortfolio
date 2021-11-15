@@ -232,7 +232,9 @@ namespace PortfolioAPI.Controllers
                         From = project.From,
                         To = project.To,
                         ImageUrl = project.ImageUrl != null && project.ImageUrl.Length > 0 ? ImageHelper.ConvertToDataUrl(project.ImageUrl) :  "",  
-                        DemoUrl = project.DemoUrl
+                        DemoUrl = project.DemoUrl,
+                        DocUrl = project.DocUrl,
+                        SourceUrl = project.SourceUrl
                     });
                 }                
              }

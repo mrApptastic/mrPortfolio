@@ -182,6 +182,8 @@ namespace PortfolioAPI.Helpers
              To = project.To,
              ImageUrl = project.ImageUrl,
              DemoUrl = project.DemoUrl,
+             DocUrl = project.DocUrl,
+             SourceUrl = project.SourceUrl,             
              Translations = MapProjectTranslationToOpenModels(project.Translations)
             };
         }
