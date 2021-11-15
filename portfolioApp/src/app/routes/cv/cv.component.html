@@ -1,27 +1,36 @@
 <div class="mainBox">
-  <header id="topHeader">
-    <h2><span class="firstPart hide4Print">Curriculum</span><span class="secondPart hide4Print">Vitae</span></h2>
-    <h2 id="smallBox" class="hide4Print" i18n>CV</h2>
-    <nav id="searchBox" class="pull-right">
-      <ul>
-        <li>
-          <a routerLink="/home" i18n>Forside</a>
-        </li>
-        <li>
-          <a routerLink="/about" i18n>Om mig</a>
-        </li>
-        <li>
-          <a routerLink="/cv" i18n>CV</a>
-        </li>
-        <li>
-          <a routerLink="/projects" i18n>Projekter</a>
-        </li>
-        <li>
-          <a routerLink="/contact"  i18n>Kontakt</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+  <nav class="navbar navbar-inverse" id="topHeader">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <h2><span class="firstPart hide4Print">Curriculum</span><span class="secondPart hide4Print">Vitae</span></h2>
+        <h2 id="smallBox" class="hide4Print" i18n>CV</h2>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a routerLink="/home" i18n>Forside</a>
+          </li>
+          <li>
+            <a routerLink="/about" i18n>Om mig</a>
+          </li>
+          <li>
+            <a routerLink="/cv" i18n>CV</a>
+          </li>
+          <li>
+            <a routerLink="/projects" i18n>Projekter</a>
+          </li>
+          <li>
+            <a routerLink="/contact"  i18n>Kontakt</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   <div class="container">
     <div class="cvBox" style="margin-top: 50px;">
          <div class="row">
@@ -50,12 +59,11 @@
                           </td>
                       </tr>
                  </table>
-
+                 {{cvStuff?.educations[0].from | yearFormat : cvStuff?.educations[0].from }}
           </div>
          </div>
     </div>
     <div class="cvBox">
-
     <h3 class="cvSectionHeading" i18n>Kort Beskrivelse</h3>
     <p class="cvPar">
       Jeg er en kompetent softwareudvikler med en præference i retning af webudvikling samt udvikling til mobile enheder. Endvidere har jeg erfaring fra flere andre områder - såsom desktop applikationsudvikling, og udvikling til indlejrede enheder.
@@ -68,7 +76,7 @@
            <img class="pull-right" style="height: 60px;" [src]="experience?.imageUrl" [alt]="experience?.name" [title]="experience?.name" />
            <h4 class="cvArticleHeading">{{experience?.place}}</h4>
            <h5 class="cvArticleSubHeading">{{experience?.name}}</h5>
-           <h6 class="cvPar cvTime">{{experience?.from | date : 'yyyy'}}<ng-container *ngIf="checkDate(experience?.from, experience?.to)">-{{!futureCheck(experience?.to) ? 'pt.' : (experience?.to | date : 'yyyy')}}</ng-container></h6>
+           <h6 class="cvPar cvTime">{{experience?.from | yearFormat : experience?.to}}</h6>
            <p class="cvPar cvArticleText" [innerHTML]="experience?.description | html"></p>
            <div *ngIf="i !== cvStuff?.experiences?.length -1" class="divider"></div>
       </article>
@@ -105,7 +113,7 @@
            <img class="pull-right" style="height: 60px;" [src]="project?.imageUrl" [alt]="project?.name" [title]="project?.name" />
            <h4 class="cvArticleHeading">{{project?.name}}</h4>
            <h5 class="cvArticleSubHeading">{{project?.place}}</h5>
-           <h6 class="cvPar cvTime">{{project?.from | date : 'yyyy'}}<ng-container *ngIf="checkDate(project?.from, project?.to)">-{{!futureCheck(project?.to) ? 'pt.' : (project?.to | date : 'yyyy')}}</ng-container></h6>
+           <h6 class="cvPar cvTime">{{project?.from | yearFormat : project?.to}}</h6>
            <p class="cvPar cvArticleText" [innerHTML]="project?.description | html"></p>
            <div *ngIf="i !== cvStuff?.projects?.length -1" class="divider"></div>
       </article>
@@ -130,3 +138,6 @@
     </div>
   </div>
 </div>
+<footer>
+
+</footer>

@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { MrMr2Module } from 'mr-mr2';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HtmlPipe } from 'src/app/pipes/html.pipe';
+import { YearFormatPipe } from 'src/app/pipes/year-format.pipe';
 
 @NgModule({
   declarations: [
-    HtmlPipe
+    HtmlPipe,
+    YearFormatPipe
   ],
   imports: [
     CommonModule,
@@ -20,8 +22,10 @@ import { HtmlPipe } from 'src/app/pipes/html.pipe';
     MrMr2Module,
     HttpClientModule,
     FormsModule,
-    HtmlPipe
-  ]
+    HtmlPipe,
+    YearFormatPipe
+  ],
+  providers: [DatePipe]
 })
 
 export class ShareModule { }
