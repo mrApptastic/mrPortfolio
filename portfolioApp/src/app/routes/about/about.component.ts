@@ -6,10 +6,66 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
+  typeSettings: any = {
+    text : new Array(
+      "Til dagligt er jeg Henrik Beske, en helt almindelig familiefar. Men naar jeg gaar paa arbejde forvandler jeg mig til mrApptastic, en superheroisk webudvikler med gazelleblod flydende i aarerne."
+    ),
+    speed : 10,
+    index : 0,
+    arrLength : 0,
+    scrollAt : 20,
+    textPos : 0,
+    contents : '',
+    row : 0
+  };
+
 
   constructor() { }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.typeSettings.arrLength = this.typeSettings.text[0].length;
+      this.typewriter(".typeBandit");
+    }, 0);
   }
+
+
+  typewriter(elem: string) : void
+  {
+    console.log(this.typeSettings);
+   const type = this;
+   this.typeSettings.contents =  ' ';
+   this.typeSettings.row = Math.max(0, this.typeSettings.index -this.typeSettings.scrollAt);
+   const destination = document.querySelector(elem);
+
+   if (destination) {
+    while ( this.typeSettings.row < this.typeSettings.index ) {
+      this.typeSettings.contents += this.typeSettings.row[this.typeSettings.row++] + '<br />';
+     }
+
+     destination.innerHTML = this.typeSettings.contents + this.typeSettings.text[this.typeSettings.index].substring(0, this.typeSettings.textPos);
+     if ( this.typeSettings.textPos++ === this.typeSettings.arrLength ) {
+      this.typeSettings.textPos = 0;
+      this.typeSettings.index++;
+      if ( this.typeSettings.index !== this.typeSettings.text.length ) {
+        this.typeSettings.arrLength = this.typeSettings.text[this.typeSettings.index].length;
+        setTimeout(() => {
+          type.typewriter(elem);
+        }, 20);
+      }
+     } else {
+      setTimeout(() => {
+        type.typewriter(elem);
+      }, this.typeSettings.speed);
+     }
+   }
+
+
+  };
+
+
+
+
+
 
 }
