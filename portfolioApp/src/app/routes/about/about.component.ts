@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AboutComponent implements OnInit {
   typeSettings: any = {
     text : new Array(
-      "Til dagligt er jeg Henrik Beske, en helt almindelig familiefar. Men naar jeg gaar paa arbejde forvandler jeg mig til mrApptastic, en superheroisk webudvikler med gazelleblod flydende i aarerne."
+      "Til dagligt er jeg Henrik Beske, et helt almindeligt familiemenneske. Men idet jeg tager afsted på arbejde, forvandler jeg mig til mrApptastic, en superheroisk webudvikler med gazelleblod i blodbanerne."
     ),
     speed : 20,
     index : 0,
