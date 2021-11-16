@@ -423,3 +423,8 @@ footer div:last-of-type {
     stroke: none;
   }
 }
+
+@-webkit-keyframes Shrinky { from { transform: scale(1); } 50% { transform: scale(0.9); } to { transform: scale(1); } }
+@keyframes Shrinky { from { transform: scale(1); } 50% { transform: scale(0.9); } to { transform: scale(1); } }
+.Shrink { transition: .1s; }
+.Shrink:hover { -webkit-animation : Shrinky 2s ease-in-out infinite; animation: Shrinky 2s ease-in-out infinite; }

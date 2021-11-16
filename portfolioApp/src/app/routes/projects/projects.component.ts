@@ -24,4 +24,27 @@ export class ProjectsComponent implements OnInit {
     });
   }
 
+  checkProject(project: any): boolean {
+    for (const prop in project) {
+      if ((prop === "demoUrl" || prop === "docUrl" || prop === "sourceUrl") && project[prop]?.length > 0) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  openProject(project: any): void {
+    if (project?.demoUrl) {
+      window.open(project?.demoUrl);
+    }
+
+    if (project?.docUrl) {
+      window.open(project?.docUrl);
+    }
+
+    if (project?.sourceUrl) {
+      window.open(project?.sourceUrl);
+    }
+  }
+
 }
