@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class AboutComponent implements OnInit {
   typeSettings: any = {
     text : new Array(
-      "Til dagligt er jeg Henrik Beske, et helt almindeligt familiemenneske. Men idet jeg tager afsted til arbejde, forvandler jeg mig til mrApptastic, en superheroisk webudvikler med gazelleblod fossende gennem blodbanerne."
+      "Til dagligt er jeg Henrik Beske, et helt almindeligt familiemenneske.",
+      "Men idet jeg tager afsted til arbejde, forvandler jeg mig til mrApptastic, en superheroisk webudvikler med gazelleblod fossende gennem blodbanerne."
     ),
     speed : 20,
     index : 0,
@@ -40,7 +41,7 @@ export class AboutComponent implements OnInit {
 
    if (destination) {
     while ( this.typeSettings.row < this.typeSettings.index ) {
-      this.typeSettings.contents += this.typeSettings.row[this.typeSettings.row++] + '<br />';
+      this.typeSettings.contents += this.typeSettings.text[this.typeSettings.row++] + '<br /><br />';
      }
 
      destination.innerHTML = this.typeSettings.contents + this.typeSettings.text[this.typeSettings.index].substring(0, this.typeSettings.textPos);

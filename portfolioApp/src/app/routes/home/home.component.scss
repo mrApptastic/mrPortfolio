@@ -103,3 +103,10 @@ path.animPath {
           #navigation ul li a:hover {
             color: orangered;
           }
+
+          @media only screen and (max-width: 720px)  {
+
+            #navigation {
+              text-align: left;
+            }
+          }
