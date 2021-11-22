@@ -69,6 +69,9 @@
       <br/><br/>
       Desuden er jeg af den opfattelse, at jeg er en innovativ person med mange idéer. Jeg er en teknisk kompetent, dedikeret person, som bliver ved med at arbejde indtil arbejdet er gjort. Jeg arbejder fint både i grupper og individuelt. Kort sagt er jeg en type person, der ser muligheder fremfor barrierer foran mig.</p>
     </div>
+    <div class="cvBox spinnerBox" *ngIf="!cvStuff?.experiences">
+      <mr-spinner image="/assets/images/mr.png" i18n-text text="Henter erhvervserfaring..."></mr-spinner>
+    </div>
     <div class="cvBox" *ngIf="cvStuff?.experiences">
       <h3 class="cvSectionHeading" i18n>Erfaring</h3>
       <article *ngFor="let experience of cvStuff.experiences; let i = index" class="cvArticle linkItem">
@@ -80,11 +83,17 @@
            <div *ngIf="i !== cvStuff?.experiences?.length -1" class="divider"></div>
       </article>
     </div>
+    <div class="cvBox spinnerBox" *ngIf="!cvStuff?.qualifications">
+      <mr-spinner image="/assets/images/mr.png" i18n-text text="Henter kompetencer..."></mr-spinner>
+    </div>
     <div class="cvBox" *ngIf="cvStuff?.qualifications">
       <h3 class="cvSectionHeading" i18n>Kompetencer</h3>
       <ul class="meritList">
         <li *ngFor="let qualification of cvStuff.qualifications">{{qualification?.name}}</li>
       </ul>
+    </div>
+    <div class="cvBox spinnerBox" *ngIf="!cvStuff?.educations">
+      <mr-spinner image="/assets/images/mr.png" i18n-text text="Henter uddannelser..."></mr-spinner>
     </div>
     <div class="cvBox" *ngIf="cvStuff?.educations">
       <h3 class="cvSectionHeading" i18n>Uddannelse</h3>
@@ -96,6 +105,9 @@
            <div *ngIf="i !== cvStuff?.educations?.length -1" class="divider"></div>
       </article>
     </div>
+    <div class="cvBox spinnerBox" *ngIf="!cvStuff?.certificates">
+      <mr-spinner image="/assets/images/mr.png" i18n-text text="Henter certifikater..."></mr-spinner>
+    </div>
     <div class="cvBox" *ngIf="cvStuff?.certificates">
       <h3 class="cvSectionHeading" i18n>Certifikater</h3>
       <article *ngFor="let certificate of cvStuff.certificates; let i = index" class="cvArticle linkItem">
@@ -105,6 +117,9 @@
            <p class="cvPar cvArticleText" [innerHTML]="certificate?.description | html"></p>
            <div *ngIf="i !== cvStuff?.certificates?.length -1" class="divider"></div>
       </article>
+    </div>
+    <div class="cvBox spinnerBox" *ngIf="!cvStuff?.projects">
+      <mr-spinner image="/assets/images/mr.png" i18n-text text="Henter projekter..."></mr-spinner>
     </div>
     <div class="cvBox" *ngIf="cvStuff?.projects">
       <h3 class="cvSectionHeading" i18n>Projekter</h3>
@@ -117,6 +132,9 @@
            <div *ngIf="i !== cvStuff?.projects?.length -1" class="divider"></div>
       </article>
     </div>
+    <div class="cvBox spinnerBox" *ngIf="!cvStuff?.languages">
+      <mr-spinner image="/assets/images/mr.png" i18n-text text="Henter sprog..."></mr-spinner>
+    </div>
     <div class="cvBox" *ngIf="cvStuff?.languages">
       <h3 class="cvSectionHeading" i18n>Sprog</h3>
       <div class="row">
@@ -128,6 +146,9 @@
       <!-- <ul class="meritList">
         <li *ngFor="let language of cvStuff.languages">{{language?.name}}</li>
       </ul> -->
+    </div>
+    <div class="cvBox spinnerBox" *ngIf="!cvStuff?.interests">
+      <mr-spinner image="/assets/images/mr.png" i18n-text text="Henter interesser..."></mr-spinner>
     </div>
     <div class="cvBox" *ngIf="cvStuff?.interests">
       <h3 class="cvSectionHeading" i18n>Interesser</h3>

@@ -424,6 +424,14 @@ footer div:last-of-type {
   }
 }
 
+.cvBox.spinnerBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  text-align: center;
+}
+
 @-webkit-keyframes Shrinky { from { transform: scale(1); } 50% { transform: scale(0.9); } to { transform: scale(1); } }
 @keyframes Shrinky { from { transform: scale(1); } 50% { transform: scale(0.9); } to { transform: scale(1); } }
 .Shrink { transition: .1s; }
