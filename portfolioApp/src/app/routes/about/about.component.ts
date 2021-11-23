@@ -33,7 +33,6 @@ export class AboutComponent implements OnInit {
 
   typewriter(elem: string) : void
   {
-    console.log(this.typeSettings);
    const type = this;
    this.typeSettings.contents =  ' ';
    this.typeSettings.row = Math.max(0, this.typeSettings.index -this.typeSettings.scrollAt);

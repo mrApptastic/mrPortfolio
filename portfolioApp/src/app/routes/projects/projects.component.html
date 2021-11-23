@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top" style="background: url(assets/images/textures/cvbg.png) aliceblue !important;">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
   <div class="container-fluid">
     <a class="navbar-brand"></a>
     <ul class="nav navbar-nav navbar-right">
@@ -24,6 +24,9 @@
   <div class="container">
       <div class="text-center">
           <h2 class="section-heading text-uppercase" i18n>Projekter</h2>
+      </div>
+      <div *ngIf="!(projects?.length > 0)" class="spinnerBox">
+        <mr-spinner image="/assets/images/mr.png" i18n-text text="Henter projekter..."></mr-spinner>
       </div>
       <ul *ngIf="projects?.length > 0" class="timeline">
           <li *ngFor="let project of projects; let i = index" [ngClass]="checkProject(project) ? 'linkBandit' : ''" [class]="i % 2 === 1 ? 'timeline-inverted' : ''">

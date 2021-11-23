@@ -273,3 +273,11 @@ footer div:last-of-type {
 @keyframes Shrinky { from { transform: scale(1); } 50% { transform: scale(0.9); } to { transform: scale(1); } }
 .Shrink { transition: .1s; }
 .Shrink:hover { -webkit-animation : Shrinky 2s ease-in-out infinite; animation: Shrinky 2s ease-in-out infinite; }
+
+.spinnerBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
