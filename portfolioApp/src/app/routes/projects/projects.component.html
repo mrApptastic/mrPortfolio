@@ -30,7 +30,7 @@
       </div>
       <ul *ngIf="projects?.length > 0" class="timeline">
           <li *ngFor="let project of projects; let i = index" [ngClass]="checkProject(project) ? 'linkBandit' : ''" [class]="i % 2 === 1 ? 'timeline-inverted' : ''">
-              <div class="timeline-image" (click)="openProject(project)"><img class="rounded-circle img-fluid" [src]="project?.imageUrl" alt="project?.name"></div>
+              <div class="timeline-image" (click)="openProject(project, i)"><img class="rounded-circle img-fluid shrink" [src]="project?.imageUrl" alt="project?.name"></div>
               <div class="timeline-panel">
                   <div class="timeline-heading">
                       <h4>{{project?.from | yearFormat : project?.to}}</h4>
@@ -38,6 +38,9 @@
                   </div>
                   <div class="timeline-body"><p class="text-muted" [innerHTML]="project?.description | html"></p></div>
               </div>
+              <a [id]="'demo-' + i" [href]="project.demoUrl" target="_blank" class="hidden"></a>
+              <a [id]="'doc-' + i" [href]="project.docUrl" target="_blank" class="hidden"></a>
+              <a [id]="'source-' + i" [href]="project.sourceUrl" target="_blank" class="hidden"></a>
           </li>
       </ul>
   </div>

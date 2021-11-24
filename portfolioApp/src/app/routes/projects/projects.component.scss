@@ -18,6 +18,10 @@ p {
   line-height: 1.75;
 }
 
+.navbar.navbar-dark {
+  background: aliceblue !important;
+}
+
 .page-section {
   padding: 1rem 0;
   background: aliceblue;
@@ -280,4 +284,8 @@ footer div:last-of-type {
   align-items: center;
   min-height: 100vh;
   text-align: center;
+}
+
+.hidden {
+  display: none;
 }

@@ -33,17 +33,28 @@ export class ProjectsComponent implements OnInit {
     return false;
   }
 
-  openProject(project: any): void {
+  openProject(project: any, index: number): void {
     if (project?.demoUrl) {
-      window.open(project?.demoUrl);
-    }
-
-    if (project?.docUrl) {
-      window.open(project?.docUrl);
-    }
-
-    if (project?.sourceUrl) {
-      window.open(project?.sourceUrl);
+      const elm = document.getElementById("demo-" + index);
+      if (elm) {
+        setTimeout(() => {
+          elm.click();
+        });
+      }
+    } else if (project?.docUrl) {
+      const elm = document.getElementById("doc-" + index);
+      if (elm) {
+        setTimeout(() => {
+          elm.click();
+        });
+      }
+    } else if (project?.sourceUrl) {
+      const elm = document.getElementById("source-" + index);
+      if (elm) {
+        setTimeout(() => {
+          elm.click();
+        });
+      }
     }
   }
 
