@@ -76,6 +76,7 @@
 							"outputPath": "dist/Portfolio/Production",
 							"deleteOutputPath": true,
 							"localize": [
+                "da-DK",
 								"en-GB"
 							],
 							"fileReplacements": [
