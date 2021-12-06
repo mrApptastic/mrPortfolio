@@ -4,9 +4,9 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PortfolioAPI.Models
+namespace PortfolioRepo.Models
 {
-    public class Interest: InterestSummary
+    public class Language: LanguageSummary
     {  
         [Key]
         public int Id { get; set; }  
@@ -14,41 +14,41 @@ namespace PortfolioAPI.Models
         public bool EnabledInWeb { get; set; } 
     }  
 
-    public class InterestSummary
+    public class LanguageSummary
     {
         public Guid? EId { get; set; }
         public string ImageUrl { get; set; }
-        public ICollection<InterestTranslation> Translations { get; set; }
+        public ICollection<LanguageTranslation> Translations { get; set; }
     }
 
-    public class InterestTranslation : InterestTranslationSummary
+    public class LanguageTranslation : LanguageTranslationSummary
     {
         [Key]
         public int Id { get; set; }
     }
 
-    public class InterestTranslationSummary {
-        public Guid? EId { get; set; } 
+    public class LanguageTranslationSummary {
+        public Guid? EId { get; set; }
         public Translation Language { get; set; }        
         public string Name { get; set; }
         public string Description { get; set; }
     }
 
-    public class InterestView {
+    public class LanguageView {
         public Guid? EId { get; set; }
-        public bool EnabledInWeb { get; set; } 
+        public bool EnabledInWeb { get; set; }
         public string ImageUrl { get; set; }
-        public ICollection<InterestTranslationView> Translations { get; set; }
+        public ICollection<LanguageTranslationView> Translations { get; set; }
     }
 
-    public class InterestTranslationView {
+    public class LanguageTranslationView {
         public Guid? EId { get; set; } 
         public TranslationView Language { get; set; }  
         public string Name { get; set; }
         public string Description { get; set; }
     }
 
-    public class InterestTranslationOpen {    
+    public class LanguageTranslationOpen {    
         public string Name { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }

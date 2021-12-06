@@ -1,15 +1,12 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using portfolioAdminApp.Data;
-using portfolioAdminApp.Models;
-using portfolioAdminApp.Helpers;
+using PortfolioRepo.Models;
+using PortfolioRepo.Helpers;
 
 namespace portfolioAdminApp.Controllers
 {

@@ -1,16 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
-using portfolioAdminApp.Data;
-using portfolioAdminApp.Models;
 
-namespace portfolioAdminApp.Helpers
+using System.Collections.Generic;
+using PortfolioRepo.Models;
+
+namespace PortfolioRepo.Helpers
 {
     public class MappingHelper
     {

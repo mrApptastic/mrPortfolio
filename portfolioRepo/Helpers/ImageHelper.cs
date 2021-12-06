@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace portfolioAdminApp.Helpers
+namespace PortfolioRepo.Helpers
 {
     public class ImageHelper
     {

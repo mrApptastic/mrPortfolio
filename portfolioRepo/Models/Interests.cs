@@ -4,9 +4,9 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PortfolioAPI.Models
+namespace PortfolioRepo.Models
 {
-    public class Qualification: QualificationSummary
+    public class Interest: InterestSummary
     {  
         [Key]
         public int Id { get; set; }  
@@ -14,43 +14,43 @@ namespace PortfolioAPI.Models
         public bool EnabledInWeb { get; set; } 
     }  
 
-    public class QualificationSummary
+    public class InterestSummary
     {
-        public Guid? EId { get; set; }       
-        public string ImageUrl { get; set; } 
-        public ICollection<QualificationTranslation> Translations { get; set; }
+        public Guid? EId { get; set; }
+        public string ImageUrl { get; set; }
+        public ICollection<InterestTranslation> Translations { get; set; }
     }
 
-    public class QualificationTranslation : QualificationTranslationSummary
+    public class InterestTranslation : InterestTranslationSummary
     {
         [Key]
         public int Id { get; set; }
     }
 
-    public class QualificationTranslationSummary {
+    public class InterestTranslationSummary {
         public Guid? EId { get; set; } 
         public Translation Language { get; set; }        
         public string Name { get; set; }
         public string Description { get; set; }
     }
 
-    public class QualificationView {
+    public class InterestView {
         public Guid? EId { get; set; }
-        public bool EnabledInWeb { get; set; }        
+        public bool EnabledInWeb { get; set; } 
         public string ImageUrl { get; set; }
-        public ICollection<QualificationTranslationView> Translations { get; set; }
+        public ICollection<InterestTranslationView> Translations { get; set; }
     }
 
-    public class QualificationTranslationView {
+    public class InterestTranslationView {
         public Guid? EId { get; set; } 
         public TranslationView Language { get; set; }  
         public string Name { get; set; }
         public string Description { get; set; }
     }
 
-    public class QualificationTranslationOpen {    
+    public class InterestTranslationOpen {    
         public string Name { get; set; }
-        public string Description { get; set; }        
+        public string Description { get; set; }
         public string ImageUrl { get; set; }
     }
 }

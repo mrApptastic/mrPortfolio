@@ -4,9 +4,9 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace portfolioAdminApp.Models
+namespace PortfolioRepo.Models
 {
-    public class Education : EducationSummary
+    public class Project: ProjectSummary
     {  
         [Key]
         public int Id { get; set; }  
@@ -14,22 +14,25 @@ namespace portfolioAdminApp.Models
         public bool EnabledInWeb { get; set; } 
     }  
 
-    public class EducationSummary
+    public class ProjectSummary
     {
-        public Guid? EId { get; set; } 
+        public Guid? EId { get; set; }
         public DateTime? From { get; set; }
-        public DateTime? To { get; set; }
+        public DateTime? To { get; set; }         
         public string ImageUrl { get; set; }
-        public ICollection<EducationTranslation> Translations { get; set; }
+        public string DemoUrl { get; set; }        
+        public string DocUrl { get; set; }        
+        public string SourceUrl { get; set; }
+        public ICollection<ProjectTranslation> Translations { get; set; }
     }
 
-    public class EducationTranslation : EducationTranslationSummary
+    public class ProjectTranslation : ProjectTranslationSummary
     {
         [Key]
         public int Id { get; set; }
     }
 
-    public class EducationTranslationSummary {
+    public class ProjectTranslationSummary {
         public Guid? EId { get; set; } 
         public Translation Language { get; set; }        
         public string Name { get; set; }
@@ -37,16 +40,19 @@ namespace portfolioAdminApp.Models
         public string Description { get; set; }
     }
 
-    public class EducationView {
+    public class ProjectView {
         public Guid? EId { get; set; }
-        public bool EnabledInWeb { get; set; } 
+        public bool EnabledInWeb { get; set; }
         public DateTime? From { get; set; }
-        public DateTime? To { get; set; }
+        public DateTime? To { get; set; }         
         public string ImageUrl { get; set; }
-        public ICollection<EducationTranslationView> Translations { get; set; }
+        public string DemoUrl { get; set; }
+        public string DocUrl { get; set; }        
+        public string SourceUrl { get; set; }
+        public ICollection<ProjectTranslationView> Translations { get; set; }
     }
 
-    public class EducationTranslationView {
+    public class ProjectTranslationView {
         public Guid? EId { get; set; } 
         public TranslationView Language { get; set; }  
         public string Name { get; set; }
@@ -54,12 +60,15 @@ namespace portfolioAdminApp.Models
         public string Description { get; set; }
     }
 
-    public class EducationTranslationOpen {    
+    public class ProjectTranslationOpen {    
         public string Name { get; set; }
         public string Place { get; set; }
         public string Description { get; set; }
         public DateTime? From { get; set; }
-        public DateTime? To { get; set; }
+        public DateTime? To { get; set; }         
         public string ImageUrl { get; set; }
+        public string DemoUrl { get; set; }
+        public string DocUrl { get; set; }        
+        public string SourceUrl { get; set; }
     }
 }

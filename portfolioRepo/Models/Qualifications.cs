@@ -4,9 +4,9 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PortfolioAPI.Models
+namespace PortfolioRepo.Models
 {
-    public class Language: LanguageSummary
+    public class Qualification: QualificationSummary
     {  
         [Key]
         public int Id { get; set; }  
@@ -14,43 +14,43 @@ namespace PortfolioAPI.Models
         public bool EnabledInWeb { get; set; } 
     }  
 
-    public class LanguageSummary
+    public class QualificationSummary
     {
-        public Guid? EId { get; set; }
-        public string ImageUrl { get; set; }
-        public ICollection<LanguageTranslation> Translations { get; set; }
+        public Guid? EId { get; set; }       
+        public string ImageUrl { get; set; } 
+        public ICollection<QualificationTranslation> Translations { get; set; }
     }
 
-    public class LanguageTranslation : LanguageTranslationSummary
+    public class QualificationTranslation : QualificationTranslationSummary
     {
         [Key]
         public int Id { get; set; }
     }
 
-    public class LanguageTranslationSummary {
-        public Guid? EId { get; set; }
+    public class QualificationTranslationSummary {
+        public Guid? EId { get; set; } 
         public Translation Language { get; set; }        
         public string Name { get; set; }
         public string Description { get; set; }
     }
 
-    public class LanguageView {
+    public class QualificationView {
         public Guid? EId { get; set; }
-        public bool EnabledInWeb { get; set; }
+        public bool EnabledInWeb { get; set; }        
         public string ImageUrl { get; set; }
-        public ICollection<LanguageTranslationView> Translations { get; set; }
+        public ICollection<QualificationTranslationView> Translations { get; set; }
     }
 
-    public class LanguageTranslationView {
+    public class QualificationTranslationView {
         public Guid? EId { get; set; } 
         public TranslationView Language { get; set; }  
         public string Name { get; set; }
         public string Description { get; set; }
     }
 
-    public class LanguageTranslationOpen {    
+    public class QualificationTranslationOpen {    
         public string Name { get; set; }
-        public string Description { get; set; }
+        public string Description { get; set; }        
         public string ImageUrl { get; set; }
     }
 }
