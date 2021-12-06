@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace PortfolioPublicAPI.Migrations
+namespace PortfolioRepo.Migrations
 {
     public partial class initialPublicAPI : Migration
     {
