@@ -1,7 +1,8 @@
-using System.Collections.Generic;
-using PortfolioAPI.Models;
 
-namespace PortfolioAPI.Helpers
+using System.Collections.Generic;
+using PortfolioRepo.Models;
+
+namespace PortfolioRepo.Helpers
 {
     public class MappingHelper
     {

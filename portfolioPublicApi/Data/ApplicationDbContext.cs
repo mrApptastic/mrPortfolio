@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using PortfolioAPI.Models;
+using PortfolioRepo.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -4,7 +4,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PortfolioAPI.Models
+namespace PortfolioRepo.Models
 {
     public class Interest: InterestSummary
     {  

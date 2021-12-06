@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using portfolioAdminApp.Models;
 using portfolioAdminApp.Data;
 using System;
+using PortfolioRepo.Models;
 
-namespace portfolioAdminApp {
+namespace portfolioAdminApp.Data {
     public class SeedData {
 
         public static void SeedDatabase(ApplicationDbContext context) {
