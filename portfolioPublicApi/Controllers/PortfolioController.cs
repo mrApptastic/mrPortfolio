@@ -1,12 +1,8 @@
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Microsoft.EntityFrameworkCore;
 using PortfolioRepo.Data;
 using PortfolioRepo.Models;
-using PortfolioRepo.Helpers;
 using PortfolioRepo.Managers;
 
 namespace PortfolioAPI.Controllers
@@ -18,9 +14,9 @@ namespace PortfolioAPI.Controllers
 
         private readonly ILogger<PortFolioController> _logger;
         private readonly ApplicationDbContext _context;
-        private readonly PortFolioManager _manager;
+        private readonly IPortFolioManager _manager;
         
-        public PortFolioController(ILogger<PortFolioController> logger, ApplicationDbContext context, PortFolioManager manager)
+        public PortFolioController(ILogger<PortFolioController> logger, ApplicationDbContext context, IPortFolioManager manager)
         {
             _logger = logger;
             _context = context;

@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using PortfolioRepo.Data;
@@ -10,9 +9,12 @@ using PortfolioRepo.Helpers;
 
 namespace PortfolioRepo.Managers
 {
-    public class PortFolioManager
-    {
+	public interface IPortFolioManager {
+        Task<PortfolioOpen> GetAll(string langCode);
+	}
 
+    public class PortFolioManager: IPortFolioManager
+    {
         private readonly ILogger<PortFolioManager> _logger;
         private readonly ApplicationDbContext _context;
         
