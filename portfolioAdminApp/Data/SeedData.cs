@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using portfolioAdminApp.Data;
 using System;
 using PortfolioRepo.Models;
+using PortfolioRepo.Data;
 
 namespace portfolioAdminApp.Data {
     public class SeedData {

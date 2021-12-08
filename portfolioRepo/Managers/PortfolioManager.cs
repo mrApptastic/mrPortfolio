@@ -9,16 +9,16 @@ using PortfolioRepo.Helpers;
 
 namespace PortfolioRepo.Managers
 {
-	public interface IPortFolioManager {
+	public interface IPortfolioManager {
         Task<PortfolioOpen> GetAll(string langCode);
 	}
 
-    public class PortFolioManager: IPortFolioManager
+    public class PortfolioManager: IPortfolioManager
     {
-        private readonly ILogger<PortFolioManager> _logger;
+        private readonly ILogger<PortfolioManager> _logger;
         private readonly ApplicationDbContext _context;
         
-        public PortFolioManager(ILogger<PortFolioManager> logger, ApplicationDbContext context)
+        public PortfolioManager(ILogger<PortfolioManager> logger, ApplicationDbContext context)
         {
             _logger = logger;
             _context = context;

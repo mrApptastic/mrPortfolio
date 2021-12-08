@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace portfolioAdminApp.Migrations
+namespace PortfolioRepo.Migrations
 {
     public partial class massiveUpdate : Migration
     {

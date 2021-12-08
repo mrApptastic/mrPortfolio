@@ -3,10 +3,9 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using portfolioAdminApp.Data;
+using PortfolioRepo.Data;
 
-namespace portfolioAdminApp.Migrations
+namespace PortfolioRepo.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20211115200828_projectUpdate")]
@@ -233,7 +232,7 @@ namespace portfolioAdminApp.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("portfolioAdminApp.Models.ApplicationUser", b =>
+            modelBuilder.Entity("PortfolioRepo.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
@@ -297,7 +296,7 @@ namespace portfolioAdminApp.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("portfolioAdminApp.Models.Certificate", b =>
+            modelBuilder.Entity("PortfolioRepo.Models.Certificate", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -326,7 +325,7 @@ namespace portfolioAdminApp.Migrations
                     b.ToTable("PortfolioCertificates");
                 });
 
-            modelBuilder.Entity("portfolioAdminApp.Models.CertificateTranslation", b =>
+            modelBuilder.Entity("PortfolioRepo.Models.CertificateTranslation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -359,7 +358,7 @@ namespace portfolioAdminApp.Migrations
                     b.ToTable("CertificateTranslation");
                 });
 
-            modelBuilder.Entity("portfolioAdminApp.Models.Education", b =>
+            modelBuilder.Entity("PortfolioRepo.Models.Education", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -388,7 +387,7 @@ namespace portfolioAdminApp.Migrations
                     b.ToTable("PortfolioEducations");
                 });
 
-            modelBuilder.Entity("portfolioAdminApp.Models.EducationTranslation", b =>
+            modelBuilder.Entity("PortfolioRepo.Models.EducationTranslation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -421,7 +420,7 @@ namespace portfolioAdminApp.Migrations
                     b.ToTable("EducationTranslation");
                 });
 
-            modelBuilder.Entity("portfolioAdminApp.Models.Experience", b =>
+            modelBuilder.Entity("PortfolioRepo.Models.Experience", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -450,7 +449,7 @@ namespace portfolioAdminApp.Migrations
                     b.ToTable("PortfolioExperiences");
                 });
 
-            modelBuilder.Entity("portfolioAdminApp.Models.ExperienceTranslation", b =>
+            modelBuilder.Entity("PortfolioRepo.Models.ExperienceTranslation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -483,7 +482,7 @@ namespace portfolioAdminApp.Migrations
                     b.ToTable("ExperienceTranslation");
                 });
 
-            modelBuilder.Entity("portfolioAdminApp.Models.Interest", b =>
+            modelBuilder.Entity("PortfolioRepo.Models.Interest", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -506,7 +505,7 @@ namespace portfolioAdminApp.Migrations
                     b.ToTable("PortfolioInterests");
                 });
 
-            modelBuilder.Entity("portfolioAdminApp.Models.InterestTranslation", b =>
+            modelBuilder.Entity("PortfolioRepo.Models.InterestTranslation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -536,7 +535,7 @@ namespace portfolioAdminApp.Migrations
                     b.ToTable("InterestTranslation");
                 });
 
-            modelBuilder.Entity("portfolioAdminApp.Models.Language", b =>
+            modelBuilder.Entity("PortfolioRepo.Models.Language", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -559,7 +558,7 @@ namespace portfolioAdminApp.Migrations
                     b.ToTable("PortfolioLanguages");
                 });
 
-            modelBuilder.Entity("portfolioAdminApp.Models.LanguageTranslation", b =>
+            modelBuilder.Entity("PortfolioRepo.Models.LanguageTranslation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -589,7 +588,7 @@ namespace portfolioAdminApp.Migrations
                     b.ToTable("LanguageTranslation");
                 });
 
-            modelBuilder.Entity("portfolioAdminApp.Models.Project", b =>
+            modelBuilder.Entity("PortfolioRepo.Models.Project", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -627,7 +626,7 @@ namespace portfolioAdminApp.Migrations
                     b.ToTable("PortfolioProjects");
                 });
 
-            modelBuilder.Entity("portfolioAdminApp.Models.ProjectTranslation", b =>
+            modelBuilder.Entity("PortfolioRepo.Models.ProjectTranslation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -660,7 +659,7 @@ namespace portfolioAdminApp.Migrations
                     b.ToTable("ProjectTranslation");
                 });
 
-            modelBuilder.Entity("portfolioAdminApp.Models.Qualification", b =>
+            modelBuilder.Entity("PortfolioRepo.Models.Qualification", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -683,7 +682,7 @@ namespace portfolioAdminApp.Migrations
                     b.ToTable("PortfolioQualifications");
                 });
 
-            modelBuilder.Entity("portfolioAdminApp.Models.QualificationTranslation", b =>
+            modelBuilder.Entity("PortfolioRepo.Models.QualificationTranslation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -713,7 +712,7 @@ namespace portfolioAdminApp.Migrations
                     b.ToTable("PortfolioQualificationTranslations");
                 });
 
-            modelBuilder.Entity("portfolioAdminApp.Models.Translation", b =>
+            modelBuilder.Entity("PortfolioRepo.Models.Translation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -750,7 +749,7 @@ namespace portfolioAdminApp.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("portfolioAdminApp.Models.ApplicationUser", null)
+                    b.HasOne("PortfolioRepo.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -759,7 +758,7 @@ namespace portfolioAdminApp.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("portfolioAdminApp.Models.ApplicationUser", null)
+                    b.HasOne("PortfolioRepo.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -774,7 +773,7 @@ namespace portfolioAdminApp.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("portfolioAdminApp.Models.ApplicationUser", null)
+                    b.HasOne("PortfolioRepo.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -783,86 +782,86 @@ namespace portfolioAdminApp.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("portfolioAdminApp.Models.ApplicationUser", null)
+                    b.HasOne("PortfolioRepo.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("portfolioAdminApp.Models.CertificateTranslation", b =>
+            modelBuilder.Entity("PortfolioRepo.Models.CertificateTranslation", b =>
                 {
-                    b.HasOne("portfolioAdminApp.Models.Certificate", null)
+                    b.HasOne("PortfolioRepo.Models.Certificate", null)
                         .WithMany("Translations")
                         .HasForeignKey("CertificateId");
 
-                    b.HasOne("portfolioAdminApp.Models.Translation", "Language")
+                    b.HasOne("PortfolioRepo.Models.Translation", "Language")
                         .WithMany()
                         .HasForeignKey("LanguageId");
                 });
 
-            modelBuilder.Entity("portfolioAdminApp.Models.EducationTranslation", b =>
+            modelBuilder.Entity("PortfolioRepo.Models.EducationTranslation", b =>
                 {
-                    b.HasOne("portfolioAdminApp.Models.Education", null)
+                    b.HasOne("PortfolioRepo.Models.Education", null)
                         .WithMany("Translations")
                         .HasForeignKey("EducationId");
 
-                    b.HasOne("portfolioAdminApp.Models.Translation", "Language")
+                    b.HasOne("PortfolioRepo.Models.Translation", "Language")
                         .WithMany()
                         .HasForeignKey("LanguageId");
                 });
 
-            modelBuilder.Entity("portfolioAdminApp.Models.ExperienceTranslation", b =>
+            modelBuilder.Entity("PortfolioRepo.Models.ExperienceTranslation", b =>
                 {
-                    b.HasOne("portfolioAdminApp.Models.Experience", null)
+                    b.HasOne("PortfolioRepo.Models.Experience", null)
                         .WithMany("Translations")
                         .HasForeignKey("ExperienceId");
 
-                    b.HasOne("portfolioAdminApp.Models.Translation", "Language")
+                    b.HasOne("PortfolioRepo.Models.Translation", "Language")
                         .WithMany()
                         .HasForeignKey("LanguageId");
                 });
 
-            modelBuilder.Entity("portfolioAdminApp.Models.InterestTranslation", b =>
+            modelBuilder.Entity("PortfolioRepo.Models.InterestTranslation", b =>
                 {
-                    b.HasOne("portfolioAdminApp.Models.Interest", null)
+                    b.HasOne("PortfolioRepo.Models.Interest", null)
                         .WithMany("Translations")
                         .HasForeignKey("InterestId");
 
-                    b.HasOne("portfolioAdminApp.Models.Translation", "Language")
+                    b.HasOne("PortfolioRepo.Models.Translation", "Language")
                         .WithMany()
                         .HasForeignKey("LanguageId");
                 });
 
-            modelBuilder.Entity("portfolioAdminApp.Models.LanguageTranslation", b =>
+            modelBuilder.Entity("PortfolioRepo.Models.LanguageTranslation", b =>
                 {
-                    b.HasOne("portfolioAdminApp.Models.Language", null)
+                    b.HasOne("PortfolioRepo.Models.Language", null)
                         .WithMany("Translations")
                         .HasForeignKey("LanguageId");
 
-                    b.HasOne("portfolioAdminApp.Models.Translation", "Language")
+                    b.HasOne("PortfolioRepo.Models.Translation", "Language")
                         .WithMany()
                         .HasForeignKey("LanguageId1");
                 });
 
-            modelBuilder.Entity("portfolioAdminApp.Models.ProjectTranslation", b =>
+            modelBuilder.Entity("PortfolioRepo.Models.ProjectTranslation", b =>
                 {
-                    b.HasOne("portfolioAdminApp.Models.Translation", "Language")
+                    b.HasOne("PortfolioRepo.Models.Translation", "Language")
                         .WithMany()
                         .HasForeignKey("LanguageId");
 
-                    b.HasOne("portfolioAdminApp.Models.Project", null)
+                    b.HasOne("PortfolioRepo.Models.Project", null)
                         .WithMany("Translations")
                         .HasForeignKey("ProjectId");
                 });
 
-            modelBuilder.Entity("portfolioAdminApp.Models.QualificationTranslation", b =>
+            modelBuilder.Entity("PortfolioRepo.Models.QualificationTranslation", b =>
                 {
-                    b.HasOne("portfolioAdminApp.Models.Translation", "Language")
+                    b.HasOne("PortfolioRepo.Models.Translation", "Language")
                         .WithMany()
                         .HasForeignKey("LanguageId");
 
-                    b.HasOne("portfolioAdminApp.Models.Qualification", null)
+                    b.HasOne("PortfolioRepo.Models.Qualification", null)
                         .WithMany("Translations")
                         .HasForeignKey("QualificationId");
                 });

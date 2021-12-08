@@ -14,9 +14,9 @@ namespace PortfolioAPI.Controllers
 
         private readonly ILogger<PortFolioController> _logger;
         private readonly ApplicationDbContext _context;
-        private readonly IPortFolioManager _manager;
+        private readonly IPortfolioManager _manager;
         
-        public PortFolioController(ILogger<PortFolioController> logger, ApplicationDbContext context, IPortFolioManager manager)
+        public PortFolioController(ILogger<PortFolioController> logger, ApplicationDbContext context, IPortfolioManager manager)
         {
             _logger = logger;
             _context = context;

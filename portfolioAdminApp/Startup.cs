@@ -1,19 +1,15 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using portfolioAdminApp.Data;
-using Microsoft.AspNetCore.Http.Features;
-using Microsoft.Extensions.FileProviders;
-using Microsoft.AspNetCore.Http;
-using System.IO;
+using PortfolioRepo.Data;
+using PortfolioRepo.Managers;
+using PortfolioRepo.Models;
 
 namespace portfolioAdminApp
 {
@@ -29,14 +25,23 @@ namespace portfolioAdminApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<ICertificateManager, CertificateManager>();
+            services.AddScoped<IEducationManager, EducationManager>();
+            services.AddScoped<IExperienceManager, ExperienceManager>();
+            services.AddScoped<IInterestManager, InterestManager>();
+            services.AddScoped<ILanguageManager, LanguageManager>();
+            services.AddScoped<IPortfolioManager, PortfolioManager>();
+            services.AddScoped<IProjectManager, ProjectManager>();
+            services.AddScoped<IQualificationManager, QualificationManager>();
+
             services. AddCors(c =>
             {
                 c.AddPolicy(
                 name: "AllowOrigin",
                 builder =>{
                     builder.AllowAnyOrigin()
-                            .AllowAnyMethod()
-                            .AllowAnyHeader();
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
                 });
             });
 
@@ -48,7 +53,7 @@ namespace portfolioAdminApp
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             // services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
-
+            
             services.AddIdentityServer()
                 .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
 

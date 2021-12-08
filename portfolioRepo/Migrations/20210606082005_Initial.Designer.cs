@@ -3,10 +3,9 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using portfolioAdminApp.Data;
+using PortfolioRepo.Data;
 
-namespace portfolioAdminApp.Migrations
+namespace PortfolioRepo.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20210606082005_Initial")]
@@ -581,7 +580,7 @@ namespace portfolioAdminApp.Migrations
                     b.ToTable("PortfolioTranslations");
                 });
 
-            modelBuilder.Entity("portfolioAdminApp.Models.ApplicationUser", b =>
+            modelBuilder.Entity("PortfolioRepo.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
@@ -704,7 +703,7 @@ namespace portfolioAdminApp.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("portfolioAdminApp.Models.ApplicationUser", null)
+                    b.HasOne("PortfolioRepo.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -713,7 +712,7 @@ namespace portfolioAdminApp.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("portfolioAdminApp.Models.ApplicationUser", null)
+                    b.HasOne("PortfolioRepo.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -728,7 +727,7 @@ namespace portfolioAdminApp.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("portfolioAdminApp.Models.ApplicationUser", null)
+                    b.HasOne("PortfolioRepo.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -737,7 +736,7 @@ namespace portfolioAdminApp.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("portfolioAdminApp.Models.ApplicationUser", null)
+                    b.HasOne("PortfolioRepo.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
