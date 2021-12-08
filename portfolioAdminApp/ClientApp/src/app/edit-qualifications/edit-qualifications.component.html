@@ -20,14 +20,14 @@
         <div *ngIf="qualification && qualification.translations">
           <div *ngFor="let translation of qualification.translations">
             <label>{{translation.language.name}}:</label><br/>
-            <input class="w-100" type="text" placeholder="Name" [(ngModel)]="translation.name" (blur)="v" />
+            <input class="w-100" type="text" placeholder="Name" [(ngModel)]="translation.name" (blur)="changeQualification(qualification)" />
             <textarea class="w-100" type="text" placeholder="Description" [(ngModel)]="translation.description" (blur)="changeQualification(qualification)"></textarea>
           </div>
         </div>
       </td>
       <td>
         <button type="button" class="btn btn-warning" (click)="uploadId = qualification.eId; fileUpload.click();">Upload</button><br/>
-        {{qualification.imageUrl}}
+        <input class="w-100" type="text" placeholder="Image Url" [(ngModel)]="qualification.imageUrl" (blur)="changeQualification(qualification)" />
       </td>
       <td>
         <button type="button" class="btn btn-danger" (click)="deleteQualification(qualification)">Delete</button>

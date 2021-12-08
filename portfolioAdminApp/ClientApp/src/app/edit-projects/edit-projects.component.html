@@ -29,7 +29,7 @@
         <div *ngIf="project && project.translations">
           <div *ngFor="let translation of project.translations">
             <label>{{translation.language.name}}:</label><br/>
-            <input class="w-100" type="text" placeholder="Name" [(ngModel)]="translation.name" (blur)="v" />
+            <input class="w-100" type="text" placeholder="Name" [(ngModel)]="translation.name" (blur)="changeProject(project)" />
             <input class="w-100" type="text" placeholder="Place" [(ngModel)]="translation.place" (blur)="changeProject(project)" />
             <textarea class="w-100" type="text" placeholder="Description" [(ngModel)]="translation.description" (blur)="changeProject(project)"></textarea>
           </div>
@@ -42,7 +42,7 @@
       </td>
       <td>
         <button type="button" class="btn btn-warning" (click)="uploadId = project.eId; fileUpload.click();">Upload</button><br/>
-        {{project.imageUrl}}
+        <input class="w-100" type="text" placeholder="Image Url" [(ngModel)]="project.imageUrl" (blur)="changeProject(project)" />
       </td>
       <td>
         <button type="button" class="btn btn-danger" (click)="deleteProject(project)">Delete</button>

@@ -28,7 +28,7 @@
         <div *ngIf="experience && experience.translations">
           <div *ngFor="let translation of experience.translations">
             <label>{{translation.language.name}}:</label><br/>
-            <input class="w-100" type="text" placeholder="Name" [(ngModel)]="translation.name" (blur)="v" />
+            <input class="w-100" type="text" placeholder="Name" [(ngModel)]="translation.name" (blur)="changeExperience(experience)" />
             <input class="w-100" type="text" placeholder="Place" [(ngModel)]="translation.place" (blur)="changeExperience(experience)" />
             <textarea class="w-100" type="text" placeholder="Description" [(ngModel)]="translation.description" (blur)="changeExperience(experience)"></textarea>
           </div>
@@ -36,7 +36,7 @@
       </td>
       <td>
         <button type="button" class="btn btn-warning" (click)="uploadId = experience.eId; fileUpload.click();">Upload</button><br/>
-        {{experience.imageUrl}}
+        <input class="w-100" type="text" placeholder="Image Url" [(ngModel)]="experience.imageUrl" (blur)="changeExperience(experience)" />
       </td>
       <td>
         <button type="button" class="btn btn-danger" (click)="deleteExperience(experience)">Delete</button>
