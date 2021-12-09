@@ -28,7 +28,7 @@
         <div *ngIf="education && education.translations">
           <div *ngFor="let translation of education.translations">
             <label>{{translation.language.name}}:</label><br/>
-            <input class="w-100" type="text" placeholder="Name" [(ngModel)]="translation.name" (blur)="v" />
+            <input class="w-100" type="text" placeholder="Name" [(ngModel)]="translation.name" (blur)="changeEducation(education)" />
             <input class="w-100" type="text" placeholder="Place" [(ngModel)]="translation.place" (blur)="changeEducation(education)" />
             <textarea class="w-100" type="text" placeholder="Description" [(ngModel)]="translation.description" (blur)="changeEducation(education)"></textarea>
           </div>
@@ -36,7 +36,7 @@
       </td>
       <td>
         <button type="button" class="btn btn-warning" (click)="uploadId = education.eId; fileUpload.click();">Upload</button><br/>
-        {{education.imageUrl}}
+        <input class="w-100" type="text" placeholder="Image Url" [(ngModel)]="education.imageUrl" (blur)="changeEducation(education)" />
       </td>
       <td>
         <button type="button" class="btn btn-danger" (click)="deleteEducation(education)">Delete</button>

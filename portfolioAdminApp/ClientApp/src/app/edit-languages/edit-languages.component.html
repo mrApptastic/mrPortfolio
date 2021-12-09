@@ -22,14 +22,14 @@
         <div *ngIf="language && language.translations">
           <div *ngFor="let translation of language.translations">
             <label>{{translation.language.name}}:</label><br/>
-            <input class="w-100" type="text" placeholder="Name" [(ngModel)]="translation.name" (blur)="v" />
+            <input class="w-100" type="text" placeholder="Name" [(ngModel)]="translation.name" (blur)="changeLanguage(language)" />
             <textarea class="w-100" type="text" placeholder="Description" [(ngModel)]="translation.description" (blur)="changeLanguage(language)"></textarea>
           </div>
         </div>
       </td>
       <td>
         <button type="button" class="btn btn-warning" (click)="uploadId = language.eId; fileUpload.click();">Upload</button><br/>
-        {{language.imageUrl}}
+        <input class="w-100" type="text" placeholder="Image Url" [(ngModel)]="language.imageUrl" (blur)="changeLanguage(language)" />
       </td>
       <td>
         <button type="button" class="btn btn-danger" (click)="deleteLanguage(language)">Delete</button>

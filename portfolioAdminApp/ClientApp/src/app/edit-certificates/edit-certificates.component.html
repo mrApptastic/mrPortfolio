@@ -28,7 +28,7 @@
         <div *ngIf="certificate && certificate.translations">
           <div *ngFor="let translation of certificate.translations">
             <label>{{translation.language.name}}:</label><br/>
-            <input class="w-100" type="text" placeholder="Name" [(ngModel)]="translation.name" (blur)="v" />
+            <input class="w-100" type="text" placeholder="Name" [(ngModel)]="translation.name" (blur)="changeCertificate(certificate)" />
             <input class="w-100" type="text" placeholder="Place" [(ngModel)]="translation.place" (blur)="changeCertificate(certificate)" />
             <textarea class="w-100" type="text" placeholder="Description" [(ngModel)]="translation.description" (blur)="changeCertificate(certificate)"></textarea>
           </div>
@@ -36,7 +36,7 @@
       </td>
       <td>
         <button type="button" class="btn btn-warning" (click)="uploadId = certificate.eId; fileUpload.click();">Upload</button><br/>
-        {{certificate.imageUrl}}
+        <input class="w-100" type="text" placeholder="Image Url" [(ngModel)]="certificate.imageUrl" (blur)="changeCertificate(certificate)" />
       </td>
       <td>
         <button type="button" class="btn btn-danger" (click)="deleteCertificate(certificate)">Delete</button>
