@@ -1,5 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Project } from 'src/app/models/portfolio-list';
+import { CvDataService } from 'src/app/services/cv.data.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-projects',
@@ -7,20 +9,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./projects.component.scss']
 })
 export class ProjectsComponent implements OnInit {
+  errorState = false;
   language = "da";
-  projects: any;
+  projects: Project[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private data: CvDataService) {
+    this.projects = new Array();
+  }
 
   ngOnInit(): void {
     this.getProjects(this.language);
   }
 
   getProjects(language: string): void {
-    this.http.get("https://portfolio.tesj.dk/api/portfolio/getall/" + language).subscribe(x => {
-      this.projects = (x as any)?.projects; // (x as any)?.projects.filter((f: any) => f.demoUrl?.length > 0);
+    this.data.getPortfolioItems(language).subscribe(x => {
+      this.projects = x.projects;
     }, e => {
+      if (!environment.production) {
+        console.log(e);
+      }
 
+      this.errorState = true;
     });
   }
 

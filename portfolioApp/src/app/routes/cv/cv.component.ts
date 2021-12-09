@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { CvDataService } from 'src/app/services/cv.data.service';
 import { CvService } from 'src/app/services/cv.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-cv',
@@ -8,20 +9,25 @@ import { CvService } from 'src/app/services/cv.service';
   styleUrls: ['./cv.component.scss']
 })
 export class CvComponent implements OnInit {
+  errorState = false;
   language = "da";
   cvStuff: any;
 
-  constructor(private http: HttpClient, private cvService: CvService) { }
+  constructor(private data: CvDataService, private cvService: CvService) { }
 
   ngOnInit(): void {
     this.getCvStuff(this.language);
   }
 
   getCvStuff(language: string): void {
-    this.http.get("https://portfolio.tesj.dk/api/portfolio/getall/" + language).subscribe(x => {
+    this.data.getPortfolioItems(language).subscribe(x => {
       this.cvStuff = x;
     }, e => {
+      if (!environment.production) {
+        console.log(e);
+      }
 
+      this.errorState = true;
     });
   }
 
