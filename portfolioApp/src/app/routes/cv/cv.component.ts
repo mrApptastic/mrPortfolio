@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-// import { jsPDF } from 'jspdf';
+import { CvService } from 'src/app/services/cv.service';
 
 @Component({
   selector: 'app-cv',
@@ -11,7 +11,7 @@ export class CvComponent implements OnInit {
   language = "da";
   cvStuff: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private cvService: CvService) { }
 
   ngOnInit(): void {
     this.getCvStuff(this.language);
@@ -26,11 +26,7 @@ export class CvComponent implements OnInit {
   }
 
   download(): void {
-
-    // Default export is a4 paper, portrait, using millimeters for units
-    // const doc = new jsPDF();
-    // doc.text("Hej lille tulipan", 10, 10);
-    // doc.save("Uha.pdf");
+    this.cvService.downloadCV();
   }
 
   handleNavBar(): void {
