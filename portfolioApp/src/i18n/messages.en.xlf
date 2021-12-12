@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file datatype="plaintext" original="ng2.template" source-language="da-Dk" target-language="en-GB">
+  <file datatype="plaintext" original="ng2.template" source-language="da-Dk" target-language="en">
     <body>
       <!-- Navigation -->
       <trans-unit id="5784386219958066970" datatype="html">
@@ -93,7 +93,7 @@
         <source>Softwareudvikler</source>
         <target>Software Developer</target>
       </trans-unit>
-      <trans-unit id="8305623058929365707" datatype="html">
+      <trans-unit id="8951055125458694900" datatype="html">
         <source>Sprog</source>
         <target>Languages</target>
       </trans-unit>

@@ -20,11 +20,15 @@
       "sourceRoot": "src",
       "prefix": "app",
       "i18n": {
-        "sourceLocale": "da-DK",
+        "sourceLocale": "da",
         "locales": {
-          "en-GB": {
-            "translation": "src/i18n/messages.en-GB.xlf",
+          "en": {
+            "translation": "src/i18n/messages.en.xlf",
             "baseHref": "/en/"
+          },
+          "sv": {
+            "translation": "src/i18n/messages.sv.xlf",
+            "baseHref": "/sv/"
           }
         }
       },
@@ -33,6 +37,9 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/portfolioApp",
+            "allowedCommonJsDependencies": [
+              "lodash"
+           ],
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -76,8 +83,9 @@
 							"outputPath": "dist/Portfolio/Production",
 							"deleteOutputPath": true,
 							"localize": [
-                "da-DK",
-								"en-GB"
+                "da",
+								"en",
+                "sv"
 							],
 							"fileReplacements": [
 								{
