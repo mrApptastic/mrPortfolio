@@ -77,6 +77,33 @@
               ],
               "outputHashing": "all"
             },
+            "da": {
+							"preserveSymlinks": true,
+							"aot": true,
+							"localize": [
+								"da"
+							],
+              "deleteOutputPath": true,
+							"outputPath": "dist/Portfolio/Production"
+						},
+            "en": {
+							"preserveSymlinks": true,
+							"aot": true,
+							"localize": [
+								"en"
+							],
+              "deleteOutputPath": true,
+							"outputPath": "dist/Portfolio/Production"
+						},
+						"sv": {
+							"preserveSymlinks": true,
+							"aot": true,
+							"localize": [
+								"sv"
+							],
+              "deleteOutputPath": true,
+							"outputPath": "dist/Portfolio/Production"
+						},
             "prod-all": {
 							"preserveSymlinks": true,
 							"aot": true,
@@ -126,13 +153,25 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "portfolioApp:build",
+            "port": 3333
+          },
           "configurations": {
             "production": {
               "browserTarget": "portfolioApp:build:production"
             },
             "development": {
               "browserTarget": "portfolioApp:build:development"
-            }
+            },
+            "en": {
+							"browserTarget": "portfolioApp:build:en",
+							"port": 3334
+						},
+            "sv": {
+							"browserTarget": "portfolioApp:build:sv",
+							"port": 3335
+						}
           },
           "defaultConfiguration": "development"
         },

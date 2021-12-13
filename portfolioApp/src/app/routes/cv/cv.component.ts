@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PortfolioList } from 'src/app/models/portfolio-list';
 import { CvDataService } from 'src/app/services/cv.data.service';
-import { CvService } from 'src/app/services/cv.service';
+import { CvExportService } from 'src/app/services/cv.export.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -13,7 +14,7 @@ export class CvComponent implements OnInit {
   language = "da";
   cvStuff: any;
 
-  constructor(private data: CvDataService, private cvService: CvService) { }
+  constructor(private data: CvDataService, private exp: CvExportService) {}
 
   ngOnInit(): void {
     this.getCvStuff(this.language);
@@ -32,7 +33,7 @@ export class CvComponent implements OnInit {
   }
 
   download(): void {
-    this.cvService.downloadCV();
+    this.exp.downloadCV();
   }
 
   handleNavBar(): void {
