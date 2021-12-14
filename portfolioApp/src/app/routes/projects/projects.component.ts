@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
 import { Project } from 'src/app/models/portfolio-list';
 import { CvDataService } from 'src/app/services/cv.data.service';
 import { environment } from 'src/environments/environment';
@@ -10,15 +10,14 @@ import { environment } from 'src/environments/environment';
 })
 export class ProjectsComponent implements OnInit {
   errorState = false;
-  language = "da";
   projects: Project[];
 
-  constructor(private data: CvDataService) {
+  constructor(private data: CvDataService, @Inject(LOCALE_ID) public locale: string) {
     this.projects = new Array();
   }
 
   ngOnInit(): void {
-    this.getProjects(this.language);
+    this.getProjects(this.locale);
   }
 
   getProjects(language: string): void {

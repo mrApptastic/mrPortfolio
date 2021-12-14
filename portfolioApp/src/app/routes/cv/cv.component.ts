@@ -3,6 +3,7 @@ import { PortfolioList } from 'src/app/models/portfolio-list';
 import { CvDataService } from 'src/app/services/cv.data.service';
 import { CvExportService } from 'src/app/services/cv.export.service';
 import { environment } from 'src/environments/environment';
+import { LOCALE_ID, Inject } from '@angular/core';
 
 @Component({
   selector: 'app-cv',
@@ -11,13 +12,13 @@ import { environment } from 'src/environments/environment';
 })
 export class CvComponent implements OnInit {
   errorState = false;
-  language = "da";
   cvStuff: any;
 
-  constructor(private data: CvDataService, private exp: CvExportService) {}
+  constructor(private data: CvDataService, private exp: CvExportService, @Inject(LOCALE_ID) public locale: string) {}
 
   ngOnInit(): void {
-    this.getCvStuff(this.language);
+    console.log();
+    this.getCvStuff(this.locale);
   }
 
   getCvStuff(language: string): void {

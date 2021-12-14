@@ -5,11 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HtmlPipe } from 'src/app/pipes/html.pipe';
 import { YearFormatPipe } from 'src/app/pipes/year-format.pipe';
+import { LanguageSelectorComponent } from './language-selector/language-selector.component';
 
 @NgModule({
   declarations: [
     HtmlPipe,
-    YearFormatPipe
+    YearFormatPipe,
+    LanguageSelectorComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { YearFormatPipe } from 'src/app/pipes/year-format.pipe';
     HttpClientModule,
     FormsModule,
     HtmlPipe,
-    YearFormatPipe
+    YearFormatPipe,
+    LanguageSelectorComponent
   ],
   providers: [DatePipe]
 })
