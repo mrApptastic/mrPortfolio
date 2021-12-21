@@ -34,7 +34,7 @@ export class CvComponent implements OnInit {
   }
 
   download(): void {
-    this.exp.downloadCV();
+    this.exp.downloadCV(this.cvStuff as PortfolioList);
   }
 
   handleNavBar(): void {
