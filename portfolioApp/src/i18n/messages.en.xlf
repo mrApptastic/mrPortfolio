@@ -29,9 +29,17 @@
         <target>Henriks Portfolio</target>
       </trans-unit>
       <!-- CV page -->
+      <trans-unit id="3989749792732640418" datatype="html">
+        <source>(+45) 24 49 75 55</source>
+        <target>(+45) 24 49 75 55</target>
+      </trans-unit>
       <trans-unit id="7492375559154995019" datatype="html">
         <source>Certifikater</source>
         <target>Certificates</target>
+      </trans-unit>
+      <trans-unit id="8604637668329678538" datatype="html">
+        <source>Danmark</source>
+        <target>Denmark</target>
       </trans-unit>
       <trans-unit id="2340064925348742945" datatype="html">
         <source>Erfaring</source>
@@ -44,6 +52,14 @@
       <trans-unit id="3365774044815831805" datatype="html">
         <source>Gem PDF</source>
         <target>Export PDF</target>
+      </trans-unit>
+      <trans-unit id="389759894640642615" datatype="html">
+        <source>henrikbeske@gmail.com</source>
+        <target>henrikbeske@gmail.com</target>
+      </trans-unit>
+      <trans-unit id="5235866419448573411" datatype="html">
+        <source>Henrik Beske</source>
+        <target>Henrik Beske</target>
       </trans-unit>
       <trans-unit id="6448220344715619327" datatype="html">
         <source>Henter certifikater...</source>
@@ -69,6 +85,10 @@
         <source>Henter uddannelser...</source>
         <target>Loading educations...</target>
       </trans-unit>
+      <trans-unit id="1931726057411036581" datatype="html">
+        <source> Jeg er en kompetent softwareudvikler med en præference i retning af webudvikling samt udvikling til mobile enheder. Endvidere har jeg erfaring fra flere andre områder - såsom desktop applikationsudvikling, og udvikling til indlejrede enheder. <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/> Desuden er jeg af den opfattelse, at jeg er en innovativ person med mange idéer. Jeg er en teknisk kompetent, dedikeret person, som bliver ved med at arbejde indtil arbejdet er gjort. Jeg arbejder fint både i grupper og individuelt. Kort sagt er jeg en type person, der ser muligheder fremfor barrierer foran mig. </source>
+        <target> I am a competent software developer with a preference towards web development as well as development for mobile devices. Furthermore, I have experience from several other areas - such as desktop application development, and development for embedded devices. <x id = "LINE_BREAK" ctype = "lb" equiv-text = "& lt; br / & gt;" /> <x id = "LINE_BREAK" ctype = "lb" equiv-text = "& lt; br / & gt;" /> In addition, I am of the opinion that I am an innovative person with many ideas. I am a technically competent, dedicated person who keeps working until the work is done. I work fine both in groups and individually. In short, I am a type of person who sees opportunities rather than barriers in front of me. </target>
+      </trans-unit>
       <trans-unit id="3349742688438436280" datatype="html">
         <source>Interesser</source>
         <target>Interests</target>
@@ -85,9 +105,17 @@
         <source>Kort Beskrivelse</source>
         <target>Short description</target>
       </trans-unit>
+      <trans-unit id="2404928236592957489" datatype="html">
+        <source>Nordjylland</source>
+        <target>Northern Jutland</target>
+      </trans-unit>
       <trans-unit id="1611108894348423507" datatype="html">
         <source>Nuværende</source>
         <target>Current</target>
+      </trans-unit>
+      <trans-unit id="5093701986340458388" datatype="html">
+        <source>Software</source>
+        <target>Software</target>
       </trans-unit>
       <trans-unit id="8305623058929365707" datatype="html">
         <source>Softwareudvikler</source>
