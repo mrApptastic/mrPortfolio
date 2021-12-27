@@ -17,11 +17,22 @@ export class CvExportService {
 
     // Default export is a4 paper, portrait, using millimeters for units
     const doc = new jsPDF();
+    const height = doc.internal.pageSize.getHeight();
+    const width = doc.internal.pageSize.getWidth();;
+    const outerMargin = 10;
+    const innerMargin = 5;
+    let pageNumber = 1;
+
+    doc.setFillColor(0, 206, 209);
+    doc.rect(0, 0, width, height, 'F');
+    doc.setFillColor(255, 255, 255);
+    doc.rect(0 + outerMargin, 0 + outerMargin, width - outerMargin * 2, height - outerMargin * 2, 'F');
+
     // doc.addFont('Ringbearer', '', 'normal');
     // doc.setFont('Courier');
     var img = new Image()
     img.src = "assets/images/Himself.png";
-    doc.addImage(img, 'png', 10, 18, 120, 150);
+    doc.addImage(img, 'png', 0, 0, width, height);
 
     // jsPDF.API.events.push(['addFonts', function() {
     //   // doc.addFileToVFS('Lato-Regular-normal.ttf', Lato);
