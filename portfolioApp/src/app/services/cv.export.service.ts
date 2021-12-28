@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { jsPDF } from 'jspdf';
-import { Lato } from './lato';
-import { BookAntikva } from './book-antikva';
+import { Ringbearer } from './data-fonts/ringbearer';
+import { BookAntikva } from './data-fonts/book-antikva';
 import { PortfolioPrint } from '../models/portfolio-print';
 import { PortfolioList } from '../models/portfolio-list';
 
@@ -15,7 +15,6 @@ export class CvExportService {
   downloadCV(list: PortfolioList): void {
     const printObj = this.generatePrintObject(list);
 
-    // Default export is a4 paper, portrait, using millimeters for units
     const doc = new jsPDF();
     const height = doc.internal.pageSize.getHeight();
     const width = doc.internal.pageSize.getWidth();;
@@ -23,24 +22,21 @@ export class CvExportService {
     const innerMargin = 5;
     let pageNumber = 1;
 
+    /* Draw boxes */
     doc.setFillColor(0, 206, 209);
     doc.rect(0, 0, width, height, 'F');
     doc.setFillColor(255, 255, 255);
     doc.rect(0 + outerMargin, 0 + outerMargin, width - outerMargin * 2, height - outerMargin * 2, 'F');
 
-    // doc.addFont('Ringbearer', '', 'normal');
-    // doc.setFont('Courier');
-    var img = new Image()
+    /* Add Ringbearer */
+    doc.addFileToVFS('Ringbearer-Regular.ttf', Ringbearer);
+    doc.addFont('Ringbearer-Regular.ttf', 'Ringbearer', 'normal');
+    doc.setFont('Ringbearer');
+
+    var img = new Image();
     img.src = "assets/images/Himself.png";
     doc.addImage(img, 'png', 0, 0, width, height);
 
-    // jsPDF.API.events.push(['addFonts', function() {
-    //   // doc.addFileToVFS('Lato-Regular-normal.ttf', Lato);
-    //   // doc.addFont('Lato-Regular-normal.ttf', 'Lato-Regular', 'normal');
-    // }]);
-
-    // doc.addFileToVFS('Lato-Regular-normal.ttf', Lato);
-    // doc.addFont('Lato-Regular-normal.ttf', 'Lato-Regular', 'normal');
     doc.addFileToVFS('Book-Antikva-Regular.ttf', BookAntikva);
     doc.addFont('Book-Antikva-Regular.ttf', 'Book-Antikva', 'normal');
     doc.setFont('Book-Antikva');
@@ -69,28 +65,5 @@ export class CvExportService {
     } as PortfolioPrint;
   }
 }
-// console.log(window.location.href.split(window.location.host)[1].split('/')[1]);
-// changeLanguage(lang: string): void {
-//   if (lang === "da-DK") {
-//     // tslint:disable-next-line: no-string-literal
-//     document.getElementsByClassName("languageLinks")[0]["click"]();
-//   } else if (lang === "sv-SE") {
-//     // tslint:disable-next-line: no-string-literal
-//     document.getElementsByClassName("languageLinks")[2]["click"]();
-//   } else {
-//     // tslint:disable-next-line: no-string-literal
-//     document.getElementsByClassName("languageLinks")[1]["click"]();
-//   }
-// }
-// <ul [hidden]="true">
-//   <li>
-//     <a class="languageLinks" (click)="setCulture('da-DK')" href="/da">da</a>
-//   </li>
-//   <li>
-//     <a class="languageLinks" (click)="setCulture('en-US')" href="/en">en</a>
-//   </li>
-//   <li>
-//     <a class="languageLinks" (click)="setCulture('sv-SE')" href="/sv">sv</a>
-//   </li>
-// </ul>
+
 
