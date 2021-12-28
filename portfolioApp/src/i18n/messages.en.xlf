@@ -41,6 +41,10 @@
         <source>Danmark</source>
         <target>Denmark</target>
       </trans-unit>
+      <trans-unit id="8027314699805909337" datatype="html">
+        <source>Desuden er jeg af den opfattelse, at jeg er en innovativ person med mange idéer. Jeg er en teknisk kompetent, dedikeret yperson, som bliver ved med at arbejde indtil arbejdet er gjort. Jeg arbejder fint både i grupper og individuelt. Kort sagt er jeg en type person, der ser muligheder fremfor barrierer foran mig.</source>
+        <target>In addition, I am of the opinion that I am an innovative person with many ideas. I am a technically competent, dedicated person who keeps working until the work is done. I work fine both in groups and individually. In short, I am a type of person who sees opportunities rather than barriers in front of me.</target>
+      </trans-unit>
       <trans-unit id="2340064925348742945" datatype="html">
         <source>Erfaring</source>
         <target>Experience</target>
@@ -85,9 +89,9 @@
         <source>Henter uddannelser...</source>
         <target>Loading educations...</target>
       </trans-unit>
-      <trans-unit id="1931726057411036581" datatype="html">
-        <source> Jeg er en kompetent softwareudvikler med en præference i retning af webudvikling samt udvikling til mobile enheder. Endvidere har jeg erfaring fra flere andre områder - såsom desktop applikationsudvikling, og udvikling til indlejrede enheder. <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/> Desuden er jeg af den opfattelse, at jeg er en innovativ person med mange idéer. Jeg er en teknisk kompetent, dedikeret person, som bliver ved med at arbejde indtil arbejdet er gjort. Jeg arbejder fint både i grupper og individuelt. Kort sagt er jeg en type person, der ser muligheder fremfor barrierer foran mig. </source>
-        <target> I am a competent software developer with a preference towards web development as well as development for mobile devices. Furthermore, I have experience from several other areas - such as desktop application development, and development for embedded devices. <x id = "LINE_BREAK" ctype = "lb" equiv-text = "& lt; br / & gt;" /> <x id = "LINE_BREAK" ctype = "lb" equiv-text = "& lt; br / & gt;" /> In addition, I am of the opinion that I am an innovative person with many ideas. I am a technically competent, dedicated person who keeps working until the work is done. I work fine both in groups and individually. In short, I am a type of person who sees opportunities rather than barriers in front of me. </target>
+      <trans-unit id="4425630083313782310" datatype="html">
+        <source>Jeg er en kompetent softwareudvikler med en præference i retning af webudvikling samt udvikling til mobile enheder. Endvidere har jeg erfaring fra flere andre områder - såsom desktop applikationsudvikling, og udvikling til indlejrede enheder.</source>
+        <target>I am a competent software developer with a preference towards web development as well as development for mobile devices. Furthermore, I have experience from several other areas - such as desktop application development, and development for embedded devices.</target>
       </trans-unit>
       <trans-unit id="3349742688438436280" datatype="html">
         <source>Interesser</source>

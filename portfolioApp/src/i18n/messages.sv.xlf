@@ -5,19 +5,19 @@
       <!-- Navigation -->
       <trans-unit id="5784386219958066970" datatype="html">
         <source>Forside</source>
-        <target>Home</target>
+        <target>Hem</target>
       </trans-unit>
       <trans-unit id="6794541731571985261" datatype="html">
         <source>Om mig</source>
-        <target>About me</target>
+        <target>Om mig</target>
       </trans-unit>
       <trans-unit id="3079002003406197429" datatype="html">
         <source>Projekter</source>
-        <target>Projects</target>
+        <target>Projekt</target>
       </trans-unit>
       <trans-unit id="397497450705980813" datatype="html">
         <source>Kontakt</source>
-        <target>Contact</target>
+        <target>Kontakt</target>
       </trans-unit>
       <trans-unit id="5293537796822127156" datatype="html">
         <source>CV</source>
@@ -26,7 +26,7 @@
       <!-- Home page-->
       <trans-unit id="1162970855295131420" datatype="html">
         <source>Henriks Portfolio</source>
-        <target>Henriks Portfolio</target>
+        <target>Henriks Portfölj</target>
       </trans-unit>
       <!-- CV page -->
       <trans-unit id="3989749792732640418" datatype="html">
@@ -35,15 +35,19 @@
       </trans-unit>
       <trans-unit id="7492375559154995019" datatype="html">
         <source>Certifikater</source>
-        <target>Certificates</target>
+        <target>Certifikat</target>
       </trans-unit>
       <trans-unit id="8604637668329678538" datatype="html">
         <source>Danmark</source>
         <target>Danmark</target>
       </trans-unit>
+      <trans-unit id="8027314699805909337" datatype="html">
+        <source>Desuden er jeg af den opfattelse, at jeg er en innovativ person med mange idéer. Jeg er en teknisk kompetent, dedikeret yperson, som bliver ved med at arbejde indtil arbejdet er gjort. Jeg arbejder fint både i grupper og individuelt. Kort sagt er jeg en type person, der ser muligheder fremfor barrierer foran mig.</source>
+        <target>Dessutom är jag av åsikten att jag är en innovativ person med många idéer. Jag är en tekniskt kompetent, engagerad person som jobbar vidare tills arbetet är klart. Jag jobbar bra både i grupp och individuellt. Kort sagt, jag är en typ av person som ser möjligheter snarare än barriärer framför mig.</target>
+      </trans-unit>
       <trans-unit id="2340064925348742945" datatype="html">
         <source>Erfaring</source>
-        <target>Experience</target>
+        <target>Erfarenhet</target>
       </trans-unit>
       <trans-unit id="7954567444083380599" datatype="html">
         <source>Forrige</source>
@@ -63,43 +67,43 @@
       </trans-unit>
       <trans-unit id="6448220344715619327" datatype="html">
         <source>Henter certifikater...</source>
-        <target>Loading certificates...</target>
+        <target>Laddar certifikat...</target>
       </trans-unit>
       <trans-unit id="176739812335679606" datatype="html">
         <source>Henter erhvervserfaring...</source>
-        <target>Loading work experience...</target>
+        <target>Laddar arbetserfarenhet...</target>
       </trans-unit>
       <trans-unit id="6538152255831335823" datatype="html">
         <source>Henter interesser...</source>
-        <target>Loading interests...</target>
+        <target>Laddar intressen...</target>
       </trans-unit>
       <trans-unit id="2641250604642068227" datatype="html">
         <source>Henter kompetencer...</source>
-        <target>Loading skills...</target>
+        <target>Laddar kompetens...</target>
       </trans-unit>
       <trans-unit id="2926898216353693808" datatype="html">
         <source>Henter sprog...</source>
-        <target>Loading languages...</target>
+        <target>Laddar språk...</target>
       </trans-unit>
       <trans-unit id="6037343413302090674" datatype="html">
         <source>Henter uddannelser...</source>
-        <target>Loading educations...</target>
+        <target>Laddar utbildningar...</target>
       </trans-unit>
-      <trans-unit id="1931726057411036581" datatype="html">
-        <source> Jeg er en kompetent softwareudvikler med en præference i retning af webudvikling samt udvikling til mobile enheder. Endvidere har jeg erfaring fra flere andre områder - såsom desktop applikationsudvikling, og udvikling til indlejrede enheder. <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/> Desuden er jeg af den opfattelse, at jeg er en innovativ person med mange idéer. Jeg er en teknisk kompetent, dedikeret person, som bliver ved med at arbejde indtil arbejdet er gjort. Jeg arbejder fint både i grupper og individuelt. Kort sagt er jeg en type person, der ser muligheder fremfor barrierer foran mig. </source>
-        <target> Jag är en kompetent mjukvaruutvecklare med förkärlek för webbutveckling samt utveckling för mobila enheter. Vidare har jag erfarenhet från flera andra områden - såsom desktop applikationsutveckling, och utveckling för inbyggda enheter. <x id = "LINE_BREAK" ctype = "lb" equiv-text = "& lt; br / & gt;" /> <x id = "LINE_BREAK" ctype = "lb" equiv-text = "& lt; br / & gt;" /> Dessutom är jag av åsikten att jag är en innovativ person med många idéer. Jag är en tekniskt kompetent, engagerad person som jobbar vidare tills arbetet är klart. Jag jobbar bra både i grupp och individuellt. Kort sagt, jag är en typ av person som ser möjligheter snarare än barriärer framför mig. </target>
+      <trans-unit id="4425630083313782310" datatype="html">
+        <source>Jeg er en kompetent softwareudvikler med en præference i retning af webudvikling samt udvikling til mobile enheder. Endvidere har jeg erfaring fra flere andre områder - såsom desktop applikationsudvikling, og udvikling til indlejrede enheder.</source>
+        <target>Jag är en kompetent mjukvaruutvecklare med förkärlek för webbutveckling samt utveckling för mobila enheter. Vidare har jag erfarenhet från flera andra områden - såsom desktop applikationsutveckling, och utveckling för inbyggda enheter.</target>
       </trans-unit>
       <trans-unit id="3349742688438436280" datatype="html">
         <source>Interesser</source>
-        <target>Interests</target>
+        <target>Intressen</target>
       </trans-unit>
       <trans-unit id="3424673714211365571" datatype="html">
         <source>It-Teknolog (AK)</source>
-        <target>AP Degree in IT and Electronics</target>
+        <target>Mittuniversitets-examen i IT och elektronik</target>
       </trans-unit>
       <trans-unit id="2667102750677402001" datatype="html">
         <source>Kompetencer</source>
-        <target>Skills</target>
+        <target>Kompetens</target>
       </trans-unit>
       <trans-unit id="7644300011746296925" datatype="html">
         <source>Kort Beskrivelse</source>
@@ -123,7 +127,7 @@
       </trans-unit>
       <trans-unit id="8951055125458694900" datatype="html">
         <source>Sprog</source>
-        <target>Languages</target>
+        <target>Språk</target>
       </trans-unit>
       <trans-unit id="245512719199604556" datatype="html">
         <source>Uddannelse</source>
@@ -132,7 +136,7 @@
       <!-- General -->
       <trans-unit id="6603835101224260550" datatype="html">
         <source>Henter projekter...</source>
-        <target>Loading projects...</target>
+        <target>Laddar projekt...</target>
       </trans-unit>
     </body>
   </file>

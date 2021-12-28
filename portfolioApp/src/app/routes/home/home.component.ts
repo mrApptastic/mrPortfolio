@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     setTimeout(() => {
-      this.animatePath("animPath", 0.05);
+      this.animatePath("animPath", 0.02);
     }, 0);
   }
 
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
 			 thisPath.style.animationDelay = (i * dl) + "s";
 		}
 
-    const totalTime = ((document.getElementsByClassName(cl).length * dl) * 1000) + 400;
+    const totalTime = ((document.getElementsByClassName(cl).length * dl) * 1000) + 200;
 
 		setTimeout(() => {
       document.getElementById("navigation")?.classList.remove("hidden");

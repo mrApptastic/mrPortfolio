@@ -47,7 +47,7 @@ export class CvExportService {
     doc.text(printObj.country, 10, 50);
     doc.text(printObj.phoneNumber, 10, 60);
     doc.text(printObj.eMail, 10, 70);
-    doc.text(printObj.shortDescription, 10, 80);
+    doc.text(doc.splitTextToSize(printObj.shortDescription, width - ((outerMargin + innerMargin) * 2)), 10, 80);
     doc.save("Uha.pdf");
   }
 
@@ -57,10 +57,10 @@ export class CvExportService {
       profession: $localize`:@@8305623058929365707:Softwareudvikler`,
       address: "Sallingsundvej 18 st th",
       postalCodeAndCity: "9220 Aalborg Øst",
-      country: "Danmark",
+      country: $localize`:@@8604637668329678538:Danmark`,
       phoneNumber: "(+45) 24 49 75 55",
       eMail: "henrikbeske@gmail.com",
-      shortDescription: "hej",
+      shortDescription: $localize`:@@4425630083313782310:Jeg er en kompetent softwareudvikler med en præference i retning af webudvikling samt udvikling til mobile enheder. Endvidere har jeg erfaring fra flere andre områder - såsom desktop applikationsudvikling, og udvikling til indlejrede enheder.` + "\\n\\n" + $localize`:@@8027314699805909337:Desuden er jeg af den opfattelse, at jeg er en innovativ person med mange idéer. Jeg er en teknisk kompetent, dedikeret person, som bliver ved med at arbejde indtil arbejdet er gjort. Jeg arbejder fint både i grupper og individuelt. Kort sagt er jeg en type person, der ser muligheder fremfor barrierer foran mig.`,
       listItems: list
     } as PortfolioPrint;
   }
