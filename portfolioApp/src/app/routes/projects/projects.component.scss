@@ -111,18 +111,18 @@ p {
   line-height: 14px;
   margin-top: 12px;
 }
-.timeline > li.timeline-inverted > .timeline-panel {
+.timeline > li.timeline-inverted > a .timeline-panel {
   float: right;
   padding: 0 20px 0 100px;
   text-align: left;
 }
-.timeline > li.timeline-inverted > .timeline-panel:before {
+.timeline > li.timeline-inverted > a .timeline-panel:before {
   right: auto;
   left: -15px;
   border-right-width: 15px;
   border-left-width: 0;
 }
-.timeline > li.timeline-inverted > .timeline-panel:after {
+.timeline > li.timeline-inverted > a .timeline-panel:after {
   right: auto;
   left: -14px;
   border-right-width: 14px;
@@ -168,7 +168,7 @@ p {
     line-height: 18px;
     margin-top: 16px;
   }
-  .timeline > li.timeline-inverted > .timeline-panel {
+  .timeline > li.timeline-inverted > a .timeline-panel {
     float: right;
     padding: 0 30px 20px 20px;
     text-align: left;
@@ -191,7 +191,7 @@ p {
     line-height: 26px;
     margin-top: 30px;
   }
-  .timeline > li.timeline-inverted > .timeline-panel {
+  .timeline > li.timeline-inverted > a .timeline-panel {
     padding: 0 20px 20px;
   }
 }
@@ -210,9 +210,13 @@ p {
   .timeline > li .timeline-image h4, .timeline > li .timeline-image .h4 {
     margin-top: 40px;
   }
-  .timeline > li.timeline-inverted > .timeline-panel {
+  .timeline > li.timeline-inverted > a .timeline-panel {
     padding: 0 100px 20px 20px;
   }
+}
+
+div.timeline-panel, div.timeline-panel:hover {
+  color: rebeccapurple;
 }
 
 .text-muted {
