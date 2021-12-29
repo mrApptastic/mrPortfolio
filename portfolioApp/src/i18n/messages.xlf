@@ -2,6 +2,20 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="da" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="3848366393353229455" datatype="html">
+        <source>Til dagligt er jeg Henrik Beske, et helt almindeligt familiemenneske.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/translation/translation.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9041498226623547445" datatype="html">
+        <source>Men idet jeg tager afsted til arbejde, forvandler jeg mig til mrApptastic, en superheroisk webudvikler med gazelleblod fossende gennem blodbanerne.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/translation/translation.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="5784386219958066970" datatype="html">
         <source>Forside</source>
         <context-group purpose="location">
@@ -229,9 +243,13 @@
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
           <context context-type="linenumber">74</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
       </trans-unit>
-      <trans-unit id="8027314699805909337" datatype="html">
-        <source>Desuden er jeg af den opfattelse, at jeg er en innovativ person med mange idéer. Jeg er en teknisk kompetent, dedikeret yperson, som bliver ved med at arbejde indtil arbejdet er gjort. Jeg arbejder fint både i grupper og individuelt. Kort sagt er jeg en type person, der ser muligheder fremfor barrierer foran mig.</source>
+      <trans-unit id="575499127834956632" datatype="html">
+        <source>Desuden er jeg af den opfattelse, at jeg er en innovativ person med mange idéer. Jeg er en teknisk kompetent, dedikeret person, som bliver ved med at arbejde indtil arbejdet er gjort. Jeg arbejder fint både i grupper og individuelt. Kort sagt er jeg en type person, der ser muligheder fremfor barrierer foran mig.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
           <context context-type="linenumber">75</context>
@@ -347,13 +365,11 @@
           <context context-type="linenumber">51</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1931726057411036581" datatype="html">
-        <source>Jeg er en kompetent softwareudvikler med en præference i retning af webudvikling samt udvikling til mobile enheder. Endvidere har jeg erfaring fra flere andre områder - såsom desktop applikationsudvikling, og udvikling til indlejrede enheder.
-      &lt;br/&gt;&lt;br/&gt;
-      Desuden er jeg af den opfattelse, at jeg er en innovativ person med mange idéer. Jeg er en teknisk kompetent, dedikeret person, som bliver ved med at arbejde indtil arbejdet er gjort. Jeg arbejder fint både i grupper og individuelt. Kort sagt er jeg en type person, der ser muligheder fremfor barrierer foran mig.</source>
+      <trans-unit id="8027314699805909337" datatype="html">
+        <source>Desuden er jeg af den opfattelse, at jeg er en innovativ person med mange idéer. Jeg er en teknisk kompetent, dedikeret person, som bliver ved med at arbejde indtil arbejdet er gjort. Jeg arbejder fint både i grupper og individuelt. Kort sagt er jeg en type person, der ser muligheder fremfor barrierer foran mig.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
-          <context context-type="linenumber">63,65</context>
+          <context context-type="linenumber">63</context>
         </context-group>
       </trans-unit>
     </body>

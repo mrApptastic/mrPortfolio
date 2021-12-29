@@ -28,6 +28,15 @@
         <source>Henriks Portfolio</source>
         <target>Henriks Portfolio</target>
       </trans-unit>
+      <!-- About page -->
+      <trans-unit id="9041498226623547445" datatype="html">
+        <source>Men idet jeg tager afsted til arbejde, forvandler jeg mig til mrApptastic, en superheroisk webudvikler med gazelleblod fossende gennem blodbanerne.</source>
+        <target>But when I head off to work, I transform myself into mrApptastic, a superheroic web developer with gazelle blood gushing through the veins.</target>
+      </trans-unit>
+      <trans-unit id="3848366393353229455" datatype="html">
+        <source>Til dagligt er jeg Henrik Beske, et helt almindeligt familiemenneske.</source>
+        <target>Normally, I am Henrik Beske, an ordinary family man.</target>
+      </trans-unit>
       <!-- CV page -->
       <trans-unit id="3989749792732640418" datatype="html">
         <source>(+45) 24 49 75 55</source>
@@ -42,7 +51,7 @@
         <target>Denmark</target>
       </trans-unit>
       <trans-unit id="8027314699805909337" datatype="html">
-        <source>Desuden er jeg af den opfattelse, at jeg er en innovativ person med mange idéer. Jeg er en teknisk kompetent, dedikeret yperson, som bliver ved med at arbejde indtil arbejdet er gjort. Jeg arbejder fint både i grupper og individuelt. Kort sagt er jeg en type person, der ser muligheder fremfor barrierer foran mig.</source>
+        <source>Desuden er jeg af den opfattelse, at jeg er en innovativ person med mange idéer. Jeg er en teknisk kompetent, dedikeret person, som bliver ved med at arbejde indtil arbejdet er gjort. Jeg arbejder fint både i grupper og individuelt. Kort sagt er jeg en type person, der ser muligheder fremfor barrierer foran mig.</source>
         <target>In addition, I am of the opinion that I am an innovative person with many ideas. I am a technically competent, dedicated person who keeps working until the work is done. I work fine both in groups and individually. In short, I am a type of person who sees opportunities rather than barriers in front of me.</target>
       </trans-unit>
       <trans-unit id="2340064925348742945" datatype="html">
