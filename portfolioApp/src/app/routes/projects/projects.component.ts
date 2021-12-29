@@ -41,29 +41,15 @@ export class ProjectsComponent implements OnInit {
     return false;
   }
 
-  openProject(project: any, index: number): void {
+  getLink(project: any) {
     if (project?.demoUrl) {
-      const elm = document.getElementById("demo-" + index);
-      if (elm) {
-        setTimeout(() => {
-          elm.click();
-        });
-      }
+      return project?.demoUrl;
     } else if (project?.docUrl) {
-      const elm = document.getElementById("doc-" + index);
-      if (elm) {
-        setTimeout(() => {
-          elm.click();
-        });
-      }
+      return project?.docUrl;
     } else if (project?.sourceUrl) {
-      const elm = document.getElementById("source-" + index);
-      if (elm) {
-        setTimeout(() => {
-          elm.click();
-        });
-      }
+      return project?.sourceUrl;
+    } else {
+      return null;
     }
   }
-
 }
