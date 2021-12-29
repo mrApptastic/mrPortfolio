@@ -91,6 +91,22 @@ export class CvExportService {
 
       /* Add Heading */
       doc.text(ib, innerMargin + outerMargin, innerMargin + outerMargin + 5);
+
+      let lineNumber = 1;
+
+      for (const bo of (printObj.listItems as any)[ib]) {
+        if (bo?.name) {
+          doc.text(bo.name, innerMargin + outerMargin, innerMargin + outerMargin + 5 + (lineNumber * 7));
+          lineNumber++;
+        }
+
+        if (bo?.imageUrl) {
+          /* Add Image */
+          const img = new Image();
+          img.src = bo.imageUrl;
+          doc.addImage(img, 'png', (width - 35 - innerMargin - outerMargin), (innerMargin + outerMargin + (lineNumber * 7)), 35, 35);
+        }
+      }
     }
 
     doc.save(new Date().toJSON().slice(0, 10) + 'Curriculum_Vitae_Henrik_Beske.pdf');
