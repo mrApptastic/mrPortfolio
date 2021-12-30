@@ -20,6 +20,7 @@ export class CvExportService {
     const width = doc.internal.pageSize.getWidth();
     const outerMargin = 10;
     const innerMargin = 5;
+    const lineHeight = 7;
     const headingOffset = 10;
     const portraitSize = 60;
     let pageNumber = 1;
@@ -69,7 +70,7 @@ export class CvExportService {
     let textLines = 0;
     for (const text of texts) {
       const clippedText = doc.splitTextToSize(text, width - ((outerMargin + innerMargin) * 2));
-      doc.text(clippedText, innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + 80 + (textLines * 7));
+      doc.text(clippedText, innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + 80 + (textLines * lineHeight));
       textLines += clippedText.length;
     }
 
@@ -90,21 +91,32 @@ export class CvExportService {
       doc.text(pageNumber.toString(), (width / 2), height - 2);
 
       /* Add Heading */
+      doc.setTextColor('Black');
       doc.text(ib, innerMargin + outerMargin, innerMargin + outerMargin + 5);
+      doc.setFont('Book-Antikva');
+      doc.setFontSize(15);
 
-      let lineNumber = 1;
+      let lineNumber = 2;
 
       for (const bo of (printObj.listItems as any)[ib]) {
-        if (bo?.name) {
-          doc.text(bo.name, innerMargin + outerMargin, innerMargin + outerMargin + 5 + (lineNumber * 7));
-          lineNumber++;
-        }
-
         if (bo?.imageUrl) {
           /* Add Image */
           const img = new Image();
           img.src = bo.imageUrl;
-          doc.addImage(img, 'png', (width - 35 - innerMargin - outerMargin), (innerMargin + outerMargin + (lineNumber * 7)), 35, 35);
+          doc.addImage(img, 'png', (width - 35 - innerMargin - outerMargin), (innerMargin + outerMargin + (lineNumber * lineHeight)), lineHeight * 5, lineHeight * 5);
+        }
+
+        if (bo?.name) {
+          doc.setFontSize(30);
+          doc.text(bo.name, innerMargin + outerMargin, innerMargin + outerMargin + 5 + (lineNumber * lineHeight));
+          lineNumber++;
+          doc.setFontSize(15);
+        }
+
+        if (bo?.description) {
+          const clippedText = doc.splitTextToSize(this.reformatHtml(bo.description), width - ((outerMargin + innerMargin) * 2) - (lineHeight * 5) - innerMargin);
+          doc.text(clippedText, innerMargin + outerMargin, innerMargin + outerMargin + 5 + (lineNumber * lineHeight));
+          lineNumber += clippedText.length + 1;
         }
       }
     }
@@ -124,6 +136,34 @@ export class CvExportService {
       shortDescription: $localize`:@@4425630083313782310:Jeg er en kompetent softwareudvikler med en præference i retning af webudvikling samt udvikling til mobile enheder. Endvidere har jeg erfaring fra flere andre områder - såsom desktop applikationsudvikling, og udvikling til indlejrede enheder.` + "\n" + "<BR>" + $localize`:@@8027314699805909337:Desuden er jeg af den opfattelse, at jeg er en innovativ person med mange idéer. Jeg er en teknisk kompetent, dedikeret person, som bliver ved med at arbejde indtil arbejdet er gjort. Jeg arbejder fint både i grupper og individuelt. Kort sagt er jeg en type person, der ser muligheder fremfor barrierer foran mig.`,
       listItems: list
     } as PortfolioPrint;
+  }
+
+  reformatHtml(text: string): string {
+    const removers = [ "<p>", "<ul>", "</ul>"];
+    const lineBreakers = [ "</p>", "</li>", "</br>"];
+    const listItems = [ "<li>" ];
+
+    for (const tag of removers) {
+      while (text.includes(tag)) {
+        text = text.replace(tag, "");
+      }
+    }
+
+    for (const tag of lineBreakers) {
+      while (text.includes(tag)) {
+        text = text.replace(tag, "\n\n");
+      }
+    }
+
+    for (const tag of listItems) {
+      while (text.includes(tag)) {
+        text = text.replace(tag, " - ");
+      }
+    }
+
+
+
+    return text;
   }
 }
 
