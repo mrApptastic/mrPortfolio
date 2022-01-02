@@ -99,6 +99,11 @@ export class CvExportService {
       let lineNumber = 2;
 
       for (const bo of (printObj.listItems as any)[ib]) {
+        if ((lineNumber * lineHeight) > (height - outerMargin * 2 - innerMargin * 2)) {
+          lineNumber = 0;
+          doc.addPage();
+        }
+
         if (bo?.imageUrl) {
           /* Add Image */
           const img = new Image();
@@ -143,6 +148,14 @@ export class CvExportService {
     const lineBreakers = [ "</p>", "</li>", "</br>"];
     const listItems = [ "<li>" ];
 
+    while(text.includes("\t")) {
+      text = text.replace("\t","");
+    }
+
+    while(text.includes("\n")) {
+      text = text.replace("\n","");
+    }
+
     for (const tag of removers) {
       while (text.includes(tag)) {
         text = text.replace(tag, "");
@@ -160,6 +173,8 @@ export class CvExportService {
         text = text.replace(tag, " - ");
       }
     }
+
+
 
 
 
