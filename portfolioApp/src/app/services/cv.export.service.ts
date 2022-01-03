@@ -15,14 +15,18 @@ export class CvExportService {
 
   downloadCV(list: PortfolioList): void {
     const printObj = this.generatePrintObject(list);
-
     const doc = new jsPDF();
     const height = doc.internal.pageSize.getHeight();
     const width = doc.internal.pageSize.getWidth();
     const outerMargin = 10;
     const innerMargin = 5;
+    const pageBase = 5;
     const lineHeight = 7;
+    const headingLineHeight = 10;
     const headingOffset = 10;
+    const headingSize = 30;
+    const subHeadingSize = 20;
+    const paragraphSize = 13;
     const portraitSize = 60;
     let pageNumber = 1;
 
@@ -38,7 +42,7 @@ export class CvExportService {
 
     /* Add Heading */
     doc.setFont('Ringbearer');
-    doc.setFontSize(30);
+    doc.setFontSize(headingSize);
     doc.setTextColor('Silver');
     doc.text('Curriculum Vitae', outerMargin, outerMargin + innerMargin);
 
@@ -51,27 +55,27 @@ export class CvExportService {
     doc.addImage(img, 'png', (width - portraitSize - innerMargin - outerMargin), (headingOffset + innerMargin + outerMargin), portraitSize, portraitSize);
 
     /* Add Info Box */
-    doc.setFontSize(15);
+    doc.setFontSize(paragraphSize);
     doc.setTextColor('Black');
-    doc.text("Navn:", innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + 5);
-    doc.text("Profession:", innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + 19);
-    doc.text("Telefonnummer:", innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + 33);
-    doc.text("E-mail:", innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + 47);
-    doc.text($localize`:@@7644300011746296925:Kort Beskrivelse` + ":", innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + 73);
+    doc.text("Navn:", innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + pageBase);
+    doc.text("Profession:", innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + (pageBase + lineHeight * 2));
+    doc.text("Telefonnummer:", innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + (pageBase + lineHeight * 4));
+    doc.text("E-mail:", innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + (pageBase + lineHeight * 6));
+    doc.text($localize`:@@7644300011746296925:Kort Beskrivelse` + ":", innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + ((pageBase * 2) + lineHeight * 9));
     doc.addFileToVFS('Book-Antikva-Regular.ttf', BookAntikva);
     doc.addFont('Book-Antikva-Regular.ttf', 'Book-Antikva', 'normal');
     doc.setFont('Book-Antikva');
-    doc.text(printObj.name, innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + 12);
-    doc.text(printObj.profession, innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + 26);
-    doc.text(printObj.phoneNumber, innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + 40);
-    doc.text(printObj.eMail, innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + 54);
+    doc.text(printObj.name, innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + + (pageBase + lineHeight * 1));
+    doc.text(printObj.profession, innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + + (pageBase + lineHeight * 3));
+    doc.text(printObj.phoneNumber, innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + + (pageBase + lineHeight * 5));
+    doc.text(printObj.eMail, innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + + (pageBase + lineHeight * 7));
 
     /* Add Short Description */
     const texts = printObj.shortDescription.split("<BR>");
     let textLines = 0;
     for (const text of texts) {
       const clippedText = doc.splitTextToSize(text, width - ((outerMargin + innerMargin) * 2));
-      doc.text(clippedText, innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + 80 + (textLines * lineHeight));
+      doc.text(clippedText, innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + ((pageBase * 2) + (lineHeight * 10)) + (textLines * lineHeight));
       textLines += clippedText.length;
     }
 
@@ -87,7 +91,7 @@ export class CvExportService {
 
       /* Add Page Number */
       doc.setFont('Ringbearer');
-      doc.setFontSize(30);
+      doc.setFontSize(headingSize);
       doc.setTextColor('Silver');
       doc.text(pageNumber.toString(), (width / 2), height - 2);
 
@@ -95,16 +99,31 @@ export class CvExportService {
       doc.setTextColor('Black');
       doc.text(ib, innerMargin + outerMargin, innerMargin + outerMargin + 5);
       doc.setFont('Book-Antikva');
-      doc.setFontSize(15);
+      doc.setFontSize(paragraphSize);
 
       let lineNumber = 2 * lineHeight;
 
       for (const bo of (printObj.listItems as any)[ib]) {
         let tempLineNumber = 0;
-        let imageY = 0;
-        let nameY = 0;
-        let dateY = 0;
-        let descriptionY = 0;
+        let extraOffset = 0;
+
+        if (bo?.name) {
+          const clippedText = doc.splitTextToSize(this.reformatHtml(bo.name), width - ((outerMargin + innerMargin) * 2) - (lineHeight * 5) - innerMargin);
+          tempLineNumber += (clippedText.length * (headingLineHeight - 1));
+        }
+
+        if (bo?.place) {
+          tempLineNumber += 1 * lineHeight;
+        }
+
+        if (bo?.from) {
+          tempLineNumber += 1 * lineHeight;
+        }
+
+        if (bo?.description) {
+          const clippedText = doc.splitTextToSize(this.reformatHtml(bo.description), width - ((outerMargin + innerMargin) * 2) - (lineHeight * 5) - innerMargin);
+          tempLineNumber += (clippedText.length * (lineHeight - 1));
+        }
 
         if ((lineNumber + tempLineNumber) > (height - outerMargin * 2 - innerMargin * 2)) {
           lineNumber = 2 * lineHeight;
@@ -119,7 +138,7 @@ export class CvExportService {
 
           /* Add Page Number */
           doc.setFont('Ringbearer');
-          doc.setFontSize(30);
+          doc.setFontSize(headingSize);
           doc.setTextColor('Silver');
           doc.text(pageNumber.toString(), (width / 2), height - 2);
 
@@ -127,22 +146,35 @@ export class CvExportService {
           doc.setTextColor('Black');
           doc.text(ib, innerMargin + outerMargin, innerMargin + outerMargin + 5);
           doc.setFont('Book-Antikva');
-          doc.setFontSize(15);
+          doc.setFontSize(paragraphSize);
+        } else if (bo?.imageUrl && tempLineNumber < lineHeight * 6) {
+          extraOffset = lineHeight * 6 - tempLineNumber;
         }
 
         if (bo?.imageUrl) {
           /* Add Image */
           const img = new Image();
           img.src = bo.imageUrl;
-          doc.addImage(img, 'png', (width - 35 - innerMargin - outerMargin), (innerMargin + outerMargin + lineNumber), lineHeight * 5, lineHeight * 5);
+          doc.addImage(img, 'png', (width - (5 * lineHeight) - innerMargin - outerMargin), (innerMargin + outerMargin + lineNumber), lineHeight * 5, lineHeight * 5);
+
+          if (bo?.demoUrl) {
+            doc.link((width - (5 * lineHeight) - innerMargin - outerMargin), (innerMargin + outerMargin + lineNumber), lineHeight * 5, lineHeight * 5, { url: bo.demoUrl });
+          } else if (bo?.docUrl) {
+            doc.link((width - (5 * lineHeight) - innerMargin - outerMargin), (innerMargin + outerMargin + lineNumber), lineHeight * 5, lineHeight * 5, { url: bo.docUrl });
+          }
         }
 
         if (bo?.name) {
-          doc.setFontSize(20);
+          doc.setFontSize(subHeadingSize);
           const clippedText = doc.splitTextToSize(this.reformatHtml(bo.name), width - ((outerMargin + innerMargin) * 2) - (lineHeight * 5) - innerMargin);
           doc.text(clippedText, innerMargin + outerMargin, innerMargin + outerMargin + 5 + lineNumber);
-          lineNumber += (clippedText.length * (lineHeight - 1));
-          doc.setFontSize(15);
+          lineNumber += (clippedText.length * (headingLineHeight - 1));
+          doc.setFontSize(paragraphSize);
+        }
+
+        if (bo?.place) {
+          doc.text(bo.place, innerMargin + outerMargin, innerMargin + outerMargin + 5 + lineNumber);
+          lineNumber += 1 * lineHeight;
         }
 
         if (bo?.from) {
@@ -156,10 +188,12 @@ export class CvExportService {
           doc.text(clippedText, innerMargin + outerMargin, innerMargin + outerMargin + 5 + lineNumber);
           lineNumber += (clippedText.length * (lineHeight - 1));
         }
+
+        lineNumber += extraOffset;
       }
     }
 
-    doc.save(new Date().toJSON().slice(0, 10) + '-' + 'Curriculum_Vitae_Henrik_Beske' + + '_' + this.locale + '.pdf');
+    doc.save(new Date().toJSON().slice(0, 10) + '-' + 'Curriculum_Vitae_Henrik_Beske' + '_' + this.locale + '.pdf');
   }
 
   generatePrintObject(list: PortfolioList): PortfolioPrint {
@@ -171,7 +205,7 @@ export class CvExportService {
       country: $localize`:@@8604637668329678538:Danmark`,
       phoneNumber: "(+45) 24 49 75 55",
       eMail: "henrikbeske@gmail.com",
-      shortDescription: $localize`:@@4425630083313782310:Jeg er en kompetent softwareudvikler med en præference i retning af webudvikling samt udvikling til mobile enheder. Endvidere har jeg erfaring fra flere andre områder - såsom desktop applikationsudvikling, og udvikling til indlejrede enheder.` + "\n" + "<BR>" + $localize`:@@8027314699805909337:Desuden er jeg af den opfattelse, at jeg er en innovativ person med mange idéer. Jeg er en teknisk kompetent, dedikeret person, som bliver ved med at arbejde indtil arbejdet er gjort. Jeg arbejder fint både i grupper og individuelt. Kort sagt er jeg en type person, der ser muligheder fremfor barrierer foran mig.`,
+      shortDescription: $localize`:@@4425630083313782310:Jeg er en kompetent softwareudvikler med en præference i retning af webudvikling samt udvikling til mobile enheder. Endvidere har jeg erfaring fra flere andre områder - såsom desktop applikationsudvikling, og udvikling til indlejrede enheder.` + "\n\n" + $localize`:@@8027314699805909337:Desuden er jeg af den opfattelse, at jeg er en innovativ person med mange idéer. Jeg er en teknisk kompetent, dedikeret person, som bliver ved med at arbejde indtil arbejdet er gjort. Jeg arbejder fint både i grupper og individuelt. Kort sagt er jeg en type person, der ser muligheder fremfor barrierer foran mig.`,
       listItems: list
     } as PortfolioPrint;
   }
