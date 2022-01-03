@@ -1,16 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, LOCALE_ID } from '@angular/core';
 import { jsPDF } from 'jspdf';
 import { Ringbearer } from './data-fonts/ringbearer';
 import { BookAntikva } from './data-fonts/book-antikva';
 import { PortfolioPrint } from '../models/portfolio-print';
 import { PortfolioList } from '../models/portfolio-list';
+import { TimeService } from './time.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CvExportService {
 
-  constructor() { }
+  constructor(@Inject(LOCALE_ID) public locale: string, private time: TimeService) { }
 
   downloadCV(list: PortfolioList): void {
     const printObj = this.generatePrintObject(list);
@@ -96,37 +97,69 @@ export class CvExportService {
       doc.setFont('Book-Antikva');
       doc.setFontSize(15);
 
-      let lineNumber = 2;
+      let lineNumber = 2 * lineHeight;
 
       for (const bo of (printObj.listItems as any)[ib]) {
-        if ((lineNumber * lineHeight) > (height - outerMargin * 2 - innerMargin * 2)) {
-          lineNumber = 0;
+        let tempLineNumber = 0;
+        let imageY = 0;
+        let nameY = 0;
+        let dateY = 0;
+        let descriptionY = 0;
+
+        if ((lineNumber + tempLineNumber) > (height - outerMargin * 2 - innerMargin * 2)) {
+          lineNumber = 2 * lineHeight;
           doc.addPage();
+          pageNumber++;
+
+          /* Draw boxes */
+          doc.setFillColor('DarkSlateGray');
+          doc.rect(0, 0, width, height, 'F');
+          doc.setFillColor("Snow");
+          doc.rect(outerMargin, outerMargin, width - outerMargin * 2, height - outerMargin * 2, 'F');
+
+          /* Add Page Number */
+          doc.setFont('Ringbearer');
+          doc.setFontSize(30);
+          doc.setTextColor('Silver');
+          doc.text(pageNumber.toString(), (width / 2), height - 2);
+
+          /* Add Heading */
+          doc.setTextColor('Black');
+          doc.text(ib, innerMargin + outerMargin, innerMargin + outerMargin + 5);
+          doc.setFont('Book-Antikva');
+          doc.setFontSize(15);
         }
 
         if (bo?.imageUrl) {
           /* Add Image */
           const img = new Image();
           img.src = bo.imageUrl;
-          doc.addImage(img, 'png', (width - 35 - innerMargin - outerMargin), (innerMargin + outerMargin + (lineNumber * lineHeight)), lineHeight * 5, lineHeight * 5);
+          doc.addImage(img, 'png', (width - 35 - innerMargin - outerMargin), (innerMargin + outerMargin + lineNumber), lineHeight * 5, lineHeight * 5);
         }
 
         if (bo?.name) {
-          doc.setFontSize(30);
-          doc.text(bo.name, innerMargin + outerMargin, innerMargin + outerMargin + 5 + (lineNumber * lineHeight));
-          lineNumber++;
+          doc.setFontSize(20);
+          const clippedText = doc.splitTextToSize(this.reformatHtml(bo.name), width - ((outerMargin + innerMargin) * 2) - (lineHeight * 5) - innerMargin);
+          doc.text(clippedText, innerMargin + outerMargin, innerMargin + outerMargin + 5 + lineNumber);
+          lineNumber += (clippedText.length * (lineHeight - 1));
           doc.setFontSize(15);
+        }
+
+        if (bo?.from) {
+          const time = this.time.formatYear(bo?.from, bo?.to);
+          doc.text(time, innerMargin + outerMargin, innerMargin + outerMargin + 5 + lineNumber);
+          lineNumber += 1 * lineHeight;
         }
 
         if (bo?.description) {
           const clippedText = doc.splitTextToSize(this.reformatHtml(bo.description), width - ((outerMargin + innerMargin) * 2) - (lineHeight * 5) - innerMargin);
-          doc.text(clippedText, innerMargin + outerMargin, innerMargin + outerMargin + 5 + (lineNumber * lineHeight));
-          lineNumber += clippedText.length + 1;
+          doc.text(clippedText, innerMargin + outerMargin, innerMargin + outerMargin + 5 + lineNumber);
+          lineNumber += (clippedText.length * (lineHeight - 1));
         }
       }
     }
 
-    doc.save(new Date().toJSON().slice(0, 10) + 'Curriculum_Vitae_Henrik_Beske.pdf');
+    doc.save(new Date().toJSON().slice(0, 10) + '-' + 'Curriculum_Vitae_Henrik_Beske' + + '_' + this.locale + '.pdf');
   }
 
   generatePrintObject(list: PortfolioList): PortfolioPrint {
@@ -144,6 +177,10 @@ export class CvExportService {
   }
 
   reformatHtml(text: string): string {
+    if (!text) {
+      return "";
+    }
+
     const removers = [ "<p>", "<ul>", "</ul>"];
     const lineBreakers = [ "</p>", "</li>", "</br>"];
     const listItems = [ "<li>" ];
@@ -173,10 +210,6 @@ export class CvExportService {
         text = text.replace(tag, " - ");
       }
     }
-
-
-
-
 
     return text;
   }

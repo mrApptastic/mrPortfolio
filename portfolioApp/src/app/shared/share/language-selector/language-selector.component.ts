@@ -1,9 +1,10 @@
-import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
+import { Component, Inject, LOCALE_ID, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-language-selector',
   templateUrl: './language-selector.component.html',
-  styleUrls: ['./language-selector.component.scss']
+  styleUrls: ['./language-selector.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LanguageSelectorComponent implements OnInit {
   languages = [

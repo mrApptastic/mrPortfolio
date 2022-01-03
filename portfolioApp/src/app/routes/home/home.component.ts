@@ -30,7 +30,6 @@ export class HomeComponent implements OnInit {
 
 		setTimeout(() => {
       document.getElementById("navigation")?.classList.remove("hidden");
-      // document.getElementById("navigation")?.classList.add("mrBounceInUp");
 		}, totalTime);
 	};
 }
