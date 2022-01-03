@@ -97,7 +97,7 @@ export class CvExportService {
 
       /* Add Heading */
       doc.setTextColor('Black');
-      doc.text(ib, innerMargin + outerMargin, innerMargin + outerMargin + 5);
+      doc.text(this.getHeadingTranslation(ib), innerMargin + outerMargin, innerMargin + outerMargin + 5);
       doc.setFont('Book-Antikva');
       doc.setFontSize(paragraphSize);
 
@@ -144,7 +144,7 @@ export class CvExportService {
 
           /* Add Heading */
           doc.setTextColor('Black');
-          doc.text(ib, innerMargin + outerMargin, innerMargin + outerMargin + 5);
+          doc.text(this.getHeadingTranslation(ib), innerMargin + outerMargin, innerMargin + outerMargin + 5);
           doc.setFont('Book-Antikva');
           doc.setFontSize(paragraphSize);
         } else if (bo?.imageUrl && tempLineNumber < lineHeight * 6) {
@@ -205,7 +205,7 @@ export class CvExportService {
       country: $localize`:@@8604637668329678538:Danmark`,
       phoneNumber: "(+45) 24 49 75 55",
       eMail: "henrikbeske@gmail.com",
-      shortDescription: $localize`:@@4425630083313782310:Jeg er en kompetent softwareudvikler med en præference i retning af webudvikling samt udvikling til mobile enheder. Endvidere har jeg erfaring fra flere andre områder - såsom desktop applikationsudvikling, og udvikling til indlejrede enheder.` + "\n\n" + $localize`:@@8027314699805909337:Desuden er jeg af den opfattelse, at jeg er en innovativ person med mange idéer. Jeg er en teknisk kompetent, dedikeret person, som bliver ved med at arbejde indtil arbejdet er gjort. Jeg arbejder fint både i grupper og individuelt. Kort sagt er jeg en type person, der ser muligheder fremfor barrierer foran mig.`,
+      shortDescription: $localize`:@@4425630083313782310:Jeg er en kompetent softwareudvikler med en præference i retning af webudvikling samt udvikling til mobile enheder. Endvidere har jeg erfaring fra flere andre områder - såsom desktop applikationsudvikling, og udvikling til indlejrede enheder.` + "\n\n" + $localize`:@@575499127834956632:Desuden er jeg af den opfattelse, at jeg er en innovativ person med mange idéer. Jeg er en teknisk kompetent, dedikeret person, som bliver ved med at arbejde indtil arbejdet er gjort. Jeg arbejder fint både i grupper og individuelt. Kort sagt er jeg en type person, der ser muligheder fremfor barrierer foran mig.`,
       listItems: list
     } as PortfolioPrint;
   }
@@ -246,6 +246,19 @@ export class CvExportService {
     }
 
     return text;
+  }
+
+  getHeadingTranslation(text: string): string {
+    switch(text) {
+      case 'certificates': return $localize`:@@7492375559154995019:Certifikater`;
+      case 'educations': return $localize`:@@245512719199604556:Uddannelse`;
+      case 'experiences': return $localize`:@@2340064925348742945:Erfaring`;
+      case 'interests': return $localize`:@@3349742688438436280:Interesser`;
+      case 'languages': return $localize`:@@8951055125458694900:Sprog`;
+      case 'projects': return $localize`:@@3079002003406197429:Projekter`;
+      case 'qualifications': return $localize`:@@2667102750677402001:Kompetencer`;
+      default: return '';
+    };
   }
 }
 
