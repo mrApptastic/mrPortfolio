@@ -31,11 +31,11 @@
       <!-- About page -->
       <trans-unit id="9041498226623547445" datatype="html">
         <source>Men idet jeg tager afsted til arbejde, forvandler jeg mig til mrApptastic, en superheroisk webudvikler med gazelleblod fossende gennem blodbanerne.</source>
-        <target></target>
+        <target>Men nar jag beger mig till jobbet forvandlar jag mig till mrApptastic, en superhjaltemodig webbutvecklare med gasellblod som rinner genom blodbanerne.</target>
       </trans-unit>
       <trans-unit id="3848366393353229455" datatype="html">
         <source>Til dagligt er jeg Henrik Beske, et helt almindeligt familiemenneske.</source>
-        <target></target>
+        <target>Till vardags ar jag Henrik Beske, en vanlig familjefar.</target>
       </trans-unit>
       <!-- CV page -->
       <trans-unit id="3989749792732640418" datatype="html">
