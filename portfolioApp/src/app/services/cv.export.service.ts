@@ -198,13 +198,13 @@ export class CvExportService {
 
   generatePrintObject(list: PortfolioList): PortfolioPrint {
     return {
-      name: "Henrik Beske",
+      name: $localize`:@@5235866419448573411:Henrik Beske`,
       profession: $localize`:@@8305623058929365707:Softwareudvikler`,
       address: "",
       postalCodeAndCity: "",
       country: $localize`:@@8604637668329678538:Danmark`,
-      phoneNumber: "(+45) 24 49 75 55",
-      eMail: "henrikbeske@gmail.com",
+      phoneNumber: $localize`:@@3989749792732640418:(+45) 24 49 75 55`,
+      eMail: $localize`:@@389759894640642615:henrikbeske@gmail.com`,
       shortDescription: $localize`:@@4425630083313782310:Jeg er en kompetent softwareudvikler med en præference i retning af webudvikling samt udvikling til mobile enheder. Endvidere har jeg erfaring fra flere andre områder - såsom desktop applikationsudvikling, og udvikling til indlejrede enheder.` + "\n\n" + $localize`:@@575499127834956632:Desuden er jeg af den opfattelse, at jeg er en innovativ person med mange idéer. Jeg er en teknisk kompetent, dedikeret person, som bliver ved med at arbejde indtil arbejdet er gjort. Jeg arbejder fint både i grupper og individuelt. Kort sagt er jeg en type person, der ser muligheder fremfor barrierer foran mig.`,
       listItems: list
     } as PortfolioPrint;
