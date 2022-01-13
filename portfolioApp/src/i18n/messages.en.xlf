@@ -24,9 +24,25 @@
         <target>CV</target>
       </trans-unit>
       <!-- Home page-->
+      <trans-unit id="4648125905901114093" datatype="html">
+        <source>Hej med jer!</source>
+        <target>Hello there!</target>
+      </trans-unit>
       <trans-unit id="1162970855295131420" datatype="html">
         <source>Henriks Portfolio</source>
         <target>Henriks Portfolio</target>
+      </trans-unit>
+        <trans-unit id="6259912308629379993" datatype="html">
+        <source>Jeg er nemlig ikke ligesom de andre udviklere.</source>
+        <target>Because I am not like the other developers.</target>
+      </trans-unit>
+      <trans-unit id="1998905985795636231" datatype="html">
+        <source>Tag et kig eller to og ser jer lidt omkring.</source>
+        <target>Take a look around - perhaps even two.</target>
+      </trans-unit>
+      <trans-unit id="1778669046461046364" datatype="html">
+        <source>Velkommen til mit portfolio.</source>
+        <target>Welcome to my portfolio site.</target>
       </trans-unit>
       <!-- About page -->
       <trans-unit id="9041498226623547445" datatype="html">

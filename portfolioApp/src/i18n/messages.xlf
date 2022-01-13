@@ -8,12 +8,48 @@
           <context context-type="sourcefile">src/app/components/translation/translation.component.html</context>
           <context context-type="linenumber">2</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/routes/about/about.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="9041498226623547445" datatype="html">
         <source>Men idet jeg tager afsted til arbejde, forvandler jeg mig til mrApptastic, en superheroisk webudvikler med gazelleblod fossende gennem blodbanerne.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/translation/translation.component.html</context>
           <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/routes/about/about.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4648125905901114093" datatype="html">
+        <source>Hej med jer!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/translation/translation.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1778669046461046364" datatype="html">
+        <source>Velkommen til mit portfolio.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/translation/translation.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1998905985795636231" datatype="html">
+        <source>Tag et kig eller to og ser jer lidt omkring.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/translation/translation.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6259912308629379993" datatype="html">
+        <source>Jeg er nemlig ikke ligesom de andre udviklere.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/translation/translation.component.html</context>
+          <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5784386219958066970" datatype="html">
@@ -32,7 +68,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/home/home.component.html</context>
-          <context context-type="linenumber">117</context>
+          <context context-type="linenumber">6</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/projects/projects.component.html</context>
@@ -55,7 +91,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/home/home.component.html</context>
-          <context context-type="linenumber">120</context>
+          <context context-type="linenumber">9</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/projects/projects.component.html</context>
@@ -82,7 +118,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/home/home.component.html</context>
-          <context context-type="linenumber">123</context>
+          <context context-type="linenumber">12</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/projects/projects.component.html</context>
@@ -105,11 +141,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">130</context>
+          <context context-type="linenumber">133</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/home/home.component.html</context>
-          <context context-type="linenumber">126</context>
+          <context context-type="linenumber">15</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/projects/projects.component.html</context>
@@ -117,7 +153,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/projects/projects.component.html</context>
-          <context context-type="linenumber">26</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
+          <context context-type="linenumber">258</context>
         </context-group>
       </trans-unit>
       <trans-unit id="397497450705980813" datatype="html">
@@ -136,15 +176,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/home/home.component.html</context>
-          <context context-type="linenumber">129</context>
+          <context context-type="linenumber">18</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/projects/projects.component.html</context>
           <context context-type="linenumber">18</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/shared/share/language-selector/language-selector.component.ts</context>
-          <context context-type="linenumber">10</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/share/language-selector/language-selector.component.ts</context>
@@ -154,222 +190,263 @@
           <context context-type="sourcefile">src/app/shared/share/language-selector/language-selector.component.ts</context>
           <context context-type="linenumber">12</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/share/language-selector/language-selector.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="3365774044815831805" datatype="html">
         <source>Gem PDF</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">41</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5235866419448573411" datatype="html">
         <source>Henrik Beske</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">44</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
+          <context context-type="linenumber">201</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8305623058929365707" datatype="html">
         <source>Softwareudvikler</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">45</context>
+          <context context-type="linenumber">48</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
-          <context context-type="linenumber">57</context>
+          <context context-type="linenumber">202</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2404928236592957489" datatype="html">
         <source>Nordjylland</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">47</context>
+          <context context-type="linenumber">50</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8604637668329678538" datatype="html">
         <source>Danmark</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">48</context>
+          <context context-type="linenumber">51</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
-          <context context-type="linenumber">60</context>
+          <context context-type="linenumber">205</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5093701986340458388" datatype="html">
         <source>Software</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">49</context>
+          <context context-type="linenumber">52</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1611108894348423507" datatype="html">
         <source>Nuværende</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">53</context>
+          <context context-type="linenumber">56</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7954567444083380599" datatype="html">
         <source>Forrige</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">57</context>
+          <context context-type="linenumber">60</context>
         </context-group>
       </trans-unit>
       <trans-unit id="245512719199604556" datatype="html">
         <source>Uddannelse</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">61</context>
+          <context context-type="linenumber">64</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">104</context>
+          <context context-type="linenumber">107</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
+          <context context-type="linenumber">254</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7644300011746296925" datatype="html">
         <source>Kort Beskrivelse</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">73</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
+          <context context-type="linenumber">64</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4425630083313782310" datatype="html">
         <source>Jeg er en kompetent softwareudvikler med en præference i retning af webudvikling samt udvikling til mobile enheder. Endvidere har jeg erfaring fra flere andre områder - såsom desktop applikationsudvikling, og udvikling til indlejrede enheder.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">74</context>
+          <context context-type="linenumber">77</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
-          <context context-type="linenumber">63</context>
+          <context context-type="linenumber">208</context>
         </context-group>
       </trans-unit>
       <trans-unit id="575499127834956632" datatype="html">
         <source>Desuden er jeg af den opfattelse, at jeg er en innovativ person med mange idéer. Jeg er en teknisk kompetent, dedikeret person, som bliver ved med at arbejde indtil arbejdet er gjort. Jeg arbejder fint både i grupper og individuelt. Kort sagt er jeg en type person, der ser muligheder fremfor barrierer foran mig.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">75</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
+          <context context-type="linenumber">208</context>
         </context-group>
       </trans-unit>
       <trans-unit id="176739812335679606" datatype="html">
         <source>Henter erhvervserfaring...</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">78</context>
+          <context context-type="linenumber">81</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2340064925348742945" datatype="html">
         <source>Erfaring</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">81</context>
+          <context context-type="linenumber">84</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
+          <context context-type="linenumber">255</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2641250604642068227" datatype="html">
         <source>Henter kompetencer...</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">92</context>
+          <context context-type="linenumber">95</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2667102750677402001" datatype="html">
         <source>Kompetencer</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">95</context>
+          <context context-type="linenumber">98</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
+          <context context-type="linenumber">259</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6037343413302090674" datatype="html">
         <source>Henter uddannelser...</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">101</context>
+          <context context-type="linenumber">104</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6448220344715619327" datatype="html">
         <source>Henter certifikater...</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">114</context>
+          <context context-type="linenumber">117</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7492375559154995019" datatype="html">
         <source>Certifikater</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">117</context>
+          <context context-type="linenumber">120</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
+          <context context-type="linenumber">253</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6603835101224260550" datatype="html">
         <source>Henter projekter...</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">127</context>
+          <context context-type="linenumber">130</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/projects/projects.component.html</context>
-          <context context-type="linenumber">29</context>
+          <context context-type="linenumber">32</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2926898216353693808" datatype="html">
         <source>Henter sprog...</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">141</context>
+          <context context-type="linenumber">144</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8951055125458694900" datatype="html">
         <source>Sprog</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">144</context>
+          <context context-type="linenumber">147</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
+          <context context-type="linenumber">257</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6538152255831335823" datatype="html">
         <source>Henter interesser...</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">156</context>
+          <context context-type="linenumber">159</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3349742688438436280" datatype="html">
         <source>Interesser</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">159</context>
+          <context context-type="linenumber">162</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
+          <context context-type="linenumber">256</context>
         </context-group>
       </trans-unit>
       <trans-unit id="389759894640642615" datatype="html">
         <source>henrikbeske@gmail.com</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">168</context>
+          <context context-type="linenumber">171</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/projects/projects.component.html</context>
-          <context context-type="linenumber">50</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
+          <context context-type="linenumber">207</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3989749792732640418" datatype="html">
         <source>(+45) 24 49 75 55</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/cv/cv.component.html</context>
-          <context context-type="linenumber">169</context>
+          <context context-type="linenumber">172</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/routes/projects/projects.component.html</context>
-          <context context-type="linenumber">51</context>
+          <context context-type="linenumber">63</context>
         </context-group>
-      </trans-unit>
-      <trans-unit id="8027314699805909337" datatype="html">
-        <source>Desuden er jeg af den opfattelse, at jeg er en innovativ person med mange idéer. Jeg er en teknisk kompetent, dedikeret person, som bliver ved med at arbejde indtil arbejdet er gjort. Jeg arbejder fint både i grupper og individuelt. Kort sagt er jeg en type person, der ser muligheder fremfor barrierer foran mig.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
-          <context context-type="linenumber">63</context>
+          <context context-type="linenumber">206</context>
         </context-group>
       </trans-unit>
     </body>
