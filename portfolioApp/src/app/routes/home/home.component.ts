@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TypeWriterService } from 'src/app/services/type-writer.service';
 
 @Component({
   selector: 'app-home',
@@ -6,30 +7,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  texts = [
+    "Hej med jer!",
+    "Velkommen til mit portfolio.",
+    "Tag et kig eller to og ser jer lidt omkring.",
+    "Jeg er nemlig ikke ligesom de andre udviklere."
+  ];
 
-  constructor() { }
+  constructor(private type: TypeWriterService) { }
 
   ngOnInit(): void {
     setTimeout(() => {
-      this.animatePath("animPath", 0.02);
+      this.type.typewriter(".elevatorSpeech", {
+        text : this.texts,
+        speed : 20,
+        index : 0,
+        arrLength : this.texts[0].length,
+        scrollAt : 20,
+        textPos : 0,
+        contents : '',
+        row: 0
+      });
     }, 0);
   }
-
-  animatePath (cl: string, dl: number): void {
-		for (let i = 0; i < document.getElementsByClassName(cl).length;i++) {
-			 const thisPath = document.getElementsByClassName(cl)[i] as SVGPathElement;
-			 const l = thisPath.getTotalLength();
-			 thisPath.style.strokeDasharray = l.toString();
-			 thisPath.style.strokeDashoffset = l.toString();;
-			 thisPath.style.opacity = (1).toString();
-			 thisPath.style.animation = "dash " + dl + "s linear forwards, toBlack " + (dl * 2) + "s linear forwards";
-			 thisPath.style.animationDelay = (i * dl) + "s";
-		}
-
-    const totalTime = ((document.getElementsByClassName(cl).length * dl) * 1000) + 200;
-
-		setTimeout(() => {
-      document.getElementById("navigation")?.classList.remove("hidden");
-		}, totalTime);
-	};
 }

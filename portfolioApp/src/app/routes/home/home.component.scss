@@ -24,65 +24,26 @@
   width: 100vw;
   overflow: hidden;
   -webkit-animation : flowingSky 60s ease-in-out infinite; animation: flowingSky 60s ease-in-out infinite;
+
+  .elevatorSpeech {
+    text-align: center;
+    font-size: 42px;
+    color: orange;
+    text-shadow: 1px 1px 3px black, -1px 1px 0 black, -1px 1px 0 black, 1px -1px 0 black;
+    width: 100vw;
+    height: auto;
+    max-height: 90vh;
+    overflow-y: auto;
+    margin-top: 20px;
+    padding: 20px;
   }
-
-.animPath {
-  opacity: 0;
-}
-
-.sky svg {
-	width: 100%;
-	height: auto;
-  max-height: 100%;
-}
-
-@media only screen and (min-width: 1024px) {
-	.sky svg {
-		width: 720px;
-		margin-left: calc(50% - 360px);
-		height: auto;
-	}
-}
-
-@-webkit-keyframes dash {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes dash {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-path.animPath {
-	fill: transparent;
-}
-
-@-webkit-keyframes toBlack {
-  to {
-	stroke: black;
-	fill: orange;
-  }
-}
-
-@keyframes toBlack {
-  to {
-	stroke: black;
-	fill: orange;
-  }
-}
-
-.hidden {
-  opacity: 0;
 }
 
 #navigation {
-  position: sticky;
+  position: fixed;
   z-index: 4;
   bottom: 0;
-  text-align: center;
+  left: calc(50% - 410px);
 }
 
       #navigation ul li {
