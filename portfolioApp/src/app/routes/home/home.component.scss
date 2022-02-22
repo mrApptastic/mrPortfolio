@@ -43,7 +43,7 @@
   position: fixed;
   z-index: 4;
   bottom: 0;
-  left: calc(50% - 410px);
+  right: 2rem;
 }
 
       #navigation ul li {
@@ -65,9 +65,48 @@
             color: orangered;
           }
 
-          @media only screen and (max-width: 720px)  {
+@media only screen and (max-width: 1260px)  {
 
-            #navigation {
-              text-align: left;
-            }
-          }
+  #navigation {
+    margin-top: -15vh;
+    font-size: 1.5rem;
+  }
+
+  .elevatorSpeech {
+    font-size: 32px;
+  }
+}
+
+@media only screen and (max-width: 960px)  {
+  #navigation ul li a, .mainBox {
+    font-size: 1.25rem;
+  }
+
+  .bgBox {
+    overflow-y: auto;
+  }
+
+  .sky .elevatorSpeech {
+    font-size: 28px;
+  }
+}
+
+@media only screen and (max-width: 720px)  {
+  #navigation ul li a, .mainBox {
+    font-size: 1rem;
+  }
+
+  .sky .elevatorSpeech > * {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 520px)  {
+  #navigation ul li a, .mainBox {
+    font-size: 0.75rem;
+  }
+
+  .sky .elevatorSpeech {
+    font-size: 20px;
+  }
+}
