@@ -8,10 +8,10 @@ import { TypeWriterService } from 'src/app/services/type-writer.service';
 })
 export class HomeComponent implements OnInit {
   texts = [
-    "Hej med jer!",
-    "Velkommen til mit portfolio.",
-    "Tag et kig eller to og ser jer lidt omkring.",
-    "Jeg er nemlig ikke ligesom de andre udviklere."
+    $localize`:@@4648125905901114093:Hej med jer!`,
+    $localize`:@@1778669046461046364:Velkommen til mit portfolio.`,
+    $localize`:@@1998905985795636231:Tag et kig eller to og ser jer lidt omkring.`,
+    $localize`:@@6259912308629379993:Jeg er nemlig ikke ligesom de andre udviklere.`
   ];
 
   constructor(private type: TypeWriterService) { }
