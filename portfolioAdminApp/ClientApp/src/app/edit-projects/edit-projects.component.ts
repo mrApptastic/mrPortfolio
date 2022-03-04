@@ -32,7 +32,7 @@ export class EditProjectsComponent implements OnInit {
       this.http.get(this.baseUrl + "api/project/newTranslation/da"),
       this.http.get(this.baseUrl + "api/project/new"),
     ]).subscribe(x => {
-      this.projects = x[0];
+      this.projects = ((x[0]) as []).sort((a, b) => new Date(a["from"]).getTime() - new Date(b["from"]).getTime());
       this.newTemplateEn = x[1];
       this.newTemplateDa = x[2];
       this.newTemplate = x[3];
@@ -57,7 +57,7 @@ export class EditProjectsComponent implements OnInit {
     newProject.translations.push(JSON.parse(JSON.stringify(this.newTemplateDa)));
     this.http.post(this.baseUrl + "api/project", newProject).subscribe(x => {
       this.http.get(this.baseUrl + "api/project?useForWeb=false", newProject).subscribe(c => {
-        this.projects = c;
+        this.projects = this.projects = ((c) as any).sort((a, b) => new Date(a["from"]).getTime() - new Date(b["from"]).getTime());;
       });
     });
   }
