@@ -30,12 +30,20 @@
           <context context-type="sourcefile">src/app/components/translation/translation.component.html</context>
           <context context-type="linenumber">4</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/routes/home/home.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="1778669046461046364" datatype="html">
         <source>Velkommen til mit portfolio.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/translation/translation.component.html</context>
           <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/routes/home/home.component.ts</context>
+          <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1998905985795636231" datatype="html">
@@ -44,12 +52,48 @@
           <context context-type="sourcefile">src/app/components/translation/translation.component.html</context>
           <context context-type="linenumber">6</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/routes/home/home.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="6259912308629379993" datatype="html">
         <source>Jeg er nemlig ikke ligesom de andre udviklere.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/translation/translation.component.html</context>
           <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/routes/home/home.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8052682172526001119" datatype="html">
+        <source>Navn</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/translation/translation.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4846236882408369646" datatype="html">
+        <source>Profession</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/translation/translation.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="681866609203884162" datatype="html">
+        <source>Telefonnummer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/translation/translation.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1890300073702152532" datatype="html">
+        <source>E-mail</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/translation/translation.component.html</context>
+          <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5784386219958066970" datatype="html">
@@ -157,7 +201,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
-          <context context-type="linenumber">258</context>
+          <context context-type="linenumber">283</context>
         </context-group>
       </trans-unit>
       <trans-unit id="397497450705980813" datatype="html">
@@ -210,7 +254,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
-          <context context-type="linenumber">201</context>
+          <context context-type="linenumber">226</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8305623058929365707" datatype="html">
@@ -221,7 +265,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
-          <context context-type="linenumber">202</context>
+          <context context-type="linenumber">227</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2404928236592957489" datatype="html">
@@ -239,7 +283,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
-          <context context-type="linenumber">205</context>
+          <context context-type="linenumber">230</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5093701986340458388" datatype="html">
@@ -275,7 +319,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
-          <context context-type="linenumber">254</context>
+          <context context-type="linenumber">279</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7644300011746296925" datatype="html">
@@ -286,7 +330,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
-          <context context-type="linenumber">64</context>
+          <context context-type="linenumber">67</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4425630083313782310" datatype="html">
@@ -297,7 +341,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
-          <context context-type="linenumber">208</context>
+          <context context-type="linenumber">233</context>
         </context-group>
       </trans-unit>
       <trans-unit id="575499127834956632" datatype="html">
@@ -308,7 +352,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
-          <context context-type="linenumber">208</context>
+          <context context-type="linenumber">233</context>
         </context-group>
       </trans-unit>
       <trans-unit id="176739812335679606" datatype="html">
@@ -326,7 +370,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
-          <context context-type="linenumber">255</context>
+          <context context-type="linenumber">280</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2641250604642068227" datatype="html">
@@ -344,7 +388,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
-          <context context-type="linenumber">259</context>
+          <context context-type="linenumber">284</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6037343413302090674" datatype="html">
@@ -369,7 +413,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
-          <context context-type="linenumber">253</context>
+          <context context-type="linenumber">278</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6603835101224260550" datatype="html">
@@ -398,7 +442,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
-          <context context-type="linenumber">257</context>
+          <context context-type="linenumber">282</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6538152255831335823" datatype="html">
@@ -416,7 +460,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
-          <context context-type="linenumber">256</context>
+          <context context-type="linenumber">281</context>
         </context-group>
       </trans-unit>
       <trans-unit id="389759894640642615" datatype="html">
@@ -431,7 +475,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
-          <context context-type="linenumber">207</context>
+          <context context-type="linenumber">232</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3989749792732640418" datatype="html">
@@ -446,7 +490,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/cv.export.service.ts</context>
-          <context context-type="linenumber">206</context>
+          <context context-type="linenumber">231</context>
         </context-group>
       </trans-unit>
     </body>

@@ -131,7 +131,7 @@
     </div>
     <div class="cvBox" *ngIf="cvStuff?.projects">
       <h3 class="cvSectionHeading" i18n>Projekter</h3>
-      <article *ngFor="let project of cvStuff.projects; let i = index" class="cvArticle linkItem">
+      <article *ngFor="let project of getWorkProjects(); let i = index" class="cvArticle linkItem">
            <img class="pull-right" style="height: 60px;" [src]="project?.imageUrl" [alt]="project?.name" [title]="project?.name" />
            <h4 class="cvArticleHeading">{{project?.name}}</h4>
            <h5 class="cvArticleSubHeading">{{project?.place}}</h5>

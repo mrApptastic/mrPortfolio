@@ -70,6 +70,10 @@
         <source>Desuden er jeg af den opfattelse, at jeg er en innovativ person med mange idéer. Jeg er en teknisk kompetent, dedikeret person, som bliver ved med at arbejde indtil arbejdet er gjort. Jeg arbejder fint både i grupper og individuelt. Kort sagt er jeg en type person, der ser muligheder fremfor barrierer foran mig.</source>
         <target>Dessutom är jag av åsikten att jag är en innovativ person med många idéer. Jag är en tekniskt kompetent, engagerad person som jobbar vidare tills arbetet är klart. Jag jobbar bra både i grupp och individuellt. Kort sagt, jag är en typ av person som ser möjligheter snarare än barriärer framför mig.</target>
       </trans-unit>
+      <trans-unit id="1890300073702152532" datatype="html">
+        <source>E-mail</source>
+        <target>E-post</target>
+      </trans-unit>
       <trans-unit id="2340064925348742945" datatype="html">
         <source>Erfaring</source>
         <target>Erfarenhet</target>
@@ -130,6 +134,10 @@
         <source>Kompetencer</source>
         <target>Kompetens</target>
       </trans-unit>
+      <trans-unit id="8052682172526001119" datatype="html">
+        <source>Navn</source>
+        <target>Namn</target>
+      </trans-unit>
       <trans-unit id="7644300011746296925" datatype="html">
         <source>Kort Beskrivelse</source>
         <target>Kort beskrivning</target>
@@ -142,6 +150,10 @@
         <source>Nuværende</source>
         <target>Närvarande</target>
       </trans-unit>
+      <trans-unit id="4846236882408369646" datatype="html">
+        <source>Profession</source>
+        <target>Yrke</target>
+      </trans-unit>
       <trans-unit id="5093701986340458388" datatype="html">
         <source>Software</source>
         <target>Mjukvara</target>
@@ -153,6 +165,10 @@
       <trans-unit id="8951055125458694900" datatype="html">
         <source>Sprog</source>
         <target>Språk</target>
+      </trans-unit>
+      <trans-unit id="681866609203884162" datatype="html">
+        <source>Telefonnummer</source>
+        <target>Telefonnummer</target>
       </trans-unit>
       <trans-unit id="245512719199604556" datatype="html">
         <source>Uddannelse</source>

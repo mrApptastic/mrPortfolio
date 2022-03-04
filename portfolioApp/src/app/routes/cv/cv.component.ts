@@ -28,9 +28,14 @@ export class CvComponent implements OnInit {
       if (!environment.production) {
         console.log(e);
       }
-
-      this.errorState = true;
+      this.data.getStaticPortfolioItems(language).subscribe(x => {
+        this.cvStuff = x;
+      });
     });
+  }
+
+  getWorkProjects() {
+    return this.cvStuff.projects.filter((x: any) => x?.place !== "Hobbyprojekt" && x?.place !== "Hobby Project");
   }
 
   download(): void {

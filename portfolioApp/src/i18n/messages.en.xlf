@@ -70,6 +70,10 @@
         <source>Desuden er jeg af den opfattelse, at jeg er en innovativ person med mange idéer. Jeg er en teknisk kompetent, dedikeret person, som bliver ved med at arbejde indtil arbejdet er gjort. Jeg arbejder fint både i grupper og individuelt. Kort sagt er jeg en type person, der ser muligheder fremfor barrierer foran mig.</source>
         <target>In addition, I am of the opinion that I am an innovative person with many ideas. I am a technically competent, dedicated person who keeps working until the work is done. I work fine both in groups and individually. In short, I am a type of person who sees opportunities rather than barriers in front of me.</target>
       </trans-unit>
+      <trans-unit id="1890300073702152532" datatype="html">
+        <source>E-mail</source>
+        <target>E-mail</target>
+      </trans-unit>
       <trans-unit id="2340064925348742945" datatype="html">
         <source>Erfaring</source>
         <target>Experience</target>
@@ -134,6 +138,10 @@
         <source>Kort Beskrivelse</source>
         <target>Short description</target>
       </trans-unit>
+      <trans-unit id="8052682172526001119" datatype="html">
+        <source>Navn</source>
+        <target>Name</target>
+      </trans-unit>
       <trans-unit id="2404928236592957489" datatype="html">
         <source>Nordjylland</source>
         <target>Northern Jutland</target>
@@ -141,6 +149,10 @@
       <trans-unit id="1611108894348423507" datatype="html">
         <source>Nuværende</source>
         <target>Current</target>
+      </trans-unit>
+      <trans-unit id="4846236882408369646" datatype="html">
+        <source>Profession</source>
+        <target>Profession</target>
       </trans-unit>
       <trans-unit id="5093701986340458388" datatype="html">
         <source>Software</source>
@@ -153,6 +165,10 @@
       <trans-unit id="8951055125458694900" datatype="html">
         <source>Sprog</source>
         <target>Languages</target>
+      </trans-unit>
+      <trans-unit id="681866609203884162" datatype="html">
+        <source>Telefonnummer</source>
+        <target>Phone number</target>
       </trans-unit>
       <trans-unit id="245512719199604556" datatype="html">
         <source>Uddannelse</source>

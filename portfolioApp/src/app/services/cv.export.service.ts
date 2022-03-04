@@ -57,25 +57,50 @@ export class CvExportService {
     /* Add Info Box */
     doc.setFontSize(paragraphSize);
     doc.setTextColor('Black');
-    doc.text("Navn:", innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + pageBase);
-    doc.text("Profession:", innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + (pageBase + lineHeight * 2));
-    doc.text("Telefonnummer:", innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + (pageBase + lineHeight * 4));
-    doc.text("E-mail:", innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + (pageBase + lineHeight * 6));
-    doc.text($localize`:@@7644300011746296925:Kort Beskrivelse` + ":", innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + ((pageBase * 2) + lineHeight * 9));
+    doc.text($localize`:@@8052682172526001119:Navn` + ":", innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + pageBase);
+    doc.text($localize`:@@4846236882408369646:Profession` + ":", innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + (pageBase + lineHeight * 2));
+    doc.text($localize`:@@681866609203884162:Telefonnummer` + ":", innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + (pageBase + lineHeight * 4));
+    doc.text($localize`:@@1890300073702152532:E-mail` + ":", innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + (pageBase + lineHeight * 6));
+    doc.text("Portfolio Site:", innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + (pageBase + lineHeight * 8));
+    doc.text("Github:", innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + (pageBase + lineHeight * 10));
+    doc.text("Stackblitz:", innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + (pageBase + lineHeight * 12));
+    doc.text($localize`:@@7644300011746296925:Kort Beskrivelse` + ":", innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + ((pageBase * 2) + lineHeight * 15));
     doc.addFileToVFS('Book-Antikva-Regular.ttf', BookAntikva);
     doc.addFont('Book-Antikva-Regular.ttf', 'Book-Antikva', 'normal');
     doc.setFont('Book-Antikva');
-    doc.text(printObj.name, innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + + (pageBase + lineHeight * 1));
-    doc.text(printObj.profession, innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + + (pageBase + lineHeight * 3));
-    doc.text(printObj.phoneNumber, innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + + (pageBase + lineHeight * 5));
-    doc.text(printObj.eMail, innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + + (pageBase + lineHeight * 7));
+    doc.text(printObj.name, innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + (pageBase + lineHeight * 1));
+    doc.text(printObj.profession, innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + (pageBase + lineHeight * 3));
+    // doc.text(printObj.phoneNumber, innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + (pageBase + lineHeight * 5));
+    // doc.text(printObj.eMail, innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + (pageBase + lineHeight * 7));
+    const phoneX = (innerMargin + outerMargin + headingOffset + (pageBase + lineHeight * 5));
+    const phoneY = (innerMargin + outerMargin);
+    const phoneUrl = "tel:" + printObj.phoneNumber.replace("(","").replace(")","").replaceAll(" ","");
+    console.log(phoneUrl);
+    doc.text(printObj.phoneNumber, phoneY, phoneX);
+    doc.link(phoneY, phoneX, (phoneY - (lineHeight * 2)), width - phoneX, { url: phoneUrl });
+    const mailX = (innerMargin + outerMargin + headingOffset + (pageBase + lineHeight * 7));
+    const mailY = (innerMargin + outerMargin);
+    doc.text(printObj.eMail, mailY, mailX);
+    doc.link(mailY, mailX, (mailY - (lineHeight * 2)), width - mailX, { url: "mailto:" + printObj.eMail });
+    const portfolioX = (innerMargin + outerMargin + headingOffset + (pageBase + lineHeight * 9));
+    const portfolioY = (innerMargin + outerMargin);
+    doc.text("http://www.mrapptastic.dk/" + this.locale, portfolioY, portfolioX);
+    doc.link(portfolioY, portfolioX, (portfolioY - (lineHeight * 2)), width - portfolioX, { url: "http://www.mrapptastic.dk/" + this.locale + "/#/" });
+    const githubX = (innerMargin + outerMargin + headingOffset + (pageBase + lineHeight * 11));
+    const githubY = (innerMargin + outerMargin);
+    doc.text("https://github.com/mrApptastic", githubY, githubX);
+    doc.link(githubY, githubX, (githubY - (lineHeight * 2)), width - githubX, { url: "https://github.com/mrApptastic" });
+    const stackblitzX = (innerMargin + outerMargin + headingOffset + (pageBase + lineHeight * 13));
+    const stackblitzY = (innerMargin + outerMargin);
+    doc.text("https://stackblitz.com/@mrApptastic", stackblitzY, stackblitzX);
+    doc.link(stackblitzY, stackblitzX, (stackblitzY - (lineHeight * 2)), width - stackblitzX, { url: "https://stackblitz.com/@mrApptastic" });
 
     /* Add Short Description */
     const texts = printObj.shortDescription.split("<BR>");
     let textLines = 0;
     for (const text of texts) {
       const clippedText = doc.splitTextToSize(text, width - ((outerMargin + innerMargin) * 2));
-      doc.text(clippedText, innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + ((pageBase * 2) + (lineHeight * 10)) + (textLines * lineHeight));
+      doc.text(clippedText, innerMargin + outerMargin, innerMargin + outerMargin + headingOffset + ((pageBase * 2) + (lineHeight * 16)) + (textLines * lineHeight));
       textLines += clippedText.length;
     }
 

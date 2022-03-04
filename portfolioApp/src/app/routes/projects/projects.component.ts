@@ -22,13 +22,14 @@ export class ProjectsComponent implements OnInit {
 
   getProjects(language: string): void {
     this.data.getPortfolioItems(language).subscribe(x => {
-      this.projects = x.projects;
+      this.projects = x.projects.filter(x => x.demoUrl || x.docUrl || x.sourceUrl);
     }, e => {
       if (!environment.production) {
         console.log(e);
       }
-
-      this.errorState = true;
+      this.data.getStaticPortfolioItems(language).subscribe(x => {
+        this.projects = x.projects.filter(x => x.demoUrl || x.docUrl || x.sourceUrl);
+      });
     });
   }
 
