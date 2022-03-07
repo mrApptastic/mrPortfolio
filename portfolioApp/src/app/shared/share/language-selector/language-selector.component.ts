@@ -8,9 +8,9 @@ import { Component, Inject, LOCALE_ID, OnInit, ViewEncapsulation } from '@angula
 })
 export class LanguageSelectorComponent implements OnInit {
   languages = [
-    { "name": $localize`:@@397497450705980813:Kontakt`, "language": "da", "country": "DK", "icon": "assets/images/flags/dk.svg", "nextUrl": "/en" },
-    { "name": $localize`:@@397497450705980813:Kontakt`, "language": "en", "country": "GB", "icon": "assets/images/flags/gb.svg", "nextUrl": "/sv" },
-    { "name": $localize`:@@397497450705980813:Kontakt`, "language": "sv", "country": "SE", "icon": "assets/images/flags/se.svg", "nextUrl": "/da" }
+    { "name": $localize`:@@8951055125458694900:Sprog`, "language": "da", "country": "DK", "icon": "assets/images/flags/dk.svg", "nextUrl": "/en" },
+    { "name": $localize`:@@8951055125458694900:Sprog`, "language": "en", "country": "GB", "icon": "assets/images/flags/gb.svg", "nextUrl": "/sv" },
+    { "name": $localize`:@@8951055125458694900:Sprog`, "language": "sv", "country": "SE", "icon": "assets/images/flags/se.svg", "nextUrl": "/da" }
   ]
   currentLanguage: any = this.languages[0];
 
