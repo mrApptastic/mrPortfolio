@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
   texts = [
     $localize`:@@4648125905901114093:Hej med jer!`,
     $localize`:@@1778669046461046364:Velkommen til mit portfolio.`,
-    $localize`:@@1998905985795636231:Tag et kig eller to og ser jer lidt omkring.`,
+    $localize`:@@1998905985795636231:Tag et kig eller to og se jer lidt omkring.`,
     $localize`:@@6259912308629379993:Jeg er nemlig ikke ligesom de andre udviklere.`
   ];
 
