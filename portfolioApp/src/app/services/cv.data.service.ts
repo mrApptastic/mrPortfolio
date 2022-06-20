@@ -11,7 +11,7 @@ export class CvDataService {
   constructor(private http: HttpClient) { }
 
   getPortfolioItems(language: string): Observable<PortfolioList> {
-    return this.http.get<PortfolioList>("http://portfolio.tesj.dk/api/portfolio/getall/" + language);
+    return this.http.get<PortfolioList>("https://portfolio.tesj.dk/api/portfolio/getall/" + language);
   }
 
   getStaticPortfolioItems(language: string): Observable<PortfolioList> {
