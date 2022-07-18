@@ -84,8 +84,8 @@ export class CvExportService {
     doc.link(mailY, mailX, (mailY - (lineHeight * 2)), width - mailX, { url: "mailto:" + printObj.eMail });
     const portfolioX = (innerMargin + outerMargin + headingOffset + (pageBase + lineHeight * 9));
     const portfolioY = (innerMargin + outerMargin);
-    doc.text("http://www.mrapptastic.dk/" + this.locale, portfolioY, portfolioX);
-    doc.link(portfolioY, portfolioX, (portfolioY - (lineHeight * 2)), width - portfolioX, { url: "http://www.mrapptastic.dk/" + this.locale + "/#/" });
+    doc.text("https://stackblitz.com/edit/react-ts-dhmrxd" + this.locale, portfolioY, portfolioX);
+    doc.link(portfolioY, portfolioX, (portfolioY - (lineHeight * 2)), width - portfolioX, { url: "https://stackblitz.com/edit/react-ts-dhmrxd" + this.locale + "/#/" });
     const githubX = (innerMargin + outerMargin + headingOffset + (pageBase + lineHeight * 11));
     const githubY = (innerMargin + outerMargin);
     doc.text("https://github.com/mrApptastic", githubY, githubX);
