@@ -29,16 +29,6 @@ class Navigation extends React.Component {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#projects">
-                  Projects
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#skills">
-                  Skills
-                </a>
-              </li>
-              <li className="nav-item">
                 <a className="nav-link" href="#education">
                   Education
                 </a>
@@ -46,6 +36,16 @@ class Navigation extends React.Component {
               <li className="nav-item">
                 <a className="nav-link" href="#certificates">
                   Certifications
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#projects">
+                  Projects
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#skills">
+                  Skills
                 </a>
               </li>
               <li className="nav-item">

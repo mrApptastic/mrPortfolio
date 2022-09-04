@@ -9,9 +9,9 @@ class Experience extends React.Component {
           <div className="main-section-content">
             <h2 className="mb-3">Experience</h2>
             <p className="lead mb-3">
-              I have {helpers.calculateAge('2016-06-15')} years of professional
-              developer experience. On a hobby basis, I have been working with
-              web development since 2005.
+              I have more than {helpers.calculateAge('2016-06-15')} years of
+              professional developer experience. On a hobby basis, I have been
+              working with web development since 2005.
             </p>
             <p className="lead mb-3">
               Previously, I have worked as a profesional soldier and as a

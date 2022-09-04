@@ -138,13 +138,17 @@ export function ExportPDF(items: any): void {
   const portfolioX =
     innerMargin + outerMargin + headingOffset + (pageBase + lineHeight * 9);
   const portfolioY = innerMargin + outerMargin;
-  doc.text('http://www.mrapptastic.dk/' + locale, portfolioY, portfolioX);
+  doc.text(
+    'https://stackblitz.com/edit/react-ts-dhmrxd',
+    portfolioY,
+    portfolioX
+  );
   doc.link(
     portfolioY,
     portfolioX,
     portfolioY - lineHeight * 2,
     width - portfolioX,
-    { url: 'http://www.mrapptastic.dk/' + locale + '/#/' }
+    { url: 'https://stackblitz.com/edit/react-ts-dhmrxd' }
   );
   const githubX =
     innerMargin + outerMargin + headingOffset + (pageBase + lineHeight * 11);
@@ -381,13 +385,20 @@ function generatePrintObject(list: any): PortfolioPrint {
     country: 'Denmark',
     phoneNumber: '(+45) 24 49 75 55',
     eMail: 'henrikbeske@gmail.com',
-    shortDescription: `I am a developer with a versatile profile and a broad knowledge outside a developer's typical field of activity.
+    shortDescription:
+      `I am a developer with a versatile profile and a broad knowledge outside a developer's typical field of activity.
     
 As a person, I am calm and forthright. I am good at collaborating with others, and my focus is on solving the challenges that arise in everyday work. My approach to tasks contains both creative and analytical qualities.
     
 I am passionate about developing complete solutions, which make a difference for people using them. In my world, software needs to be obvious and well thought out.
     
-I am 41 years old, happily married, and have children aged between 12-21 years. During my leisure time, I perform i.a. board and leadership work in a local sports club as well as at a free school that my youngest child attends.
+I am ` +
+      helpers.calculateAge('1981-04-23') +
+      ` years old, happily married, and have children aged between  ` +
+      helpers.calculateAge('2009-10-08') +
+      `- ` +
+      helpers.calculateAge('2000-12-24') +
+      ` years. During my leisure time, I perform i.a. board and leadership work in a local sports club as well as at a free school that my youngest child attends.
     
 Additionally, I collect coins, play old computer games, code on my hobby projects and read books. I am a distinct knowledge collector and constantly like to build upon my knowledge.`,
     listItems: list,

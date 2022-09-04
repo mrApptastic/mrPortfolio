@@ -54,10 +54,10 @@ function PortfolioListView() {
           <PdfExporter data={data}></PdfExporter>
           <Resume></Resume>
           <Experience data={data}></Experience>
-          <Projects data={data}></Projects>
-          <Skills data={data}></Skills>
           <Education data={data}></Education>
           <Certificates data={data}></Certificates>
+          <Projects data={data}></Projects>
+          <Skills data={data}></Skills>
           <Languages data={data}></Languages>
           <Interests data={data}></Interests>
           <Fun></Fun>
