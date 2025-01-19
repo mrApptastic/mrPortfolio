@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PortfolioRepo.Managers;
+using System;
 
 namespace PortfolioAPI
 {
@@ -41,7 +42,8 @@ namespace PortfolioAPI
 
             services.AddDbContext<ApplicationDbContext>(options =>
                  options.UseMySql(
-                     Configuration.GetConnectionString("DefaultConnection")));
+                     Configuration.GetConnectionString("DefaultConnection"),
+                     new MySqlServerVersion(new Version(8, 0, 21))));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
